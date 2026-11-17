@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: CertiScholar Institutional Core API
+  version: 1.0.0
+  description: >
+    Official REST API for CertiScholar document verification and scholarship recommendation.
+    Governed by CS-SRS-002 v3.2 and AT-CES-16.
+servers:
+  - url: http://localhost:8000/api/v1
+    description: Local Development Server
+
+paths:
+  /auth/login/:
+    post:
+      summary: Authenticate user and receive JWT bearer tokens
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string, format: email }
+                password: { type: string }
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access: { type: string }
+                  refresh: { type: string }
+                  role: { type: string, enum: [STUDENT, REVIEWER, COMMITTEE, ADMIN] }
+
+  /schemes/:
+    get:
+      summary: List all active institutional scholarship schemes
+      responses:
+        '200':
+          description: List of schemes
+
+  /applications/:
+    get:
+      summary: List applicant's own applications or reviewer's queue
+      responses:
+        '200':
+          description: List of applications
+    post:
+      summary: Submit new scholarship application
+      responses:
+        '201':
+          description: Application draft created
+
+  /documents/upload/:
+    post:
+      summary: Upload certificate PDF and trigger async OCR pipeline
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [application_id, document_type, file]
+              properties:
+                application_id: { type: string, format: uuid }
+                document_type: { type: string }
+                file: { type: string, format: binary }
+      responses:
+        '202':
+          description: Document accepted for asynchronous OCR processing
+
+  /reviewer/cases/{id}/:
+    get:
+      summary: Fetch complete application data with document scans and extracted fields
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Case details with bounding box annotations

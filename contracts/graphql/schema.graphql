@@ -1,0 +1,106 @@
+"""
+CertiScholar GraphQL Schema Definition
+Governed by CS-SRS-002 v3.2 (AT-CES-17, ADR-007)
+Provides unified nested querying for Students, Reviewers, and Committee Members
+"""
+
+enum ApplicationStatus {
+  DRAFT
+  SUBMITTED
+  DOCUMENTS_PENDING
+  PROCESSING
+  UNDER_REVIEW
+  NEEDS_REUPLOAD
+  ELIGIBILITY_PENDING
+  COMMITTEE_REVIEW
+  FINAL_AWARDED
+  FINAL_NOT_AWARDED
+  DEFERRED
+}
+
+enum DocumentType {
+  MARKSHEET_10TH
+  MARKSHEET_12TH
+  INCOME_CERTIFICATE
+  CASTE_CERTIFICATE
+  RESIDENCE_PROOF
+  DISABILITY_CERTIFICATE
+}
+
+type BoundingBox {
+  ymin: Float!
+  xmin: Float!
+  ymax: Float!
+  xmax: Float!
+}
+
+type ExtractedField {
+  id: ID!
+  fieldName: String!
+  extractedValue: String
+  confidence: Float!
+  correctedValue: String
+  isCorrected: Boolean!
+  boundingBox: BoundingBox
+  pageNumber: Int
+}
+
+type Document {
+  id: ID!
+  docType: DocumentType!
+  fileName: String!
+  fileSize: Int!
+  status: String!
+  rawOcrText: String
+  extractedFields: [ExtractedField!]!
+  uploadedAt: String!
+}
+
+type ScholarshipScheme {
+  id: ID!
+  code: String!
+  title: String!
+  academicCycle: String!
+  minPercentage: Float
+  maxAnnualIncome: Float
+  benefitPercentage: Float
+  isActive: Boolean!
+}
+
+type Application {
+  id: ID!
+  applicationNumber: String!
+  applicantName: String!
+  scheme: ScholarshipScheme!
+  status: ApplicationStatus!
+  documents: [Document!]!
+  recomputedPercentage: Float
+  ruleEngineResult: String
+  submittedAt: String
+  updatedAt: String
+}
+
+type Query {
+  # Student Queries
+  me: Application
+  myApplications: [Application!]!
+  availableSchemes: [ScholarshipScheme!]!
+
+  # Reviewer Queries (SCR-009, SCR-008)
+  reviewerQueue(status: ApplicationStatus, limit: Int, offset: Int): [Application!]!
+  applicationDetail(id: ID!): Application
+
+  # Committee Queries (SCR-010)
+  committeeReviewCases(cycle: String): [Application!]!
+}
+
+type Mutation {
+  correctField(fieldId: ID!, correctedValue: String!, rationale: String!): ExtractedField!
+  recordCommitteeVote(applicationId: ID!, decision: String!, remarks: String!): Application!
+}
+
+type Subscription {
+  # Real-time WebSocket streaming for pipeline updates
+  applicationStatusChanged(applicationId: ID!): Application!
+  ocrProgressUpdated(documentId: ID!): String!
+}

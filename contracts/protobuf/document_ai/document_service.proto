@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package certischolar.document_ai.v1;
+
+option go_package = "certischolar/document_ai/v1";
+option java_package = "com.certischolar.document_ai.v1";
+
+// DocumentIntelligenceService defines high-throughput binary RPC for OCR & extraction
+service DocumentIntelligenceService {
+  // ExtractDocument processes raw document bytes and returns structured fields with bounding boxes
+  rpc ExtractDocument (ExtractDocumentRequest) returns (ExtractDocumentResponse);
+  
+  // StreamOcrProgress streams real-time page-by-page progress events
+  rpc StreamOcrProgress (ExtractDocumentRequest) returns (stream OcrProgressEvent);
+}
+
+message BoundingBox {
+  float ymin = 1;
+  float xmin = 2;
+  float ymax = 3;
+  float xmax = 4;
+}
+
+message ExtractedField {
+  string field_name = 1;
+  string field_value = 2;
+  float confidence = 3;
+  BoundingBox bounding_box = 4;
+  int32 page_number = 5;
+}
+
+message ExtractDocumentRequest {
+  string document_id = 1;
+  string document_type = 2; // e.g. "MARKSHEET", "INCOME_CERT"
+  bytes file_bytes = 3;
+  string mime_type = 4;
+  string ocr_engine = 5; // e.g. "TESSERACT", "CLOUD_VISION"
+}
+
+message ExtractDocumentResponse {
+  string document_id = 1;
+  string status = 2; // e.g. "SUCCESS", "LOW_CONFIDENCE", "ERROR"
+  float aggregate_confidence = 3;
+  repeated ExtractedField fields = 4;
+  string raw_text = 5;
+  int64 processing_time_ms = 6;
+}
+
+message OcrProgressEvent {
+  string document_id = 1;
+  int32 current_page = 2;
+  int32 total_pages = 3;
+  int32 percentage = 4;
+  string status_message = 5;
+}
