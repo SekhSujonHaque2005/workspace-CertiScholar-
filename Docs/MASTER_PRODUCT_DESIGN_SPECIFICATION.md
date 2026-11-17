@@ -279,6 +279,27 @@ flowchart TD
 | **PUB-013** | **Terms of Use** | Platform usage terms, credential protection, anti-scraping rules, liability bounds. | Structured Legal Document Typography, Version Date Stamp. | Standard Terms |
 | **PUB-014** | **Accessibility Statement** | Formal WCAG 2.2 AA accessibility commitment, screen reader compatibility, and feedback contact. | Accessible Contrast Matrix, Multi-language Support Statement (EN/HI/PA). | M20 / WCAG |
 
+### E. Approved Implementation Refinements & Interaction Standards
+
+1. **Post-Login Intent Preservation (Deep-Linking):**
+   * When an unauthenticated visitor clicks **"Save / Shortlist"** or **"Apply"**, the router appends the source state: `?redirect=/scholarships/:id&action=save`.
+   * After completing authentication in `AUTH-001`, the system automatically executes the intended action and returns the user to the target opportunity, eliminating empty-dashboard disorientation.
+
+2. **URL State Synchronization for Search & Filters:**
+   * Filter modifications (Category, Education Level, Location, Keyword) are bound bidirectional to browser search params (`?cat=stem&level=ug&q=merit`).
+   * Ensures filter states are shareable across messaging channels (WhatsApp/email) and support browser back/forward navigation without state loss.
+
+3. **"98% Information Accuracy*" Asterisk Transparency Tooltip:**
+   * High-contrast info tooltip attached to the 98% accuracy badge displaying:
+     > *"Calculated based on authoritative university circular cross-checks, DigiLocker board corroboration, and automated arithmetic recomputation."*
+   * Maintains institutional compliance and research integrity under DOC-001 principles.
+
+4. **Client-Side Responsive & Interaction Invariants:**
+   * **Zero Page Reloads:** All search filtering and category tab changes execute client-side with debounced updates (150ms).
+   * **Inline Form Validation:** Real-time regex and field validation on blur; error states displayed adjacent to inputs with accessible ARIA live regions.
+   * **High Contrast Primary Controls:** Primary CTAs adhere strictly to a minimum 4.5:1 contrast ratio against background tokens.
+
+
 
 ---
 
