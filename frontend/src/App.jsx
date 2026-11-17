@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import LandingPage from './pages/public/LandingPage';
 import { 
   GraduationCap, 
   FileCheck, 
@@ -7,22 +8,60 @@ import {
   UploadCloud, 
   Clock, 
   CheckCircle2, 
-  AlertCircle, 
-  Eye, 
-  Users, 
-  ArrowRight,
-  BookOpen
+  ArrowLeft,
+  LayoutDashboard
 } from 'lucide-react';
 
 export default function App() {
+  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'workspace'
   const [activeRole, setActiveRole] = useState('student'); // 'student' | 'reviewer' | 'committee'
 
+  if (currentView === 'landing') {
+    return (
+      <div className="relative">
+        <LandingPage 
+          onNavigateLogin={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateRegister={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateStudentWorkspace={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+        />
+
+        {/* Floating Developer / Evaluator Mode Switcher */}
+        <div className="fixed bottom-5 right-5 z-50">
+          <button
+            onClick={() => setCurrentView('workspace')}
+            className="flex items-center gap-2 bg-slate-900/90 hover:bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl border border-slate-700 backdrop-blur-md transition transform hover:scale-105"
+          >
+            <LayoutDashboard className="w-4 h-4 text-indigo-400" />
+            <span>Open Portals (Reviewer / Committee / Student) &rarr;</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  // INTERNAL WORKSPACE VIEWS
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans">
       {/* Top Navigation Bar */}
       <header className="bg-slate-900 text-white shadow-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
+            <button 
+              onClick={() => setCurrentView('landing')}
+              className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition mr-1"
+              title="Return to Public Landing Page"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
             <div className="bg-indigo-600 p-2 rounded-lg text-white">
               <GraduationCap className="w-6 h-6" />
             </div>
@@ -89,17 +128,18 @@ export default function App() {
           </div>
 
           <div className="flex items-center gap-3">
-            <span className="inline-flex items-center gap-1.5 text-xs font-medium bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-              Bun + React (JS) Ready
-            </span>
+            <button 
+              onClick={() => setCurrentView('landing')}
+              className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 bg-indigo-50 border border-indigo-200 px-3 py-1.5 rounded-lg transition"
+            >
+              &larr; Back to Landing Page (PUB-001)
+            </button>
           </div>
         </div>
 
         {/* Dynamic Role Views */}
         {activeRole === 'student' && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Quick Stats */}
             <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-sm flex items-center space-x-4">
               <div className="p-3 bg-blue-50 text-blue-600 rounded-lg">
                 <FileCheck className="w-6 h-6" />
@@ -130,7 +170,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Application Card (SCR-001) */}
             <div className="md:col-span-2 bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
               <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                 <div>
@@ -142,7 +181,6 @@ export default function App() {
                 </span>
               </div>
 
-              {/* Progress Milestones */}
               <div className="py-6">
                 <div className="grid grid-cols-4 text-center text-xs font-medium text-slate-500">
                   <div className="text-indigo-600 font-semibold">1. Intake Clean</div>
@@ -155,7 +193,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Uploaded Documents List */}
               <div className="space-y-3">
                 <h4 className="text-xs font-semibold uppercase text-slate-400 tracking-wider">Uploaded Documents</h4>
                 <div className="p-3 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between text-sm">
@@ -186,7 +223,6 @@ export default function App() {
               </div>
             </div>
 
-            {/* Quick Actions Panel */}
             <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm flex flex-col justify-between">
               <div>
                 <h3 className="font-semibold text-slate-900 text-lg mb-2">New Submission</h3>
@@ -207,7 +243,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Reviewer View (SCR-008 Teaser) */}
+        {/* Reviewer View (SCR-008) */}
         {activeRole === 'reviewer' && (
           <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-sm">
             <div className="flex items-center justify-between mb-6">
@@ -221,7 +257,6 @@ export default function App() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-slate-50 p-4 rounded-xl border border-slate-200">
-              {/* Mock PDF Viewer Pane */}
               <div className="bg-slate-900 text-slate-400 rounded-lg p-8 flex flex-col items-center justify-center min-h-[350px] border border-slate-800 text-center">
                 <FileCheck className="w-12 h-12 text-slate-600 mb-3" />
                 <p className="font-semibold text-slate-200">Interactive PDF Viewer Preview</p>
@@ -230,7 +265,6 @@ export default function App() {
                 </p>
               </div>
 
-              {/* Extracted Fields Form Pane */}
               <div className="space-y-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 uppercase">Student Name (Extracted)</label>
