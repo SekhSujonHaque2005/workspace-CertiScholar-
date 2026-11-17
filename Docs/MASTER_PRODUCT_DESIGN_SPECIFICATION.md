@@ -34,24 +34,251 @@ flowchart TD
 
 ---
 
-## 01 — Public Website (12 Screen Templates)
+## 01 — Public Website (12 Screen Templates & Master Interaction Map)
 *Primary Persona:* Prospective Students, Parents, Partner Agencies, General Public  
 *Purpose:* Institutional credibility, public scheme discovery, digital equity transparency, and onboarding gateway.
 
+### A. Master Landing Page Architecture (PUB-001)
+
+```mermaid
+flowchart TD
+    HOME["PUB-001 — PUBLIC HOME PAGE"]
+
+    HOME --> HEADER["01 — GLOBAL HEADER"]
+    HOME --> HERO["02 — HERO SECTION"]
+    HOME --> TRUST["03 — TRUST & VALUE PROPOSITION"]
+    HOME --> WORKS["04 — HOW IT WORKS"]
+    HOME --> CAP["05 — PLATFORM CAPABILITIES"]
+    HOME --> SCH["06 — FEATURED SCHOLARSHIPS"]
+    HOME --> AUD["07 — WHO USES CERTISCHOLAR"]
+    HOME --> TRANSPARENCY["08 — TRUST & TRANSPARENCY"]
+    HOME --> FAQ["09 — FAQ PREVIEW"]
+    HOME --> FINALCTA["10 — FINAL CALL TO ACTION"]
+    HOME --> FOOTER["11 — GLOBAL FOOTER"]
+
+    subgraph H["01 HEADER ELEMENTS"]
+       TOP["Utility Bar"]
+       LOGO["Logo + Product Name"]
+       MENU["Main Navigation"]
+       USER["Login / Register"]
+       ACCESS["Accessibility Controls"]
+       TOP --> TOPMAIL["Support Email Link (support@certischolar.org)"]
+       TOP --> TOPPHONE["Telephone Link (+1 555 123-4567)"]
+       TOP --> LANG["Language Selector (EN / HI / PA)"]
+       TOP --> ACCESS["Accessibility (A+ A A-)"]
+       MENU --> HOMEITEM["Home"]
+       MENU --> ABOUT["About"]
+       MENU --> FEATURES["Features"]
+       MENU --> HOW["How It Works"]
+       MENU --> SCHOLARSHIPS["Scholarships Dropdown"]
+       MENU --> INSTITUTIONS["For Institutions"]
+       MENU --> AGENCIES["For Agencies"]
+       MENU --> RESOURCES["Resources Dropdown"]
+       SCHOLARSHIPS --> ALL["All Scholarships"]
+       SCHOLARSHIPS --> CATEGORY["Browse by Category"]
+       SCHOLARSHIPS --> LEVEL["Browse by Education Level"]
+       SCHOLARSHIPS --> LOCATION["Browse by Location"]
+       SCHOLARSHIPS --> DEADLINE["Deadline Calendar"]
+       RESOURCES --> GUIDES["Guides & Articles"]
+       RESOURCES --> FAQPAGE["FAQ"]
+       RESOURCES --> TOOLKIT["Student Toolkit"]
+       RESOURCES --> GLOSSARY["Glossary"]
+       USER --> LOGIN["Login"]
+       USER --> REGISTER["Register"]
+    end
+
+    HEADER --> H
+
+    subgraph HR["02 HERO"]
+       EYEBROW["Eyebrow: EMPOWERING EDUCATION. ENRICHING FUTURES"]
+       HEADLINE["Headline: Discover. Prepare. Apply. Track Scholarships with Confidence."]
+       DESC["Description: CertiScholar brings clarity and trust to scholarship discovery, application management and institutional verification."]
+       VISUAL["Visual: Student with laptop, graduation cap, shield & verification card preview"]
+       EXPLORE["Button: Explore Scholarships"]
+       HOWCTA["Button: How It Works"]
+       LOGINCTA["Link: Already have an account? Login ->"]
+    end
+    HERO --> HR
+
+    subgraph TR["03 TRUST AND STATS"]
+       S1["50,000+ Scholarships"]
+       S2["2,500+ Trusted Sources"]
+       S3["1.2M+ Students Empowered"]
+       S4["98% Information Accuracy*"]
+    end
+    TRUST --> TR
+
+    subgraph WR["04 HOW IT WORKS (4 STEPS)"]
+       W1["1. Discover: Find verified scholarships matching your profile"]
+       W2["2. Prepare: Check eligibility, gather documents with guidance"]
+       W3["3. Submit: Apply directly or hand over to institution seamlessly"]
+       W4["4. Track: Track application status and receive important updates"]
+       W1 --> W2 --> W3 --> W4
+    end
+    WORKS --> WR
+
+    subgraph SR["06 FEATURED SCHOLARSHIPS"]
+       SEARCH["Keyword Search field"]
+       CATFILTER["Category dropdown"]
+       EDUFILTER["Education level dropdown"]
+       LOCFILTER["Location dropdown"]
+       DATEFILTER["Deadline filter"]
+       SEARCHBTN["Search button"]
+       CLEARBTN["Clear filters button"]
+       RESULT["Filtered Opportunity Cards"]
+       CARD1["Global Excellence Scholarship 2025 (Undergrad, Int'l)"]
+       CARD2["Tech Innovators Grant (Masters, STEM)"]
+       CARD3["Women in Leadership Scholarship (Undergrad, Female)"]
+       SEARCHBTN --> RESULT
+       RESULT --> CARD1 & CARD2 & CARD3
+    end
+    SCH --> SR
+
+    subgraph FR["11 GLOBAL FOOTER"]
+       FBRAND["CertiScholar Brand & Social Links"]
+       FQUICK["Quick Links"]
+       FSTUDENT["For Students"]
+       FINST["For Institutions"]
+       FRESOURCES["Resources"]
+       FCONTACT["Contact Info"]
+       FLEGAL["Privacy Policy | Terms of Use | Accessibility Statement"]
+    end
+    FOOTER --> FR
+```
+
+### B. Complete Navigation & Interactive Destination Map
+
+```mermaid
+flowchart TD
+    HOME["PUB-001: Landing Page"]
+
+    HOME --> LOGO["Logo click"] --> HOME
+    HOME --> HABOUT["About navigation"] --> ABOUT["PUB-002: About"]
+    HOME --> HFEATURES["Features navigation"] --> FEATURES["PUB-003: Features"]
+    HOME --> HHOW["How It Works navigation"] --> HOW["PUB-004: How It Works"]
+
+    HOME --> HSCH["Scholarships dropdown"]
+    HSCH --> HALL["All Scholarships"] --> DIRECTORY["PUB-005: Directory"]
+    HSCH --> HCATEGORY["By Category"] --> DIRECTORY
+    HSCH --> HLEVEL["By Education Level"] --> DIRECTORY
+    HSCH --> HLOCATION["By Location"] --> DIRECTORY
+    HSCH --> HDEADLINE["Deadline Calendar"] --> CALENDAR["Scholarship Calendar"]
+
+    HOME --> HINST["For Institutions"] --> INST["PUB-006: Institution Information"]
+    HOME --> HAGENCY["For Agencies"] --> AG["PUB-007: Agency Information"]
+
+    HOME --> HRES["Resources Dropdown"]
+    HRES --> FAQ["PUB-008: FAQ"]
+    HRES --> GUIDES["PUB-009: Guides and Resources"]
+    HRES --> CONTACT["PUB-010: Contact"]
+
+    HOME --> LOGIN["AUTH-001: Login"]
+    HOME --> REGISTER["AUTH-002: Registration"]
+
+    HOME --> EXPLORE["Hero: Explore Scholarships"] --> DIRECTORY
+    HOME --> HOWCTA["Hero: How It Works"] --> HOW
+    HOME --> LOGINCTA["Hero: Login"] --> LOGIN
+
+    DIRECTORY --> SEARCH["Search / Apply Filters"]
+    SEARCH --> RESULTS["Filtered Results"]
+    RESULTS --> CARD["Opportunity Card"]
+    CARD --> VIEW["View Details"] --> DETAIL["PUB-011: Scholarship Details"]
+
+    CARD --> SAVE["Save / Shortlist"]
+    SAVE --> AUTH{"Authenticated?"}
+    AUTH -->|No| LOGIN
+    AUTH -->|Yes| STUDENT["STU-001: Student Workspace"]
+
+    DETAIL --> ELIGIBILITY["Check Eligibility"]
+    ELIGIBILITY --> ELIGIBILITYRESULT["Eligibility Assessment Result"]
+    ELIGIBILITYRESULT --> APPLY["Apply / Continue"]
+    APPLY --> AUTH
+
+    HOME --> AUDSTU["For Students: Create Account"] --> REGISTER
+    HOME --> AUDINST["For Institutions: Request Demo"] --> CONTACT
+    HOME --> AUDAG["For Agencies: Get Started"] --> ONBOARD["AGY-001: Agency Onboarding"]
+
+    CONTACT --> FORM["Submit Contact Form"]
+    FORM --> VALIDATE{"Form valid?"}
+    VALIDATE -->|No| FORMERROR["Display field-level errors"]
+    FORMERROR --> FORM
+    VALIDATE -->|Yes| SUBMIT["Submit enquiry"]
+    SUBMIT --> CONFIRM["Show submission confirmation / Ticket Created"]
+
+    HOME --> PRIVACY["Footer: Privacy"] --> PRIV["PUB-012: Privacy Policy"]
+    HOME --> TERMS["Footer: Terms"] --> TERMSPAGE["PUB-013: Terms of Use"]
+    HOME --> ACCESSIBILITY["Footer: Accessibility"] --> ACCESSPAGE["PUB-014: Accessibility Statement"]
+```
+
+### C. Mobile Responsive Behavior (< 768px)
+
+```mermaid
+flowchart TD
+    A["Mobile Visitor Opens PUB-001"] --> B["Mobile Header"]
+    B --> C["Tap Hamburger Menu"]
+    C --> D["Mobile Navigation Drawer"]
+
+    D --> E["Home"]
+    D --> F["About"]
+    D --> G["Features"]
+    D --> H["How It Works"]
+    D --> I["Scholarships (Accordion)"]
+    D --> J["For Institutions"]
+    D --> K["For Agencies"]
+    D --> L["Resources (Accordion)"]
+    D --> M["Login Button"]
+    D --> N["Register Button"]
+
+    I --> I1["All Scholarships"]
+    I --> I2["Categories"]
+    I --> I3["Education Levels"]
+    I --> I4["Locations"]
+    I --> I5["Deadlines"]
+
+    L --> L1["Guides & Articles"]
+    L --> L2["FAQ"]
+    L --> L3["Student Toolkit"]
+    L --> L4["Glossary"]
+    L --> L5["Contact Support"]
+
+    A --> O["Hero content in single-column stacked order"]
+    O --> P["Full-width Explore Scholarships button"]
+    O --> Q["Full-width How It Works button"]
+
+    A --> R["Scholarship Search Bar"]
+    R --> S["Slide-in Filter Bottom Sheet / Drawer"]
+    S --> T["Apply Filters Trigger"]
+    T --> U["Vertically Stacked Opportunity Cards"]
+
+    U --> V["View Details CTA"]
+    U --> W["Save / Shortlist Icon"]
+    W --> Y{"Authenticated?"}
+    Y -->|No| M
+    Y -->|Yes| Z["Student Workspace"]
+
+    A --> AA["Footer: Stacked Accordion Link Groups"]
+    AA --> AB["Sticky Bottom Bar / Legal & Accessibility Links"]
+```
+
+### D. Detailed Public Screen Inventory Table (PUB-001 to PUB-014)
+
 | Screen ID | Screen Title | Purpose & Visual Architecture | Key Components & State | Lineage |
 | :--- | :--- | :--- | :--- | :--- |
-| **SCR-PUB-01** | **Landing / Homepage** | High-impact hero section, value proposition, quick search bar, live institutional stats counter (scholarships awarded, accuracy), role login shortcuts. | Hero Banner, Quick Search Input, Metric Counters, Testimonials, Footer Navigation. | Public / SEO |
-| **SCR-PUB-02** | **About CertiScholar** | Mission, origin story, academic foundation (LPU Capstone P12), trust principles, explainable AI ethos. | Narrative Typography, Architecture Diagram Cards, Core Values Grid. | DOC-001 §1 |
-| **SCR-PUB-03** | **How It Works** | Interactive 4-step workflow explainer: Intake $\to$ OCR $\to$ Verification $\to$ Award, with animated SVG infographics. | Interactive Step Switcher, Video Demo Embed, Process Flowchart. | DOC-003 §8 |
-| **SCR-PUB-04** | **Platform Capabilities** | In-depth breakdown of OCR document intelligence, rule engine, student passport, and committee governance. | Feature Grid, Bounding Box Animation, Comparison Table. | SRS M1–M10 |
-| **SCR-PUB-05** | **Public Scholarship Directory** | Filterable public catalog of open scholarships with search by education level, caste, income, and merit criteria. | Multi-facet Filter Sidebar, Opportunity Cards, Pagination, Sort Dropdown. | SRS M15 |
-| **SCR-PUB-06** | **Public Scholarship Detail View** | Complete eligibility breakdown, deadline countdown, award value, required documents, and "Apply with Passport" CTA. | Sticky CTA Header, Deadline Chip, Eligibility Checklist, Share Modal. | SCR-003 |
-| **SCR-PUB-07** | **Institutions & Universities** | Enterprise pitch for university administrators, SIS integration highlights, compliance standards (DPDP 2023). | University Partner Logos, Security Badges, "Request Discovery" Form. | DOC-002 |
-| **SCR-PUB-08** | **Funding Agencies & Trusts** | Dedicated landing for CSR trusts and private donors to register as listing publishers. | Value Proposition Cards, Agency Verification Checklist, Onboarding CTA. | SRS M14 |
-| **SCR-PUB-09** | **Resource & Student Guide** | Guides on certificate issuance (DigiLocker, Tehsildar income certs, caste verification), documentation best practices. | Searchable Knowledge Base, Downloadable PDF Guides, Video Walkthroughs. | SRS M20 |
-| **SCR-PUB-10** | **Frequently Asked Questions** | Accordion-style categorized FAQs covering data privacy, eligibility recomputations, appeals, and review times. | Categorized Accordion, Live Search, "Still Have Questions?" Contact Card. | General |
-| **SCR-PUB-11** | **Contact & Institutional Help** | Contact form, physical campus office locations (LPU Student Welfare Wing), support email directory. | Interactive Map Embed, Form with CAPTCHA/Validation, Office Hour Badges. | PRC-13 |
-| **SCR-PUB-12** | **Legal, Privacy & DPDP Notice** | Comprehensive legal disclosure, DPDP Act 2023 compliance notice, data retention schedule, cookie/consent policy. | Structured Legal Document Typography, Version Date Stamp, Print Button. | SRS §12 |
+| **PUB-001** | **Public Landing Page** | Master entrypoint featuring 11 sections: Global Header, Hero, Trust Stats, 4-Step How It Works, Capabilities, Featured Scholarships (Search & Filter), Audiences, Transparency, FAQ Preview, Final CTA, and Footer. | Hero Banner, Live Stats Grid, 4-Step Stepper, Filterable Opportunity Cards, Trust Logos, Global Header & Footer. | Wireframe A |
+| **PUB-002** | **About CertiScholar** | Mission, origin story, academic foundation (LPU Capstone P12), trust principles, explainable AI ethos. | Narrative Typography, Architecture Diagram Cards, Core Values Grid. | DOC-001 §1 |
+| **PUB-003** | **Platform Capabilities** | In-depth breakdown of OCR document intelligence, rule engine, student passport, and committee governance. | Feature Grid, Bounding Box Animation, Comparison Table. | SRS M1–M10 |
+| **PUB-004** | **How It Works** | Comprehensive interactive 4-step workflow explainer: Discover $\to$ Prepare $\to$ Submit $\to$ Track, with detailed stage cards and video walkthrough. | Interactive Step Switcher, Video Demo Embed, Process Flowchart. | DOC-003 §8 |
+| **PUB-005** | **Scholarship Directory** | Filterable public catalog of open scholarships with search by education level, category, location, and deadline calendar. | Multi-facet Filter Sidebar, Opportunity Cards, Pagination, Sort Dropdown. | SRS M15 |
+| **PUB-006** | **For Institutions** | Enterprise pitch for university administrators, SIS/ERP integration highlights, and compliance standards (DPDP 2023). | University Partner Logos, Security Badges, "Request Demo" Form. | DOC-002 |
+| **PUB-007** | **For Agencies** | Dedicated landing for CSR trusts and private donors to register as listing publishers. | Value Proposition Cards, Agency Verification Checklist, "Get Started" CTA $\to$ `AGY-001`. | SRS M14 |
+| **PUB-008** | **Frequently Asked Questions (FAQ)** | Accordion-style categorized FAQs covering data privacy, eligibility recomputations, appeals, and review times. | Categorized Accordion, Live Search, "Still Have Questions?" Contact Card. | General |
+| **PUB-009** | **Resources & Guides** | Guides on certificate issuance (DigiLocker, Tehsildar income certs, caste verification), student toolkit, glossary. | Searchable Knowledge Base, Downloadable PDF Guides, Student Toolkit. | SRS M20 |
+| **PUB-010** | **Contact & Support** | Contact form, campus office locations (LPU Student Welfare Wing), support email directory, ticket creation flow. | Interactive Map Embed, Form with Inline Validation, Office Hour Badges $\to$ Ticket Created. | PRC-13 |
+| **PUB-011** | **Scholarship Details & Pre-checker** | Complete eligibility breakdown, deadline countdown, award value, required documents, and interactive eligibility pre-check. | Sticky CTA Header, Deadline Chip, Eligibility Checklist, Pre-checker Modal $\to$ `AUTH-001` / `STU-001`. | SCR-003 |
+| **PUB-012** | **Privacy Policy** | Comprehensive DPDP Act 2023 compliance disclosure, data retention schedule, cookie/consent policy. | Structured Legal Document Typography, Version Date Stamp, Print Button. | SRS §12 |
+| **PUB-013** | **Terms of Use** | Platform usage terms, credential protection, anti-scraping rules, liability bounds. | Structured Legal Document Typography, Version Date Stamp. | Standard Terms |
+| **PUB-014** | **Accessibility Statement** | Formal WCAG 2.2 AA accessibility commitment, screen reader compatibility, and feedback contact. | Accessible Contrast Matrix, Multi-language Support Statement (EN/HI/PA). | M20 / WCAG |
+
 
 ---
 
