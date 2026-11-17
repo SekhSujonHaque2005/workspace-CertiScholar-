@@ -299,6 +299,26 @@ flowchart TD
    * **Inline Form Validation:** Real-time regex and field validation on blur; error states displayed adjacent to inputs with accessible ARIA live regions.
    * **High Contrast Primary Controls:** Primary CTAs adhere strictly to a minimum 4.5:1 contrast ratio against background tokens.
 
+5. **Keyboard Quick-Search Shortcut (`/` Key):**
+   * Pressing `/` globally shifts input focus directly into the `search_scholarships` input field, clearing prior selections if needed. Accessible tooltip indicator displayed inside the search input box (`Press / to focus`).
+
+6. **LPU Native Scheme Portfolio as Default Featured Baseline:**
+   * The default featured card deck pre-loads official, published Lovely Professional University schemes:
+     * *LPUNEST Merit Scholarship (Cycle 2026)* — Up to 50% Tuition Fee Waiver (Merit / Entrance criteria).
+     * *Need-Based Financial Aid (EWS Category)* — 30% Programme Fee Waiver (100 seats, Family Income < ₹2.5 LPA).
+     * *Shikshak Samman Anudaan* — Institutional Aid for Faculty & Teacher Wards.
+
+7. **1-Click WhatsApp Peer Sharing:**
+   * Each scholarship card includes a direct WhatsApp share trigger generating pre-formatted deep-links with opportunity metadata for college batch peer distribution.
+
+8. **Skeleton Loaders & Zero-Dead-End Empty States:**
+   * 200ms pulsing skeleton cards eliminate layout shifts during query modifications.
+   * Filter mismatch queries render an engaging empty-state card with a 1-click **"Reset All Filters"** action and **"Notify Me When Available"** subscriber input.
+
+9. **Low-Bandwidth & Network Resilience Banner:**
+   * Automated browser offline detection (`navigator.onLine`) rendering a non-intrusive status pill: *"Offline Mode — Displaying cached scholarship directory"*.
+
+
 
 
 ---
