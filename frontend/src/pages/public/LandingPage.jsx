@@ -297,107 +297,143 @@ export default function LandingPage({ onNavigateLogin, onNavigateRegister, onNav
         )}
       </header>
 
-      {/* 02. HERO SECTION */}
-      <section id="hero" className="relative pt-12 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Column: Headline & CTAs */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold tracking-wide uppercase">
-                <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
-                Empowering Education. Enriching Futures
-              </div>
+      {/* 02. HERO SECTION — CONCEPT 1: UNIVERSITY LIBRARY BAY WINDOW (CINEMATIC GLASSMORPHISM) */}
+      <section id="hero" className="relative bg-slate-950 py-10 sm:py-14 px-3 sm:px-6 lg:px-8 overflow-hidden select-none">
+        {/* Ambient Room Lighting: Warm Study Lamp Glows */}
+        <div className="absolute top-10 left-10 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-20 right-10 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
-                Discover. Prepare. Apply.{' '}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-teal-500">
-                  Track Scholarships with Confidence.
-                </span>
-              </h1>
-
-              <p className="text-lg text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                CertiScholar brings clarity and trust to scholarship discovery, application management, and institutional verification across university and national schemes.
-              </p>
-
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                <a 
-                  href="#featured"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl shadow-lg shadow-indigo-600/25 transition transform active:scale-95"
-                >
-                  <Search className="w-4 h-4" />
-                  Explore Scholarships
-                </a>
-                <a 
-                  href="#how-it-works"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-slate-300 hover:bg-slate-50 text-slate-800 font-bold rounded-xl transition"
-                >
-                  <Play className="w-4 h-4 text-indigo-600 fill-indigo-600" />
-                  How It Works
-                </a>
-              </div>
-
-              <p className="text-xs text-slate-500 font-medium pt-1">
-                Already registered?{' '}
-                <button onClick={onNavigateLogin} className="text-indigo-600 hover:underline font-bold">
-                  Login to your account &rarr;
-                </button>
-              </p>
-            </div>
-
-            {/* Right Column: Hero Visual Graphic */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="relative w-full max-w-md bg-white rounded-2xl p-6 shadow-2xl border border-slate-200/80">
-                {/* Floating Mock Badge */}
-                <div className="absolute -top-4 -right-4 bg-emerald-600 text-white p-3 rounded-2xl shadow-lg flex items-center gap-2 text-xs font-bold">
-                  <ShieldCheck className="w-5 h-5" />
-                  <span>100% Verified Sources</span>
-                </div>
-
-                {/* Card Header Preview */}
-                <div className="flex items-center space-x-3 pb-4 border-b border-slate-100">
-                  <div className="w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold">
-                    RS
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-sm text-slate-900">Rahul Sharma</h4>
-                    <p className="text-xs text-slate-400">Lovely Professional University • B.Tech</p>
-                  </div>
-                </div>
-
-                {/* Pipeline Simulation View */}
-                <div className="py-4 space-y-3">
-                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs flex justify-between items-center">
-                    <div>
-                      <p className="font-semibold text-slate-800">12th_Marksheet_CBSE.pdf</p>
-                      <p className="text-[10px] text-slate-400">Class: Academic Record</p>
-                    </div>
-                    <span className="text-[10px] font-bold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded">
-                      OCR Confirmed: 96%
-                    </span>
-                  </div>
-
-                  <div className="bg-indigo-50/50 p-3 rounded-xl border border-indigo-100 text-xs">
-                    <div className="flex justify-between items-center mb-1">
-                      <span className="font-semibold text-indigo-900">Need-Based Aid Eligibility</span>
-                      <span className="font-bold text-indigo-600">Qualified</span>
-                    </div>
-                    <p className="text-[11px] text-slate-600">Recomputed Percentage: 89.00% • Income &lt; ₹2.5L verified.</p>
-                  </div>
-                </div>
-
-                {/* Bottom Trust Seal */}
-                <div className="pt-2 flex items-center justify-between text-[11px] text-slate-400 border-t border-slate-100">
-                  <span className="flex items-center gap-1">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                    DigiLocker & Board Verified
-                  </span>
-                  <span>Instant Verification</span>
-                </div>
-              </div>
+        {/* Triple-Pane Bay Window Architectural Container */}
+        <div className="max-w-7xl mx-auto grid grid-cols-12 gap-3 sm:gap-4 items-stretch">
+          
+          {/* Left Window Panel (Architectural Framing with Campus Vista) */}
+          <div className="hidden lg:block lg:col-span-2 relative rounded-3xl overflow-hidden border-4 border-slate-800/90 shadow-2xl bg-slate-900 group">
+            <img 
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" 
+              alt="Campus Vista Left" 
+              className="w-full h-full object-cover object-left opacity-90 scale-105 group-hover:scale-100 transition duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+            {/* Library Desk Hints in Foreground */}
+            <div className="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl border border-slate-700/60 text-[10px] text-slate-300">
+              <span className="font-bold text-amber-400 block">Study Sanctuary</span>
+              <span>LPU Central Library Wing</span>
             </div>
           </div>
+
+          {/* Center Main Panoramic Bay Window (The Hero Glass Pane) */}
+          <div className="col-span-12 lg:col-span-8 relative rounded-[2rem] sm:rounded-[2.75rem] overflow-hidden border-4 sm:border-8 border-slate-800 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9),inset_0_0_50px_rgba(0,0,0,0.5)] min-h-[580px] sm:min-h-[640px] flex flex-col justify-between p-6 sm:p-10">
+            {/* Background Campus Landscape Outside the Window */}
+            <img 
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=2000&q=85" 
+              alt="University Campus Lawn & Horizon" 
+              className="absolute inset-0 w-full h-full object-cover object-center scale-100 filter brightness-[0.98] contrast-[1.05]"
+            />
+
+            {/* Subtle Glass Reflection & Atmospheric Sunlight Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-sky-400/10 via-transparent to-slate-950/70 pointer-events-none"></div>
+            <div className="absolute -top-32 -left-32 w-80 h-80 bg-white/20 rounded-full blur-3xl pointer-events-none"></div>
+
+            {/* Glass Pane Content Layer */}
+            <div className="relative z-10 flex flex-col justify-between h-full space-y-6">
+              
+              {/* Top Glassmorphic Navigation Capsule */}
+              <div className="flex items-center justify-between backdrop-blur-md bg-white/25 border border-white/50 shadow-lg rounded-full px-4 sm:px-6 py-2 text-xs text-slate-900 max-w-xl mx-auto w-full font-semibold">
+                <a href="#how-it-works" className="hover:text-indigo-900 transition">How it works?</a>
+                <span className="text-slate-400">•</span>
+                <a href="#featured" className="hover:text-indigo-900 transition">LPU Schemes</a>
+                <span className="text-slate-400">•</span>
+                <a href="#featured" className="hover:text-indigo-900 transition">Directory</a>
+                <span className="text-slate-400">•</span>
+                <a href="#faq" className="hover:text-indigo-900 transition">Trust & Safety</a>
+                <button 
+                  onClick={onNavigateRegister}
+                  className="bg-white/90 hover:bg-white text-slate-900 px-3.5 py-1 rounded-full font-bold shadow-xs hover:shadow transition ml-1"
+                >
+                  Get Started
+                </button>
+              </div>
+
+              {/* Main Headline & Message on the Glass */}
+              <div className="text-center space-y-4 my-auto pt-4">
+                {/* Eyebrow Pill */}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full backdrop-blur-md bg-white/30 border border-white/60 text-slate-900 text-xs font-bold tracking-wide shadow-xs">
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-800" />
+                  <span>10,500+ LPU Scholarships & 50,000+ Verified Opportunities</span>
+                </div>
+
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-950 tracking-tight leading-[1.12] drop-shadow-xs">
+                  Focus on Your Education.<br />
+                  <span className="text-indigo-900 drop-shadow-xs">We'll Help Fund It.</span>
+                </h1>
+
+                <p className="text-sm sm:text-base text-slate-800 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-xs px-2">
+                  Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips.
+                </p>
+
+                {/* The Hero Glassmorphic Search Capsule */}
+                <div className="pt-2 max-w-2xl mx-auto">
+                  <div className="backdrop-blur-xl bg-white/40 border border-white/70 shadow-2xl rounded-full p-2 flex items-center gap-2 sm:gap-3 transition focus-within:ring-2 focus-within:ring-indigo-600/50">
+                    <Search className="w-5 h-5 text-slate-700 ml-3 sm:ml-4 shrink-0" />
+                    <input 
+                      type="text" 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      placeholder="Search scholarships (e.g. Need-Based Aid, 85% Marks, EWS)..."
+                      className="w-full bg-transparent text-slate-950 placeholder:text-slate-700 font-semibold text-xs sm:text-sm focus:outline-none"
+                    />
+                    <a
+                      href="#featured"
+                      className="bg-slate-950 hover:bg-slate-900 text-white font-bold px-5 sm:px-6 py-2.5 sm:py-3 rounded-full text-xs transition shadow-lg shrink-0 flex items-center gap-1.5 transform active:scale-95"
+                    >
+                      <span>Find Aid</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Lower Window Pane: Floating Frosted Trust Pills */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-4">
+                <div className="backdrop-blur-md bg-white/25 border border-white/40 rounded-xl p-2.5 text-center text-slate-900 shadow-xs">
+                  <p className="text-base sm:text-lg font-black leading-tight">50,000+</p>
+                  <p className="text-[10px] sm:text-[11px] font-semibold text-slate-800">Verified Schemes</p>
+                </div>
+                <div className="backdrop-blur-md bg-white/25 border border-white/40 rounded-xl p-2.5 text-center text-slate-900 shadow-xs">
+                  <p className="text-base sm:text-lg font-black leading-tight">2,500+</p>
+                  <p className="text-[10px] sm:text-[11px] font-semibold text-slate-800">Trusted Sources</p>
+                </div>
+                <div className="backdrop-blur-md bg-white/25 border border-white/40 rounded-xl p-2.5 text-center text-slate-900 shadow-xs">
+                  <p className="text-base sm:text-lg font-black leading-tight">1.2M+</p>
+                  <p className="text-[10px] sm:text-[11px] font-semibold text-slate-800">Students Guided</p>
+                </div>
+                <div className="backdrop-blur-md bg-white/25 border border-white/40 rounded-xl p-2.5 text-center text-slate-900 shadow-xs">
+                  <p className="text-base sm:text-lg font-black text-emerald-900 leading-tight">98%</p>
+                  <p className="text-[10px] sm:text-[11px] font-semibold text-slate-800">DigiLocker Verified*</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Window Panel (Architectural Framing with Campus Vista) */}
+          <div className="hidden lg:block lg:col-span-2 relative rounded-3xl overflow-hidden border-4 border-slate-800/90 shadow-2xl bg-slate-900 group">
+            <img 
+              src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" 
+              alt="Campus Vista Right" 
+              className="w-full h-full object-cover object-right opacity-90 scale-105 group-hover:scale-100 transition duration-700"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent"></div>
+            {/* Campus Horizon Label */}
+            <div className="absolute bottom-4 left-4 right-4 bg-slate-900/80 backdrop-blur-md p-3 rounded-xl border border-slate-700/60 text-[10px] text-slate-300">
+              <span className="font-bold text-teal-400 block">Open Horizon</span>
+              <span>Academic Year 2026–27</span>
+            </div>
+          </div>
+
         </div>
       </section>
+
 
       {/* 03. TRUST & STATS SECTION */}
       <section className="bg-slate-900 text-white py-10 border-y border-slate-800">

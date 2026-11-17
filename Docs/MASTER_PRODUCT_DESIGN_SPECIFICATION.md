@@ -89,15 +89,18 @@ flowchart TD
 
     HEADER --> H
 
-    subgraph HR["02 HERO"]
-       EYEBROW["Eyebrow: EMPOWERING EDUCATION. ENRICHING FUTURES"]
-       HEADLINE["Headline: Discover. Prepare. Apply. Track Scholarships with Confidence."]
-       DESC["Description: CertiScholar brings clarity and trust to scholarship discovery, application management and institutional verification."]
-       VISUAL["Visual: Student with laptop, graduation cap, shield & verification card preview"]
-       EXPLORE["Button: Explore Scholarships"]
-       HOWCTA["Button: How It Works"]
-       LOGINCTA["Link: Already have an account? Login ->"]
+    subgraph HR["02 HERO (CONCEPT 1 — UNIVERSITY LIBRARY BAY WINDOW)"]
+       FRAME["Triple-Pane Architectural Bay Window with Ambient Study Sanctuary"]
+       VISTA["Panoramic Sun-Drenched University Campus Horizon"]
+       FLOATH["Floating Frosted Glass Header Nav Pill on Glass Pane"]
+       EYEBROW["Eyebrow Capsule: 10,500+ LPU Scholarships & 50,000+ Verified Opportunities"]
+       HEADLINE["Headline: Focus on Your Education. We'll Help Fund It."]
+       DESC["Description: Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips."]
+       SEARCHBAR["Wide Glassmorphic Search Capsule with 'Find Aid' Action"]
+       STATPILLS["Floating Lower Window Pane Trust Pills (50K+ Schemes, 2.5K+ Sources, 1.2M+ Students, 98% Accuracy)"]
+       FRAME --> VISTA --> FLOATH --> EYEBROW --> HEADLINE --> DESC --> SEARCHBAR --> STATPILLS
     end
+
     HERO --> HR
 
     subgraph TR["03 TRUST AND STATS"]
