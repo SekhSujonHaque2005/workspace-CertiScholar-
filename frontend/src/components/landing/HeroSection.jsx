@@ -1,17 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
 const DEFAULT_TABS = [
   {
     id: "01",
     badgeNumber: "01",
+    value: "1-Click",
     title: "Self-Paced Verification",
-    description: "Verify academic marksheets once at your own speed. Valid across all schemes.",
+    description: "Verify academic marksheets once at your own speed. Valid across all university schemes.",
     badge: "Expert Quorum",
     avatars: [
       "/images/avatar-1.jpg", 
       "/images/avatar-2.jpg", 
-      "/images/avatar-3.jpg"
+      "/images/avatar-3.jpg",
+      "/images/mentor-1.jpg"
     ]
   },
   {
@@ -19,12 +21,13 @@ const DEFAULT_TABS = [
     badgeNumber: "02",
     value: "10K+",
     title: "Active Scholars*",
-    description: "Over 10,000 students verified across Lovely Professional University.",
-    badge: "Verified Cohort",
+    description: "Over 10,000 scholars verified across Lovely Professional University and state boards.",
+    badge: "Direct DBT",
     avatars: [
       "/images/avatar-2.jpg", 
       "/images/avatar-3.jpg",
-      "/images/avatar-1.jpg"
+      "/images/mentor-2.jpg",
+      "/images/mentor-3.jpg"
     ]
   },
   {
@@ -32,12 +35,13 @@ const DEFAULT_TABS = [
     badgeNumber: "03",
     value: "250+",
     title: "Verified Schemes*",
-    description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS aid, and defense wards.",
-    badge: "Gazette Corroborated",
+    description: "Institutional, state gazette, and corporate CSR scholarships corroborated in one vault.",
+    badge: "State Gazette",
     avatars: [
-      "/images/avatar-1.jpg", 
-      "/images/avatar-3.jpg",
-      "/images/avatar-2.jpg"
+      "/images/mentor-1.jpg", 
+      "/images/mentor-4.jpg",
+      "/images/avatar-1.jpg",
+      "/images/avatar-3.jpg"
     ]
   },
   {
@@ -45,12 +49,13 @@ const DEFAULT_TABS = [
     badgeNumber: "04",
     value: "95%",
     title: "Decision Accuracy*",
-    description: "Auditable mathematical verification with zero double-counting, backed by quorum review.",
-    badge: "Audit Verified",
+    description: "AI-assisted OCR document inspection with multi-officer consensus quorum.",
+    badge: "Consensus Quorum",
     avatars: [
       "/images/avatar-3.jpg", 
-      "/images/avatar-2.jpg",
-      "/images/avatar-1.jpg"
+      "/images/mentor-2.jpg",
+      "/images/avatar-1.jpg",
+      "/images/mentor-4.jpg"
     ]
   }
 ];
@@ -65,6 +70,20 @@ export default function HeroSection({
   tabs = DEFAULT_TABS,
 }) {
   const [activeTabId, setActiveTabId] = useState("01");
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Automatic Tab Animation / Rotation (every 4.5 seconds unless user hovers)
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveTabId((prev) => {
+        const idx = tabs.findIndex((t) => t.id === prev);
+        const nextIdx = (idx + 1) % tabs.length;
+        return tabs[nextIdx].id;
+      });
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isPaused, tabs]);
 
   return (
     <div id="home" className="w-full animate-framer-appear">
@@ -151,16 +170,19 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Layer 5: Bottom Row with Description & Interactive Highlights Tabs */}
-        <div className="relative z-10 pt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-          
-          {/* Paragraph */}
-          <p className="text-white/90 text-sm leading-relaxed max-w-[360px] font-normal font-['Manrope']">
+        {/* Layer 5: Bottom Section (Paragraph on Left + Full-Width 4 Tabs Aligned to Bottom) */}
+        <div 
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+          className="relative z-10 pt-8 space-y-4 w-full"
+        >
+          {/* Paragraph stacked above the tabs on the left */}
+          <p className="text-white/90 text-sm leading-relaxed max-w-[350px] font-normal font-['Manrope']">
             {description}
           </p>
 
-          {/* 4 Interactive Pinned Tabs */}
-          <div className="flex flex-wrap sm:flex-nowrap items-end gap-3">
+          {/* 4 Pinned Bottom Tabs spanning the full width */}
+          <div className="w-full flex flex-col sm:flex-row items-end gap-3">
             {tabs.map((tab) => {
               const isOpen = activeTabId === tab.id;
 
@@ -169,12 +191,12 @@ export default function HeroSection({
                   <div
                     key={tab.id}
                     onClick={() => setActiveTabId(tab.id)}
-                    className="w-full sm:w-[320px] bg-white rounded-[16px] p-4 sm:p-5 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3 transition-all duration-300 cursor-pointer animate-framer-appear select-none"
+                    className="w-full sm:w-[370px] bg-white rounded-[16px] p-4 sm:p-5 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3 transition-all duration-300 cursor-pointer animate-framer-appear select-none shrink-0"
                   >
                     {/* Head */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[11px] font-bold flex items-center justify-center shrink-0 font-['Manrope']">
+                        <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[10.5px] font-semibold flex items-center justify-center shrink-0 font-['Manrope']">
                           {tab.badgeNumber}
                         </span>
                         <h4 className="text-[13.5px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
@@ -185,23 +207,23 @@ export default function HeroSection({
                     </div>
 
                     {/* Description */}
-                    <p className="text-slate-500 text-[12px] leading-relaxed font-normal font-['Manrope']">
+                    <p className="text-slate-500 text-[12px] leading-relaxed font-normal font-['Manrope'] line-clamp-2">
                       {tab.description}
                     </p>
 
-                    {/* Learners / Avatars + Badge */}
+                    {/* Learners / 4 Avatars + Badge */}
                     <div className="flex items-center justify-between pt-1">
-                      <div className="flex items-center -space-x-1.5">
+                      <div className="flex items-center -space-x-2">
                         {tab.avatars.map((av, i) => (
                           <img
                             key={i}
                             src={av}
                             alt="Avatar"
-                            className="w-[24px] h-[24px] rounded-full object-cover border-2 border-white shadow-xs"
+                            className="w-[28px] h-[28px] rounded-full object-cover border-2 border-white shadow-xs"
                           />
                         ))}
                       </div>
-                      <span className="bg-slate-100 text-slate-700 text-[10.5px] font-medium font-['Manrope'] px-2 py-0.5 rounded-full">
+                      <span className="bg-[#f4f4f5] text-[#171717] text-[10.5px] font-medium font-['Manrope'] px-2.5 py-0.5 rounded-full">
                         {tab.badge}
                       </span>
                     </div>
@@ -214,18 +236,20 @@ export default function HeroSection({
                 <div
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className="bg-white hover:bg-slate-50 rounded-[14px] px-3.5 py-3 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex items-center gap-2 cursor-pointer transition-all duration-200 select-none shrink-0"
+                  className="flex-1 w-full sm:w-auto h-[50px] bg-white hover:bg-slate-50 rounded-[14px] px-4 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex items-center justify-between gap-2.5 cursor-pointer transition-all duration-200 select-none shrink-0"
                 >
-                  <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[11px] font-bold flex items-center justify-center shrink-0 font-['Manrope']">
-                    {tab.badgeNumber}
-                  </span>
-                  <span className="font-['Manrope'] font-bold text-[13px] text-[#171717] tracking-tight">
-                    {tab.value}
-                  </span>
-                  <span className="text-[#171717] text-[13px] font-normal font-['Manrope']">
-                    {tab.title}
-                  </span>
-                  <span className="text-slate-400 text-[14px] font-light ml-0.5">+</span>
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[10.5px] font-semibold flex items-center justify-center shrink-0 font-['Manrope']">
+                      {tab.badgeNumber}
+                    </span>
+                    <span className="font-['Manrope'] font-semibold text-[17px] text-[#171717] tracking-[-0.05em] shrink-0">
+                      {tab.value}
+                    </span>
+                    <span className="text-slate-500 text-[13px] font-normal font-['Manrope'] truncate">
+                      {tab.title}
+                    </span>
+                  </div>
+                  <Plus className="w-3.5 h-3.5 text-slate-400 shrink-0" />
                 </div>
               );
             })}
