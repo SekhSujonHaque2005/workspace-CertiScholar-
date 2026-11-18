@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowRight, Sparkles, Plus, Minus, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Plus, Minus } from 'lucide-react';
 
 const DEFAULT_TABS = [
   {
     id: "01",
-    label: "DigiLocker Verified",
-    sublabel: "Self-Paced Verification",
+    label: "Self-Paced Verification",
+    shortLabel: "Self-Paced Verification",
     description: "Verify academic marksheets once at your own speed. Valid across all university, state, and central schemes.",
     avatars: ["/images/avatar-1.jpg", "/images/avatar-2.jpg", "/images/avatar-3.jpg"],
     badge: "Expert-Verified",
@@ -13,7 +13,7 @@ const DEFAULT_TABS = [
   {
     id: "02",
     label: "10K+ Active Scholars*",
-    sublabel: "Empowering Students",
+    shortLabel: "Active Scholars*",
     description: "Over 10,000 students enrolled across Lovely Professional University and partner institutions with zero paperwork delays.",
     avatars: ["/images/avatar-2.jpg", "/images/avatar-3.jpg"],
     badge: "Live Community",
@@ -21,7 +21,7 @@ const DEFAULT_TABS = [
   {
     id: "03",
     label: "250+ Verified Schemes*",
-    sublabel: "Institutional & National Aid",
+    shortLabel: "Verified Schemes*",
     description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS need-based, and armed forces wards.",
     avatars: ["/images/avatar-1.jpg", "/images/avatar-3.jpg"],
     badge: "Official Circulars",
@@ -29,7 +29,7 @@ const DEFAULT_TABS = [
   {
     id: "04",
     label: "98% Decision Accuracy*",
-    sublabel: "Explainable Quorum",
+    shortLabel: "Decision Accuracy*",
     description: "Auditable mathematical verification with zero double-counting, backed by verification officer quorum review.",
     avatars: ["/images/avatar-1.jpg", "/images/avatar-2.jpg"],
     badge: "M5 Quorum Approved",
@@ -37,14 +37,15 @@ const DEFAULT_TABS = [
 ];
 
 /**
- * Hero Section faithfully implementing the Lerova Framer template
- * Includes bold sans + italic serif headline, cutout student photo, and interactive expandable bottom pills.
+ * Exact Framer LEROVA Hero Section:
+ * Full-bleed studio panel with CSS gradient mask on student photo,
+ * left & bottom shade overlays, and expandable bottom pills.
  */
 export default function HeroSection({
   eyebrow = "YOUR FUTURE, YOUR WAY",
   headlineSans = "Fund education.",
-  headlineSerif = "unlock your potential",
-  description = "Explore verified scholarships, eliminate manual paperwork, and turn your academic ambitions into funded achievements with CertiScholar. Your next opportunity starts with what you verify today.",
+  headlineSerif = "unlock your potential.",
+  description = "Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with CertiScholar. Your next opportunity starts with what you verify today.",
   onExploreClick = () => {},
   onHowItWorksClick = () => {},
   tabs = DEFAULT_TABS,
@@ -52,83 +53,98 @@ export default function HeroSection({
   const [activeTabId, setActiveTabId] = useState("01");
 
   return (
-    <section id="home" className="px-3 sm:px-6 lg:px-8 pt-2 pb-8 max-w-7xl mx-auto">
-      {/* Framer Lerova Rounded Hero Card */}
-      <div className="relative rounded-[28px] sm:rounded-[36px] bg-[#67707A] bg-gradient-to-br from-[#747D87] via-[#636C76] to-[#4F5760] text-white overflow-hidden shadow-2xl border border-slate-600/40 min-h-[580px] lg:min-h-[640px] flex flex-col justify-between p-6 sm:p-10 lg:p-14">
-        
-        {/* Soft Background Radial Lighting */}
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-slate-900/20 rounded-full blur-2xl pointer-events-none"></div>
+    <section id="home" className="pt-3 sm:pt-4 pb-8 px-3 sm:px-4 max-w-[1400px] mx-auto">
+      {/* Framer Panel Container */}
+      <div 
+        className="relative rounded-[28px] overflow-hidden min-h-[760px] lg:min-h-[820px] flex flex-col justify-between pt-[140px] sm:pt-[150px] pb-9 px-6 sm:px-10 lg:px-12 shadow-2xl"
+        style={{
+          background: 'linear-gradient(100deg, #7c818b 0%, #a2a7af 62%, #a9aeb5 100%)'
+        }}
+      >
+        {/* Layer 1: Student Photo with Smooth Left-Mask (Framer Signature) */}
+        <div 
+          className="absolute top-0 right-0 w-full sm:w-[85%] lg:w-[75%] h-full pointer-events-none z-0 overflow-hidden"
+          style={{
+            WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%)',
+            maskImage: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%)',
+          }}
+        >
+          <img
+            src="/images/hero-student.jpg"
+            alt="Student Looking Upwards with Ambition"
+            className="w-full h-full object-cover object-[50%_30%] lg:object-[60%_30%] select-none scale-[1.02]"
+          />
+        </div>
 
-        {/* Hero Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-          
-          {/* Left Text Column */}
-          <div className="lg:col-span-7 space-y-6 pt-2">
-            
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-1.5 text-slate-300 font-semibold tracking-widest text-[11px] uppercase">
-              <span className="text-white text-xs">✦</span>
-              <span>{eyebrow}</span>
-            </div>
+        {/* Layer 2: Left Lighting Shade Overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none z-1"
+          style={{
+            background: 'linear-gradient(100deg, rgba(88, 92, 104, 0.75) 0%, rgba(88, 92, 104, 0.25) 46%, rgba(88, 92, 104, 0) 70%)'
+          }}
+        />
 
-            {/* Headline with Bold Sans + Elegant Serif Italic */}
-            <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-black tracking-tight leading-[1.04] text-white">
-              {headlineSans} <br />
-              <span className="font-serif italic font-normal tracking-normal text-slate-100">
-                {headlineSerif}
-              </span>
-            </h1>
+        {/* Layer 3: Bottom Vignette Shade Overlay */}
+        <div 
+          className="absolute bottom-0 left-0 right-0 h-[46%] pointer-events-none z-1"
+          style={{
+            background: 'linear-gradient(to top, rgba(40, 42, 50, 0.85) 0%, rgba(60, 63, 72, 0.4) 60%, transparent 100%)'
+          }}
+        />
 
-            {/* Description */}
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-md font-normal">
-              {description}
-            </p>
-
-            {/* Action Pill Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={onExploreClick}
-                className="bg-white text-slate-950 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-full text-xs sm:text-sm tracking-tight transition shadow-sm hover:shadow active:scale-95"
-              >
-                Explore Scholarships
-              </button>
-              <button
-                onClick={onHowItWorksClick}
-                className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-semibold px-7 py-3.5 rounded-full text-xs sm:text-sm transition active:scale-95"
-              >
-                How It Works
-              </button>
-            </div>
+        {/* Layer 4: Foreground Content */}
+        <div className="relative z-10 max-w-xl lg:max-w-2xl space-y-5">
+          {/* Eyebrow */}
+          <div className="inline-flex items-center gap-2 text-slate-200 text-xs font-semibold tracking-wider uppercase">
+            <span>✦</span>
+            <span>{eyebrow}</span>
           </div>
 
-          {/* Right Cutout Student Photo Column */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end items-end self-end pointer-events-none mt-4 lg:mt-0">
-            <div className="relative w-full max-w-[420px] lg:max-w-[460px] h-[340px] sm:h-[420px] lg:h-[480px]">
-              <img
-                src="/images/hero-student.jpg"
-                alt="Ambitious Student Looking Forward"
-                className="w-full h-full object-contain object-bottom filter drop-shadow-2xl select-none"
-              />
-            </div>
+          {/* Headline: Grotesque Bold + Luxury Serif Italic */}
+          <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-black text-white tracking-tight leading-[1.04]">
+            {headlineSans} <br />
+            <span className="font-serif italic font-normal tracking-normal text-white drop-shadow-xs">
+              {headlineSerif}
+            </span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-md font-normal pt-1">
+            {description}
+          </p>
+
+          {/* Action Buttons */}
+          <div className="flex flex-wrap items-center gap-3 pt-3">
+            <button
+              onClick={onExploreClick}
+              className="bg-white text-slate-950 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-full text-xs sm:text-sm tracking-tight transition shadow-sm hover:shadow active:scale-95 cursor-pointer"
+            >
+              Explore Scholarships
+            </button>
+            <button
+              onClick={onHowItWorksClick}
+              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-medium px-7 py-3.5 rounded-full text-xs sm:text-sm transition active:scale-95 cursor-pointer"
+            >
+              How It Works
+            </button>
           </div>
         </div>
 
-        {/* Bottom Interactive Expandable Pills Bar (Lerova Signature) */}
-        <div className="relative z-20 pt-8 mt-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+        {/* Layer 5: Pinned Bottom Interactive Tabs (Highlights) */}
+        <div className="relative z-20 pt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-end">
             {tabs.map((tab) => {
               const isActive = activeTabId === tab.id;
-              
+
               if (isActive) {
                 return (
                   <div
                     key={tab.id}
-                    className="bg-white text-slate-900 p-4 sm:p-5 rounded-2xl sm:rounded-3xl shadow-xl border border-slate-100 transition-all duration-300 animate-in fade-in"
+                    className="bg-white text-slate-900 p-5 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 transition-all duration-300 animate-in fade-in"
                   >
                     <div className="flex items-center justify-between mb-2">
                       <span className="text-xs font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                        <span className="text-indigo-600 font-extrabold">{tab.id}</span>
+                        <span className="text-slate-400 font-mono font-bold">{tab.id}</span>
                         <span>{tab.label}</span>
                       </span>
                       <button
@@ -144,13 +160,13 @@ export default function HeroSection({
                       {tab.description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-1 border-t border-slate-100">
+                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
                       <div className="flex -space-x-1.5 overflow-hidden">
                         {tab.avatars.map((av, idx) => (
                           <img
                             key={idx}
                             src={av}
-                            alt="Verified scholar"
+                            alt="Scholar"
                             className="inline-block h-6 w-6 rounded-full ring-2 ring-white object-cover"
                           />
                         ))}
@@ -167,10 +183,10 @@ export default function HeroSection({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className="bg-white/90 hover:bg-white text-slate-900 px-4 py-3 sm:py-3.5 rounded-full font-bold text-xs flex items-center justify-between transition-all duration-200 shadow-sm hover:shadow"
+                  className="bg-white/90 hover:bg-white text-slate-900 px-5 py-3.5 rounded-full font-bold text-xs flex items-center justify-between transition-all duration-200 shadow-sm hover:shadow cursor-pointer"
                 >
                   <span className="flex items-center gap-2 truncate">
-                    <span className="text-slate-400 font-extrabold">{tab.id}</span>
+                    <span className="text-slate-400 font-mono font-bold">{tab.id}</span>
                     <span className="truncate">{tab.label}</span>
                   </span>
                   <span className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 ml-2">

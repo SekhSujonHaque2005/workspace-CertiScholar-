@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Menu, X, Globe, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 
 /**
- * Prop-driven Header matching Lerova Framer template
- * Floating pill logo badge + floating navigation bar + dark pill action button
+ * Inverted Tabbed Header matching Framer LEROVA template exactly:
+ * Fixed top bar with hanging Logo Tab (left), Links Tab (center), and Action Tab (right)
  */
 export default function Header({
   brandName = "CertiScholar",
@@ -15,101 +15,90 @@ export default function Header({
   onFontScaleChange = () => {},
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
 
   return (
-    <header className="w-full pt-4 sm:pt-6 px-4 sm:px-8 relative z-40">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-4 w-full flex items-start justify-between">
         
-        {/* Brand Logo Capsule (Lerova Pill Style) */}
-        <a 
-          href="#home" 
-          className="bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2.5 rounded-full font-bold flex items-center gap-2.5 shadow-sm border border-slate-200/80 hover:shadow-md transition"
-        >
-          <span className="relative flex h-2.5 w-2.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
-          </span>
-          <span className="tracking-tight text-sm font-extrabold text-slate-950 font-sans">
-            {brandName}
-          </span>
-        </a>
+        {/* Left: Logo Tab (hanging from top with rounded bottom-right corner) */}
+        <div className="bg-white rounded-br-[20px] px-6 py-4 shadow-sm pointer-events-auto flex items-center gap-2.5">
+          <a href="#home" className="flex items-center gap-2.5">
+            <span className="w-2.5 h-2.5 rounded-full bg-orange-500 shrink-0"></span>
+            <span className="tracking-tight text-sm font-extrabold text-slate-950 font-sans">
+              {brandName}
+            </span>
+          </a>
+        </div>
 
-        {/* Center Floating Pill Navigation Menu */}
-        <nav className="hidden lg:flex items-center bg-white/90 backdrop-blur-md px-7 py-2.5 rounded-full shadow-sm border border-slate-200/70 space-x-7 text-xs font-semibold text-slate-700">
+        {/* Center: Links Tab (hanging from top with rounded bottom-left and bottom-right corners) */}
+        <nav className="hidden lg:flex items-center bg-white rounded-b-[22px] px-8 py-4 shadow-sm pointer-events-auto space-x-7 text-xs font-semibold text-slate-700">
           <a href="#home" className="hover:text-black transition-colors">Home</a>
           <a href="#about" className="hover:text-black transition-colors">About</a>
           <a href="#scholarships" className="hover:text-black transition-colors">Scholarships</a>
           <a href="#how-it-works" className="hover:text-black transition-colors">How It Works</a>
           <a href="#verification" className="hover:text-black transition-colors">Verification</a>
           <a href="#faq" className="hover:text-black transition-colors">FAQ</a>
-        </nav>
 
-        {/* Right Action Group */}
-        <div className="flex items-center space-x-3">
-          
-          {/* Subtle Language / Accessibility Capsule */}
-          <div className="hidden sm:flex items-center bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/70 text-xs text-slate-600 gap-2">
-            <Globe className="w-3.5 h-3.5 text-slate-400" />
+          <span className="text-slate-300">|</span>
+
+          {/* Accessibility & Language */}
+          <div className="flex items-center space-x-2 text-[11px] text-slate-500">
+            <Globe className="w-3 h-3 text-slate-400" />
             <select
               value={language}
               onChange={(e) => onLanguageChange(e.target.value)}
-              className="bg-transparent text-slate-700 font-semibold cursor-pointer focus:outline-none"
+              className="bg-transparent font-semibold text-slate-700 cursor-pointer focus:outline-none"
             >
               <option value="EN">EN</option>
               <option value="HI">HI</option>
               <option value="PA">PA</option>
             </select>
 
-            <span className="text-slate-300">|</span>
+            <span className="text-slate-300">•</span>
 
-            {/* Font Scaler (WCAG 2.2 AA) */}
-            <div className="flex items-center gap-1 font-semibold text-[11px]">
-              <button
-                onClick={() => onFontScaleChange(90)}
-                className={`px-1 rounded hover:text-slate-950 ${fontScale === 90 ? 'text-indigo-600 font-bold' : ''}`}
-                title="Smaller text"
-              >
-                A-
-              </button>
-              <button
-                onClick={() => onFontScaleChange(100)}
-                className={`px-1 rounded hover:text-slate-950 ${fontScale === 100 ? 'text-indigo-600 font-bold' : ''}`}
-                title="Default text"
-              >
-                A
-              </button>
-              <button
-                onClick={() => onFontScaleChange(110)}
-                className={`px-1 rounded hover:text-slate-950 ${fontScale === 110 ? 'text-indigo-600 font-bold' : ''}`}
-                title="Larger text"
-              >
-                A+
-              </button>
-            </div>
+            <button
+              onClick={() => onFontScaleChange(90)}
+              className={`hover:text-black ${fontScale === 90 ? 'text-indigo-600 font-bold' : ''}`}
+              title="Smaller font"
+            >
+              A-
+            </button>
+            <button
+              onClick={() => onFontScaleChange(100)}
+              className={`hover:text-black ${fontScale === 100 ? 'text-indigo-600 font-bold' : ''}`}
+              title="Normal font"
+            >
+              A
+            </button>
+            <button
+              onClick={() => onFontScaleChange(110)}
+              className={`hover:text-black ${fontScale === 110 ? 'text-indigo-600 font-bold' : ''}`}
+              title="Larger font"
+            >
+              A+
+            </button>
           </div>
+        </nav>
 
-          {/* Student Login link */}
+        {/* Right: Action Tab (hanging from top with rounded bottom-left corner) */}
+        <div className="bg-white rounded-bl-[20px] p-2 sm:p-2.5 shadow-sm pointer-events-auto flex items-center gap-2">
           <button
             onClick={onLogin}
-            className="hidden sm:inline-block text-xs font-bold text-slate-800 hover:text-black px-3 py-2 transition"
+            className="hidden sm:inline-block text-xs font-bold text-slate-700 hover:text-black px-3 py-1.5 transition"
           >
             Login
           </button>
-
-          {/* Dark Pill CTA Button (Lerova Signature) */}
           <button
             onClick={onRegister}
-            className="bg-slate-950 hover:bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-tight shadow-sm hover:shadow transition transform active:scale-95"
+            className="bg-slate-950 hover:bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-tight transition shadow-sm"
           >
             Get Started
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Mobile hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:text-black"
-            aria-label="Toggle Navigation"
+            className="lg:hidden p-2 text-slate-700 hover:text-black"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
@@ -118,33 +107,21 @@ export default function Header({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 bg-white rounded-3xl p-5 shadow-xl border border-slate-200 space-y-4 animate-in fade-in slide-in-from-top-2">
+        <div className="lg:hidden mx-3 mt-2 bg-white rounded-3xl p-6 shadow-2xl pointer-events-auto space-y-4 border border-slate-200">
           <nav className="flex flex-col space-y-3 text-sm font-semibold text-slate-800">
-            <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-1">Home</a>
-            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-1">About</a>
-            <a href="#scholarships" onClick={() => setMobileMenuOpen(false)} className="py-1">Scholarships</a>
-            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="py-1">How It Works</a>
-            <a href="#verification" onClick={() => setMobileMenuOpen(false)} className="py-1">Verification</a>
-            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-1">FAQ</a>
+            <a href="#home" onClick={() => setMobileMenuOpen(false)}>Home</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+            <a href="#scholarships" onClick={() => setMobileMenuOpen(false)}>Scholarships</a>
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)}>How It Works</a>
+            <a href="#verification" onClick={() => setMobileMenuOpen(false)}>Verification</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
           </nav>
           <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onLogin();
-              }}
-              className="text-xs font-bold text-slate-800"
-            >
+            <button onClick={() => { setMobileMenuOpen(false); onLogin(); }} className="text-xs font-bold text-slate-700">
               Student Login
             </button>
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onRegister();
-              }}
-              className="bg-slate-950 text-white px-4 py-2 rounded-full text-xs font-bold"
-            >
-              Get Started &rarr;
+            <button onClick={() => { setMobileMenuOpen(false); onRegister(); }} className="bg-slate-950 text-white px-5 py-2 rounded-full text-xs font-bold">
+              Get Started
             </button>
           </div>
         </div>

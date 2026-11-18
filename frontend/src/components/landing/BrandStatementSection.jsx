@@ -1,8 +1,9 @@
 import React from 'react';
-import { Quote, ShieldCheck } from 'lucide-react';
+import { ShieldCheck } from 'lucide-react';
 
 /**
- * Giant Typography Brand Statement Section matching Lerova Framer template
+ * Brand Statement Section matching Framer LEROVA template
+ * Soft, low-contrast watermark serif lettering with centered institutional endorsement
  */
 export default function BrandStatementSection({
   watermarkText = "certischolar",
@@ -12,33 +13,36 @@ export default function BrandStatementSection({
   institution = "Lovely Professional University",
 }) {
   return (
-    <section className="py-24 sm:py-32 bg-white relative overflow-hidden border-b border-slate-200/70">
-      {/* Giant Background Watermark Serif Typography (Lerova Signature) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none opacity-5">
-        <span className="font-serif italic text-[140px] sm:text-[220px] lg:text-[320px] font-bold text-slate-900 tracking-tighter uppercase">
+    <section className="py-28 sm:py-36 bg-white relative overflow-hidden border-b border-slate-100">
+      {/* Giant Background Watermark Serif Typography (Soft & Elegant) */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
+        <span 
+          className="font-serif italic text-[120px] sm:text-[200px] lg:text-[280px] font-bold text-slate-900 tracking-tighter lowercase leading-none"
+          style={{ opacity: 0.035 }}
+        >
           {watermarkText}
         </span>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-7">
         
-        <div className="inline-flex items-center gap-2 bg-indigo-50 text-indigo-700 px-4 py-1.5 rounded-full text-xs font-bold border border-indigo-100">
-          <ShieldCheck className="w-3.5 h-3.5" />
+        <div className="inline-flex items-center gap-2 bg-[#F8F9FA] text-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold border border-slate-200/80 shadow-xs">
+          <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
           <span>Institutional Endorsement</span>
         </div>
 
-        {/* Elegant Quote */}
-        <blockquote className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 leading-snug tracking-tight font-sans">
+        {/* Elegant Quote in Sans/Serif harmony */}
+        <blockquote className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-slate-900 leading-snug tracking-tight font-sans max-w-3xl mx-auto">
           "{quote}"
         </blockquote>
 
         {/* Author Attribution */}
-        <div className="space-y-1">
-          <p className="text-base font-black text-slate-900 tracking-tight">
+        <div className="space-y-1 pt-1">
+          <p className="text-sm font-black text-slate-900 tracking-tight">
             {author}
           </p>
           <p className="text-xs text-slate-500 font-medium">
-            {role} • <span className="text-slate-700 font-semibold">{institution}</span>
+            {role} • <span className="text-slate-800 font-semibold">{institution}</span>
           </p>
         </div>
 
