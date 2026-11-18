@@ -86,27 +86,35 @@ export default function HeroSection({
   }, [isPaused, tabs]);
 
   return (
-    <div id="home" className="w-full animate-framer-appear">
-      {/* Framer Panel Container */}
+    <div id="home" className="w-full">
+      {/* Framer Panel Container - Fixed 893px height on desktop for zero layout shift */}
       <div 
-        className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:min-h-[893px] flex flex-col justify-between pt-[130px] sm:pt-[150px] pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl transition-all"
+        className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:h-[893px] flex flex-col justify-between pt-[130px] sm:pt-[150px] pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl"
         style={{
           background: 'linear-gradient(100deg, rgb(124, 129, 139) 0%, rgb(162, 167, 175) 62%, rgb(169, 174, 181) 100%)'
         }}
       >
-        {/* Layer 1: Student Photo with Precise Framer Mask */}
+        {/* Layer 1: Student Photo with Rock-Solid Position & Framer Mask */}
         <div 
           className="absolute top-0 left-0 lg:left-[220px] right-0 lg:right-[-220px] bottom-0 w-full lg:w-[1376px] h-full pointer-events-none z-0 overflow-hidden"
           style={{
             WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, black 26%)',
             maskImage: 'linear-gradient(90deg, transparent 0%, black 26%)',
-            transform: 'scale(1.02)'
+            transform: 'scale(1.02)',
+            transformOrigin: 'center center'
           }}
         >
           <img
             src="/images/hero-student.jpg"
             alt="Student Ambition"
             className="w-full h-full object-cover object-[50%_30%] select-none"
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%'
+            }}
           />
         </div>
 
@@ -170,19 +178,19 @@ export default function HeroSection({
           </div>
         </div>
 
-        {/* Layer 5: Bottom Section (Paragraph on Left + Full-Width 4 Tabs Aligned to Bottom) */}
+        {/* Layer 5: Bottom Section (Paragraph on Left + Full-Width 4 Tabs Aligned to Bottom Baseline) */}
         <div 
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="relative z-10 pt-8 space-y-4 w-full"
+          className="relative z-10 pt-6 space-y-4 w-full"
         >
           {/* Paragraph stacked above the tabs on the left */}
           <p className="text-white/90 text-sm leading-relaxed max-w-[350px] font-normal font-['Manrope']">
             {description}
           </p>
 
-          {/* 4 Pinned Bottom Tabs spanning the full width */}
-          <div className="w-full flex flex-col sm:flex-row items-end gap-3">
+          {/* 4 Pinned Bottom Tabs spanning the full width with fixed baseline heights */}
+          <div className="w-full flex flex-col sm:flex-row items-end gap-3 min-h-[136px]">
             {tabs.map((tab) => {
               const isOpen = activeTabId === tab.id;
 
@@ -191,7 +199,7 @@ export default function HeroSection({
                   <div
                     key={tab.id}
                     onClick={() => setActiveTabId(tab.id)}
-                    className="w-full sm:w-[370px] bg-white rounded-[16px] p-4 sm:p-5 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3 transition-all duration-300 cursor-pointer animate-framer-appear select-none shrink-0"
+                    className="w-full sm:w-[370px] h-[136px] bg-white rounded-[16px] p-4.5 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between transition-all duration-300 cursor-pointer select-none shrink-0"
                   >
                     {/* Head */}
                     <div className="flex items-center justify-between">
@@ -231,7 +239,7 @@ export default function HeroSection({
                 );
               }
 
-              // Collapsed Tab matching Framer exact layout
+              // Collapsed Tab matching Framer exact layout with locked 50px height
               return (
                 <div
                   key={tab.id}
