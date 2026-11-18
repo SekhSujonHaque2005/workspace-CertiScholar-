@@ -169,39 +169,39 @@ export default function HeroSection({
                   <div
                     key={tab.id}
                     onClick={() => setActiveTabId(tab.id)}
-                    className="w-full sm:w-[370px] bg-white rounded-[16px] p-[18px] shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3.5 transition-all duration-300 cursor-pointer animate-framer-appear"
+                    className="w-full sm:w-[320px] bg-white rounded-[16px] p-4 sm:p-5 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3 transition-all duration-300 cursor-pointer animate-framer-appear select-none"
                   >
                     {/* Head */}
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="bg-[#171717] text-white text-[10.5px] font-semibold font-['Manrope'] px-2 py-0.5 rounded-full">
+                        <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[11px] font-bold flex items-center justify-center shrink-0 font-['Manrope']">
                           {tab.badgeNumber}
                         </span>
-                        <h4 className="text-[14px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
+                        <h4 className="text-[13.5px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
                           {tab.title}
                         </h4>
                       </div>
-                      <Minus className="w-4 h-4 text-slate-400" />
+                      <Minus className="w-3.5 h-3.5 text-slate-400" />
                     </div>
 
                     {/* Description */}
-                    <p className="text-slate-500 text-[12.5px] leading-relaxed font-normal font-['Manrope']">
+                    <p className="text-slate-500 text-[12px] leading-relaxed font-normal font-['Manrope']">
                       {tab.description}
                     </p>
 
                     {/* Learners / Avatars + Badge */}
                     <div className="flex items-center justify-between pt-1">
-                      <div className="flex items-center -space-x-2">
+                      <div className="flex items-center -space-x-1.5">
                         {tab.avatars.map((av, i) => (
                           <img
                             key={i}
                             src={av}
                             alt="Avatar"
-                            className="w-[28px] h-[28px] rounded-full object-cover border-2 border-white shadow-xs"
+                            className="w-[24px] h-[24px] rounded-full object-cover border-2 border-white shadow-xs"
                           />
                         ))}
                       </div>
-                      <span className="bg-slate-100 text-slate-700 text-[11px] font-medium font-['Manrope'] px-2.5 py-0.5 rounded-full">
+                      <span className="bg-slate-100 text-slate-700 text-[10.5px] font-medium font-['Manrope'] px-2 py-0.5 rounded-full">
                         {tab.badge}
                       </span>
                     </div>
@@ -209,23 +209,23 @@ export default function HeroSection({
                 );
               }
 
-              // Collapsed Tab
+              // Collapsed Tab matching Framer exact layout
               return (
                 <div
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className="bg-white hover:bg-slate-50 rounded-[14px] px-4 py-3 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex items-center gap-2.5 cursor-pointer transition-all duration-200 select-none shrink-0"
+                  className="bg-white hover:bg-slate-50 rounded-[14px] px-3.5 py-3 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex items-center gap-2 cursor-pointer transition-all duration-200 select-none shrink-0"
                 >
-                  <span className="bg-[#171717] text-white text-[10.5px] font-semibold font-['Manrope'] px-2 py-0.5 rounded-full">
+                  <span className="w-5 h-5 rounded-full bg-[#171717] text-white text-[11px] font-bold flex items-center justify-center shrink-0 font-['Manrope']">
                     {tab.badgeNumber}
                   </span>
-                  <span className="font-['Manrope'] font-semibold text-[17px] text-[#171717] tracking-tight tabular-nums">
+                  <span className="font-['Manrope'] font-bold text-[13px] text-[#171717] tracking-tight">
                     {tab.value}
                   </span>
-                  <span className="text-slate-600 text-[13px] font-normal font-['Manrope']">
+                  <span className="text-[#171717] text-[13px] font-normal font-['Manrope']">
                     {tab.title}
                   </span>
-                  <Plus className="w-4 h-4 text-slate-400 shrink-0 ml-1" />
+                  <span className="text-slate-400 text-[14px] font-light ml-0.5">+</span>
                 </div>
               );
             })}

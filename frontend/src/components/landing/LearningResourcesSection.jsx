@@ -4,31 +4,31 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ARTICLES = [
   {
-    tag: "Policy Guides",
-    readTime: "6 min read",
-    title: "Understanding Quorum Verification & Gazette Corroboration",
-    description: "Learn how Lovely Professional University evaluates Class 10/12 marksheets and entrance examination percentiles.",
-    image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+    title: "How Quorum Verification Validates Academic Marksheets",
+    description: "Learn how Lovely Professional University evaluates Class 10/12 marksheets, calculates percentiles, and prevents credential fraud.",
+    image: "https://framerusercontent.com/images/AuNMTxFb2gdYMgzE5W1TQXHnLs4.jpg?width=2000&height=1333",
     slug: "#resources"
   },
   {
-    tag: "Scholarship Strategy",
-    readTime: "5 min read",
     title: "The Anti-Stacking Policy & Merit Optimization Engine",
     description: "Explore how CertiScholar allocates your highest entitled scholarship award without conflicting state or central grants.",
-    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+    image: "https://framerusercontent.com/images/NaGMKeql8FnolnikdR35FIRdg.jpg?width=2000&height=1333",
     slug: "#resources"
   },
   {
-    tag: "Security & Standards",
-    readTime: "8 min read",
     title: "DigiLocker Integration & DPDP Act Privacy Standards",
     description: "Understand how your academic identity, roll numbers, and category credentials remain encrypted and auditable.",
-    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    image: "https://framerusercontent.com/images/C1KpNH6IWsrXJkqpcGfPeLfsb8.jpg?width=2000&height=1333",
     slug: "#resources"
   }
 ];
 
+/**
+ * Authentic Framer LEROVA Blog / Resources Section:
+ * Matches media_1795034504864_acf8b87c.jpg exactly with
+ * borderless column layout, top-right floating arrow pill,
+ * authentic photography, and minimal typographic hierarchy.
+ */
 export default function LearningResourcesSection() {
   return (
     <section id="resources" className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-20 sm:py-28 select-none">
@@ -51,67 +51,64 @@ export default function LearningResourcesSection() {
             </div>
 
             {/* Headline */}
-            <h2 className="text-[34px] sm:text-[44px] font-medium text-[#171717] tracking-[-0.04em] leading-tight font-['Manrope']">
+            <h2 className="text-[38px] sm:text-[46px] font-medium text-[#171717] tracking-[-0.04em] leading-[1.12] font-['Manrope']">
               Fresh Perspectives for Your Next Step.
             </h2>
             
             {/* Subhead */}
-            <p className="text-[14.5px] text-[#6b6b75] max-w-xl font-normal leading-relaxed font-['Manrope']">
-              Explore practical advice, thoughtful insights, and useful resources to guide your scholarship applications and credential verification.
+            <p className="text-[15.5px] text-[#6b6b75] max-w-2xl font-normal leading-relaxed font-['Manrope']">
+              Explore practical advice, thoughtful insights, and useful resources to keep your curiosity alive and guide your scholarship journey.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Action Button */}
+        {/* Action Button matching Framer outline button */}
         <ScrollReveal yOffset={30} delay={100}>
           <a
             href="#scholarships"
-            className="group inline-flex items-center gap-2 bg-[#f4f4f5] hover:bg-[#171717] hover:text-white text-[#171717] px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all cursor-pointer font-['Manrope'] shrink-0"
+            className="group inline-flex items-center gap-2 border border-[#171717] rounded-full px-6 py-2.5 text-[14px] font-semibold text-[#171717] hover:bg-[#171717] hover:text-white transition-all cursor-pointer font-['Manrope'] shrink-0"
           >
             <span>Explore All Articles</span>
-            <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </ScrollReveal>
       </div>
 
-      {/* 3 Articles Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+      {/* 3 Articles Grid matching Framer exact layout */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-10">
         {ARTICLES.map((article, idx) => (
           <ScrollReveal key={idx} yOffset={40} delay={idx * 120} duration={800}>
-            <div className="group bg-white rounded-[24px] border border-black/8 overflow-hidden hover:shadow-[0_12px_32px_rgba(23,23,23,0.08)] transition-all duration-300 flex flex-col h-full cursor-pointer">
+            <div className="group flex flex-col cursor-pointer select-none">
               
-              {/* Image Container with Zoom on Hover */}
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+              {/* Image Container with floating arrow in top-right */}
+              <div className="relative aspect-[16/11] rounded-[24px] overflow-hidden bg-slate-100 shadow-xs">
                 <img
                   src={article.image}
                   alt={article.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
+                
+                {/* Floating white arrow circle button matching Framer */}
+                <div className="absolute top-4 right-4 w-9 h-9 rounded-full bg-white shadow-md flex items-center justify-center text-[#171717] transition-transform duration-300 group-hover:scale-110">
+                  <ArrowUpRight className="w-4 h-4 text-[#171717]" />
+                </div>
               </div>
 
-              {/* Card Body */}
-              <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between space-y-4">
-                <div className="space-y-2.5">
-                  <div className="flex items-center gap-2 text-[12px] font-medium text-[#9a9aa1] font-['Manrope']">
-                    <span className="text-[#ff5a2b] font-semibold">{article.tag}</span>
-                    <span>•</span>
-                    <span>{article.readTime}</span>
-                  </div>
+              {/* Title */}
+              <h3 className="text-[20px] sm:text-[22px] font-semibold text-[#171717] tracking-[-0.03em] font-['Manrope'] mt-4 leading-snug group-hover:text-black transition-colors">
+                {article.title}
+              </h3>
 
-                  <h3 className="text-[19px] sm:text-[20px] font-semibold text-[#171717] leading-snug tracking-tight font-['Manrope'] group-hover:text-black transition-colors">
-                    {article.title}
-                  </h3>
+              {/* Description */}
+              <p className="text-[14px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] mt-2">
+                {article.description}
+              </p>
 
-                  <p className="text-[13.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope']">
-                    {article.description}
-                  </p>
-                </div>
-
-                <div className="pt-2 flex items-center gap-1.5 text-[13px] font-semibold text-[#171717] group-hover:translate-x-1 transition-transform">
-                  <span>Read Article</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 text-[#ff5a2b]" />
-                </div>
+              {/* Read Article Link */}
+              <div className="mt-3">
+                <span className="text-[14px] font-semibold text-[#171717] hover:underline font-['Manrope']">
+                  Read Article
+                </span>
               </div>
 
             </div>

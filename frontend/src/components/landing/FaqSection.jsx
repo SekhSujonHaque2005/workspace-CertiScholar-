@@ -8,12 +8,16 @@ const FAQS = [
     a: "CertiScholar is an institutional document verification and scholarship operations platform developed for Lovely Professional University. It provides automated OCR mark calculations, DigiLocker corroboration, anti-stacking policy enforcement, and multi-officer quorum reviews."
   },
   {
+    q: "Who is eligible for institutional scholarships?",
+    a: "Undergraduate and postgraduate students enrolled at Lovely Professional University across merit (LPUNEST / JEE / Board percentiles), economic need (EWS / TFW), sports excellence, and reserved categories with verified credentials."
+  },
+  {
     q: "How does automated document verification work?",
-    a: "When you upload academic marksheets or category certificates, CertiScholar's high-precision OCR pipeline extracts subject marks, verifies roll numbers against official gazettes, and recalculates eligibility percentages automatically."
+    a: "When you upload academic marksheets or category certificates, CertiScholar's high-precision OCR pipeline extracts subject marks, verifies roll numbers against official state and national gazettes, and recalculates eligibility percentages automatically."
   },
   {
     q: "What is the anti-stacking policy engine?",
-    a: "To ensure fair aid distribution and prevent double-dipping, CertiScholar enforces university rules that eliminate conflicting scholarship stacking, guaranteeing that each scholar receives their highest entitled award."
+    a: "To ensure fair aid distribution and prevent double-dipping, CertiScholar enforces university policy rules that eliminate conflicting scholarship stacking, guaranteeing that each scholar receives their highest entitled award."
   },
   {
     q: "How are verification decisions governed?",
@@ -22,81 +26,70 @@ const FAQS = [
   {
     q: "How is sanctioned financial aid disbursed?",
     a: "Once approved, an official digital Sanction Order with cryptographic verification is generated. Grant amounts and tuition fee waivers are directly credited to your university student ledger."
-  },
-  {
-    q: "What documents are required to apply?",
-    a: "Standard requirements include Class 10 and 12 marksheets, entrance examination rank cards (such as LPUNEST or JEE), government photo ID via DigiLocker, and relevant income or category certificates."
   }
 ];
 
+/**
+ * Authentic Framer LEROVA FAQ Section:
+ * Individual rounded pill cards with #f4f4f5 background,
+ * circular +/- toggles, and clean 12px gap between questions.
+ */
 export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
-    <section id="faq" className="py-20 sm:py-28 bg-white select-none">
-      <div className="max-w-[860px] mx-auto px-4 sm:px-6 space-y-12">
+    <section id="faq" className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-16 sm:py-24 select-none">
+      <div className="w-full space-y-10">
         
-        {/* Header with Rotating Spark Eyebrow */}
+        {/* Header matching Framer typography */}
         <ScrollReveal yOffset={30}>
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2">
-              <div className="w-4 h-4 animate-spark">
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-[#ff5a2b]">
-                  <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z"></path>
-                </svg>
-              </div>
-              <span className="text-[12px] font-semibold text-slate-500 font-['Manrope'] uppercase tracking-wider">
-                Got questions?
-              </span>
-            </div>
-
-            <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] leading-tight text-[#171717] tracking-[-0.04em]">
+            <h2 className="font-['Manrope'] font-medium text-[38px] sm:text-[48px] leading-[1.12] text-[#171717] tracking-[-0.04em]">
               Everything You Need to Know.
             </h2>
-            <p className="text-[14.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope']">
+            <p className="text-[15.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] max-w-2xl">
               Find answers to common questions about CertiScholar, automated document verification, and scholarship operations.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Accordion List with Framer Styling */}
-        <ScrollReveal yOffset={40}>
-          <div className="divide-y divide-[#e4e4e7] border-t border-[#e4e4e7]">
-            {FAQS.map((faq, idx) => {
-              const isOpen = openIdx === idx;
-              return (
+        {/* 6 Individual Framer Rounded Pill Cards */}
+        <div className="flex flex-col gap-3">
+          {FAQS.map((faq, idx) => {
+            const isOpen = openIdx === idx;
+            return (
+              <ScrollReveal key={idx} yOffset={25} delay={idx * 40} duration={600}>
                 <div
-                  key={idx}
-                  className="py-6 cursor-pointer select-none transition-colors group"
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
+                  className="w-full bg-[#f4f4f5] hover:bg-[#ececee] transition-colors duration-200 rounded-[18px] p-5 sm:px-6 sm:py-5 cursor-pointer select-none"
                 >
+                  {/* Question Row */}
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#171717] tracking-tight font-['Manrope'] group-hover:text-black transition-colors">
+                    <h3 className="text-[17px] sm:text-[18px] font-medium text-[#171717] font-['Manrope'] tracking-[-0.02em] leading-snug">
                       {faq.q}
                     </h3>
-                    <div className="shrink-0 text-slate-400 group-hover:text-black transition-colors">
+                    
+                    {/* Circle Toggle Button */}
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-xs text-[#171717] transition-transform">
                       {isOpen ? (
-                        <div className="w-8 h-8 rounded-full bg-[#f4f4f5] flex items-center justify-center transition-transform">
-                          <Minus className="w-4 h-4 text-[#171717]" />
-                        </div>
+                        <Minus className="w-4 h-4 text-[#171717]" />
                       ) : (
-                        <div className="w-8 h-8 rounded-full bg-[#f4f4f5] flex items-center justify-center transition-transform group-hover:bg-[#e4e4e7]">
-                          <Plus className="w-4 h-4 text-[#171717]" />
-                        </div>
+                        <Plus className="w-4 h-4 text-[#171717]" />
                       )}
                     </div>
                   </div>
 
+                  {/* Expandable Answer */}
                   {isOpen && (
-                    <div className="pt-3 text-[14.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] animate-framer-appear">
+                    <div className="pt-3.5 text-[14.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] animate-framer-appear">
                       {faq.a}
                     </div>
                   )}
                 </div>
-              );
-            })}
-          </div>
-        </ScrollReveal>
+              </ScrollReveal>
+            );
+          })}
+        </div>
 
       </div>
     </section>
