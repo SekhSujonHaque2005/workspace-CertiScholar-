@@ -1,6 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
+export const HERO_SCHOLARS = [
+  {
+    id: "scholar-1",
+    src: "/images/hero-student.jpg",
+    alt: "LPUNEST Academic Merit Scholar",
+    cohort: "LPUNEST Merit Scholar",
+    focus: "Undergraduate B.Tech"
+  },
+  {
+    id: "scholar-2",
+    src: "/images/hero-student-2.jpg",
+    alt: "Engineering & Research Scholar",
+    cohort: "Need-Based EWS Grantee",
+    focus: "Engineering & Robotics"
+  },
+  {
+    id: "scholar-3",
+    src: "/images/hero-student-3.jpg",
+    alt: "Tech Innovators Fellow",
+    cohort: "Defense Ward Fellow",
+    focus: "Computer Science & AI"
+  }
+];
+
 const DEFAULT_TABS = [
   {
     id: "01",
@@ -70,6 +94,7 @@ export default function HeroSection({
   tabs = DEFAULT_TABS,
 }) {
   const [activeTabId, setActiveTabId] = useState("01");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
   // Automatic Tab Animation / Rotation (every 4.5 seconds unless user hovers)
@@ -85,16 +110,27 @@ export default function HeroSection({
     return () => clearInterval(interval);
   }, [isPaused, tabs]);
 
+  // Automatic Hero Image Carousel (every 5.5 seconds unless user hovers)
+  useEffect(() => {
+    if (isPaused) return;
+    const imgInterval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % HERO_SCHOLARS.length);
+    }, 5500);
+    return () => clearInterval(imgInterval);
+  }, [isPaused]);
+
   return (
     <div id="home" className="w-full">
-      {/* Framer Panel Container - Fixed 893px height on desktop with guaranteed 32px bottom gap */}
+      {/* Framer Panel Container - Fixed 893px height on desktop with guaranteed 36px bottom gap */}
       <div 
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
         className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:h-[893px] flex flex-col justify-between pt-[100px] sm:pt-[115px] lg:pt-[125px] pb-7 sm:pb-8 lg:pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl"
         style={{
           background: 'linear-gradient(100deg, rgb(124, 129, 139) 0%, rgb(162, 167, 175) 62%, rgb(169, 174, 181) 100%)'
         }}
       >
-        {/* Layer 1: Student Photo with Rock-Solid Position & Framer Mask */}
+        {/* Layer 1: Student Photo Carousel with Precise Framer Mask & Silky Crossfade */}
         <div 
           className="absolute top-0 left-0 lg:left-[220px] right-0 lg:right-[-220px] bottom-0 w-full lg:w-[1376px] h-full pointer-events-none z-0 overflow-hidden"
           style={{
@@ -104,18 +140,18 @@ export default function HeroSection({
             transformOrigin: 'center center'
           }}
         >
-          <img
-            src="/images/hero-student.jpg"
-            alt="Student Ambition"
-            className="w-full h-full object-cover object-[50%_30%] select-none"
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              width: '100%',
-              height: '100%'
-            }}
-          />
+          {HERO_SCHOLARS.map((scholar, idx) => (
+            <img
+              key={scholar.id}
+              src={scholar.src}
+              alt={scholar.alt}
+              className={`absolute top-0 left-0 w-full h-full object-cover object-[50%_30%] select-none transition-all duration-1000 ease-in-out ${
+                idx === currentImageIndex 
+                  ? 'opacity-100 scale-100 z-1' 
+                  : 'opacity-0 scale-[1.03] z-0 pointer-events-none'
+              }`}
+            />
+          ))}
         </div>
 
         {/* Layer 2: Lighting Shade Overlay */}
@@ -133,6 +169,28 @@ export default function HeroSection({
             background: 'linear-gradient(rgba(60, 63, 72, 0) 0%, rgba(60, 63, 72, 0.5) 100%)'
           }}
         />
+
+        {/* Scholar Slide Indicators & Live Cohort Pill (Top-Right, cleanly clear of hanging header) */}
+        <div className="absolute top-[75px] sm:top-[85px] right-6 sm:right-9 z-20 flex items-center gap-2 bg-black/35 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 select-none shadow-sm">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#ff5a2b] animate-ping" />
+          <span className="text-[11px] font-semibold text-white/90 font-['Manrope'] hidden sm:inline">
+            {HERO_SCHOLARS[currentImageIndex].cohort}
+          </span>
+          <div className="flex items-center gap-1.5 ml-1">
+            {HERO_SCHOLARS.map((_, sIdx) => (
+              <button
+                key={sIdx}
+                onClick={() => setCurrentImageIndex(sIdx)}
+                className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${
+                  sIdx === currentImageIndex 
+                    ? 'w-5 bg-white' 
+                    : 'w-1.5 bg-white/40 hover:bg-white/70'
+                }`}
+                aria-label={`Switch to scholar ${sIdx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
         {/* Layer 4: Headline & Actions with Word-Blur Entrance */}
         <div className="relative z-10 space-y-4 max-w-4xl">
@@ -179,11 +237,7 @@ export default function HeroSection({
         </div>
 
         {/* Layer 5: Bottom Section (Paragraph on Left + Full-Width 4 Tabs Aligned to Bottom Baseline) */}
-        <div 
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          className="relative z-10 space-y-3 w-full"
-        >
+        <div className="relative z-10 space-y-3 w-full">
           {/* Paragraph stacked above the tabs on the left */}
           <p className="text-white/90 text-sm leading-relaxed max-w-[350px] font-normal font-['Manrope']">
             {description}
