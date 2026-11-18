@@ -127,6 +127,17 @@ body {
   animation-play-state: paused;
 }
 
+.animate-showcase-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerSlide 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-showcase-ticker:hover {
+  animation-play-state: paused;
+}
+
 .animate-spin-slow {
   animation: framerSpinSlow 60s linear infinite;
 }
