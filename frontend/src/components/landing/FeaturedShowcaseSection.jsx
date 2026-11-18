@@ -82,11 +82,11 @@ export default function FeaturedShowcaseSection({
     <section id="scholarships" className="py-24 sm:py-32 bg-white overflow-hidden">
       <div className="space-y-12">
         
-        {/* Section Header */}
+        {/* Section Header matching Framer red/orange star and typography */}
         <ScrollReveal yOffset={30}>
           <div className="text-center max-w-2xl mx-auto px-6 space-y-3">
-            <div className="flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider text-slate-500 uppercase font-['Manrope']">
-              <svg viewBox="0 0 100 100" className="w-3.5 h-3.5 fill-[#FF5A2B] animate-spark-spin">
+            <div className="flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider text-[#FF5A2B] uppercase font-['Manrope']">
+              <svg viewBox="0 0 100 100" className="w-3.5 h-3.5 fill-current">
                 <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z" />
               </svg>
               <span>{eyebrow}</span>
@@ -102,7 +102,7 @@ export default function FeaturedShowcaseSection({
 
         {/* Automatic Infinite Continuous Carousel Track (Framer Course Track Parity) */}
         <div className="relative w-full overflow-hidden select-none py-2 group">
-          {/* Subtle horizontal track containing duplicated sets for endless seamless motion */}
+          {/* Seamless horizontal track with smooth scroll and pause on hover */}
           <div className="animate-showcase-ticker flex items-center gap-5 will-change-transform">
             
             {/* Set 1 */}
@@ -110,35 +110,26 @@ export default function FeaturedShowcaseSection({
               <div
                 key={`card-1-${card.id}-${idx}`}
                 onClick={() => onViewDetails(card)}
-                className="w-[330px] sm:w-[410px] md:w-[440px] h-[540px] sm:h-[560px] bg-[#171717] rounded-[24px] shrink-0 relative overflow-hidden cursor-pointer group/card border border-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.015] shadow-lg hover:shadow-2xl"
+                className="w-[330px] sm:w-[410px] md:w-[440px] h-[520px] sm:h-[540px] bg-[#171717] rounded-[26px] p-4.5 sm:p-5 shrink-0 flex flex-col justify-between cursor-pointer group/card border border-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.015] shadow-lg hover:shadow-2xl"
               >
-                {/* Background Photography with shade gradient */}
-                <div className="absolute inset-0 overflow-hidden">
+                {/* Top: Rounded Image Container matching Framer Image 2 */}
+                <div className="relative w-full aspect-[16/11] rounded-[18px] overflow-hidden bg-slate-800 shrink-0 shadow-inner">
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-106 opacity-90 group-hover/card:opacity-100"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-106"
                   />
-                  {/* Framer LEROVA Exact Shade Mask */}
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(rgba(10, 10, 12, 0.05) 0%, rgba(10, 10, 12, 0.42) 42%, rgba(10, 10, 12, 0.95) 100%)'
-                    }}
-                  />
-                </div>
-
-                {/* Content Overlay pinned to bottom */}
-                <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8 flex flex-col justify-end space-y-3.5 z-10">
-                  
-                  {/* Concentric Circle Mark */}
-                  <div className="w-[24px] h-[24px] rounded-full border-[2px] border-white/80 flex items-center justify-center">
+                  {/* Concentric Circle Mark at bottom-left of image */}
+                  <div className="absolute bottom-3 left-3 w-[26px] h-[26px] rounded-full border-[2px] border-white/90 bg-black/40 backdrop-blur-xs flex items-center justify-center shadow-xs">
                     <div className="w-[6px] h-[6px] rounded-full bg-white" />
                   </div>
+                </div>
 
-                  {/* Title and Rating Row */}
+                {/* Content below image */}
+                <div className="flex-1 flex flex-col justify-between pt-4 pb-1 space-y-3">
+                  {/* Title & Star Rating */}
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-[20px] sm:text-[22px] font-semibold text-white tracking-tight leading-snug font-['Manrope'] group-hover/card:text-amber-100 transition-colors">
+                    <h3 className="text-[19px] sm:text-[21px] font-semibold text-white tracking-tight leading-snug font-['Manrope'] group-hover/card:text-amber-100 transition-colors">
                       {card.title}
                     </h3>
                     <div className="flex items-center gap-1.5 shrink-0 pt-0.5 text-[#F5B93A]">
@@ -155,7 +146,7 @@ export default function FeaturedShowcaseSection({
                   </div>
 
                   {/* Description */}
-                  <p className="text-[12.5px] sm:text-[13px] text-slate-300/90 font-normal leading-relaxed line-clamp-2 font-['Manrope']">
+                  <p className="text-[12.5px] sm:text-[13px] text-slate-400 font-normal leading-relaxed line-clamp-2 font-['Manrope']">
                     {card.description}
                   </p>
 
@@ -170,7 +161,6 @@ export default function FeaturedShowcaseSection({
                       <span>{card.meta[1]}</span>
                     </div>
                   </div>
-
                 </div>
               </div>
             ))}
@@ -180,31 +170,26 @@ export default function FeaturedShowcaseSection({
               <div
                 key={`card-2-${card.id}-${idx}`}
                 onClick={() => onViewDetails(card)}
-                className="w-[330px] sm:w-[410px] md:w-[440px] h-[540px] sm:h-[560px] bg-[#171717] rounded-[24px] shrink-0 relative overflow-hidden cursor-pointer group/card border border-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.015] shadow-lg hover:shadow-2xl"
+                className="w-[330px] sm:w-[410px] md:w-[440px] h-[520px] sm:h-[540px] bg-[#171717] rounded-[26px] p-4.5 sm:p-5 shrink-0 flex flex-col justify-between cursor-pointer group/card border border-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.015] shadow-lg hover:shadow-2xl"
               >
-                {/* Background Photography with shade gradient */}
-                <div className="absolute inset-0 overflow-hidden">
+                {/* Top: Rounded Image Container matching Framer Image 2 */}
+                <div className="relative w-full aspect-[16/11] rounded-[18px] overflow-hidden bg-slate-800 shrink-0 shadow-inner">
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-106 opacity-90 group-hover/card:opacity-100"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-106"
                   />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(rgba(10, 10, 12, 0.05) 0%, rgba(10, 10, 12, 0.42) 42%, rgba(10, 10, 12, 0.95) 100%)'
-                    }}
-                  />
-                </div>
-
-                {/* Content Overlay pinned to bottom */}
-                <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8 flex flex-col justify-end space-y-3.5 z-10">
-                  <div className="w-[24px] h-[24px] rounded-full border-[2px] border-white/80 flex items-center justify-center">
+                  {/* Concentric Circle Mark at bottom-left of image */}
+                  <div className="absolute bottom-3 left-3 w-[26px] h-[26px] rounded-full border-[2px] border-white/90 bg-black/40 backdrop-blur-xs flex items-center justify-center shadow-xs">
                     <div className="w-[6px] h-[6px] rounded-full bg-white" />
                   </div>
+                </div>
 
+                {/* Content below image */}
+                <div className="flex-1 flex flex-col justify-between pt-4 pb-1 space-y-3">
+                  {/* Title & Star Rating */}
                   <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-[20px] sm:text-[22px] font-semibold text-white tracking-tight leading-snug font-['Manrope'] group-hover/card:text-amber-100 transition-colors">
+                    <h3 className="text-[19px] sm:text-[21px] font-semibold text-white tracking-tight leading-snug font-['Manrope'] group-hover/card:text-amber-100 transition-colors">
                       {card.title}
                     </h3>
                     <div className="flex items-center gap-1.5 shrink-0 pt-0.5 text-[#F5B93A]">
@@ -213,76 +198,19 @@ export default function FeaturedShowcaseSection({
                     </div>
                   </div>
 
+                  {/* Meta: Category & Price/Waiver */}
                   <div className="flex items-center gap-2 text-[12.5px] text-slate-300 font-medium font-['Manrope']">
                     <span>{card.category}</span>
                     <span>·</span>
                     <span className="text-white font-semibold">{card.price}</span>
                   </div>
 
-                  <p className="text-[12.5px] sm:text-[13px] text-slate-300/90 font-normal leading-relaxed line-clamp-2 font-['Manrope']">
+                  {/* Description */}
+                  <p className="text-[12.5px] sm:text-[13px] text-slate-400 font-normal leading-relaxed line-clamp-2 font-['Manrope']">
                     {card.description}
                   </p>
 
-                  <div className="pt-2 flex items-center justify-between border-t border-white/10">
-                    <span className="bg-white text-[#171717] text-[11px] font-bold px-3 py-1 rounded-full font-['Manrope'] shadow-sm">
-                      {card.badge}
-                    </span>
-                    <div className="flex items-center gap-2 text-[11.5px] text-slate-400 font-['Manrope']">
-                      <span>{card.meta[0]}</span>
-                      <span>·</span>
-                      <span>{card.meta[1]}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-
-            {/* Set 3 (ultra-wide screen coverage) */}
-            {cards.map((card, idx) => (
-              <div
-                key={`card-3-${card.id}-${idx}`}
-                onClick={() => onViewDetails(card)}
-                className="w-[330px] sm:w-[410px] md:w-[440px] h-[540px] sm:h-[560px] bg-[#171717] rounded-[24px] shrink-0 relative overflow-hidden cursor-pointer group/card border border-white/5 hover:border-white/20 transition-all duration-500 hover:scale-[1.015] shadow-lg hover:shadow-2xl"
-              >
-                <div className="absolute inset-0 overflow-hidden">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/card:scale-106 opacity-90 group-hover/card:opacity-100"
-                  />
-                  <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                      background: 'linear-gradient(rgba(10, 10, 12, 0.05) 0%, rgba(10, 10, 12, 0.42) 42%, rgba(10, 10, 12, 0.95) 100%)'
-                    }}
-                  />
-                </div>
-
-                <div className="absolute inset-x-0 bottom-0 p-7 sm:p-8 flex flex-col justify-end space-y-3.5 z-10">
-                  <div className="w-[24px] h-[24px] rounded-full border-[2px] border-white/80 flex items-center justify-center">
-                    <div className="w-[6px] h-[6px] rounded-full bg-white" />
-                  </div>
-
-                  <div className="flex items-start justify-between gap-3">
-                    <h3 className="text-[20px] sm:text-[22px] font-semibold text-white tracking-tight leading-snug font-['Manrope'] group-hover/card:text-amber-100 transition-colors">
-                      {card.title}
-                    </h3>
-                    <div className="flex items-center gap-1.5 shrink-0 pt-0.5 text-[#F5B93A]">
-                      <Star className="w-3.5 h-3.5 fill-current" />
-                      <span className="text-[14px] font-bold text-white font-['Manrope']">{card.rating}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center gap-2 text-[12.5px] text-slate-300 font-medium font-['Manrope']">
-                    <span>{card.category}</span>
-                    <span>·</span>
-                    <span className="text-white font-semibold">{card.price}</span>
-                  </div>
-
-                  <p className="text-[12.5px] sm:text-[13px] text-slate-300/90 font-normal leading-relaxed line-clamp-2 font-['Manrope']">
-                    {card.description}
-                  </p>
-
+                  {/* Bottom Row: Badge & Quorum Metadata */}
                   <div className="pt-2 flex items-center justify-between border-t border-white/10">
                     <span className="bg-white text-[#171717] text-[11px] font-bold px-3 py-1 rounded-full font-['Manrope'] shadow-sm">
                       {card.badge}
@@ -299,23 +227,6 @@ export default function FeaturedShowcaseSection({
 
           </div>
         </div>
-
-        {/* Footer: View All Button with Framer Roll Effect */}
-        <ScrollReveal yOffset={20}>
-          <div className="text-center pt-2">
-            <button
-              onClick={() => onViewDetails(cards[0])}
-              className="group inline-flex items-center bg-[#171717] hover:bg-black text-white px-7 py-3.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
-            >
-              <span className="btn-roll">
-                <span className="btn-roll-inner">
-                  <span>Explore All Schemes</span>
-                  <span>Explore All Schemes</span>
-                </span>
-              </span>
-            </button>
-          </div>
-        </ScrollReveal>
 
       </div>
     </section>

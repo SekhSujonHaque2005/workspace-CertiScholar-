@@ -123,7 +123,12 @@ export default function LandingPage({
         />
 
         {/* 07: "Three Simple Steps. A World of Possibilities" (#f4f4f5 background) */}
-        <HowItWorksSteps />
+        <HowItWorksSteps
+          onViewAllSchemes={() => {
+            const el = document.getElementById('scholarships');
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
 
         {/* 08: Giant Bodoni Moda Typography Watermark Statement */}
         <BrandStatementSection
@@ -134,7 +139,12 @@ export default function LandingPage({
         />
 
         {/* 09: Institutional Governance / 4 Grayscale Committee Portraits */}
-        <ReviewerQuorumSection />
+        <ReviewerQuorumSection
+          onMeetReviewers={() => {
+            const el = document.getElementById('how-it-works');
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
 
         {/* 10: "Small Steps. Big Transformations" (Student Testimonial Card) */}
         <TestimonialSection />

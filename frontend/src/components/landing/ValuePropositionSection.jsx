@@ -14,8 +14,8 @@ function ArrowUpRightIcon() {
 const FEATURES = [
   {
     tag: "{ quorum }",
-    title: "Verified Authenticity",
-    description: "Academic marksheets, board certificates, and income records authenticated directly via DigiLocker and official university gazettes.",
+    title: "Verified by Quorum Experts",
+    description: "Academic marksheets, board certificates, and income records authenticated directly by faculty deans and gazette officers.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -52,9 +52,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ anti-stacking }",
-    title: "Zero Double-Counting",
-    description: "Automated policy rule engine prevents conflicting scholarship stacking and preserves financial aid quotas for deserving peers.",
+    tag: "{ flexible }",
+    title: "Verify on Your Schedule",
+    description: "Fit document verification into your day with instant DigiLocker sync designed to eliminate physical queue delays.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -105,9 +105,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ calculation }",
-    title: "Automated OCR Verification",
-    description: "High-precision OCR extracts subject marks and mathematically recalculates aggregate percentages, eliminating human entry error.",
+    tag: "{ practical }",
+    title: "Focus on Explainable Aid",
+    description: "Explore transparent eligibility cutoffs, OCR-corroborated marks, and knowledge you can trust before submitting.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -172,7 +172,7 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ governance }",
+    tag: "{ progress }",
     title: "Make Progress That Matters",
     description: "Track application milestones in real time, receive quorum decision rationale, and turn verified credentials into disbursed aid.",
     illustration: (
@@ -286,7 +286,7 @@ export default function ValuePropositionSection({
               <div>
                 <button
                   onClick={onLearnMore}
-                  className="group inline-flex items-center bg-white hover:bg-slate-50 text-slate-900 font-semibold px-6 py-3 rounded-full text-xs sm:text-[13px] tracking-tight border border-slate-200/90 shadow-2xs hover:shadow-sm transition-all duration-300 cursor-pointer overflow-hidden font-['Manrope']"
+                  className="group inline-flex items-center bg-white hover:bg-[#171717] text-[#171717] hover:text-white font-semibold px-6 py-2.5 rounded-full text-xs sm:text-[13px] tracking-tight border-[1.5px] border-[#171717] shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden font-['Manrope']"
                 >
                   <span className="btn-roll">
                     <span className="btn-roll-inner">
