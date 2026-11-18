@@ -139,6 +139,11 @@ body {
   animation: framerSpinSlow 24s linear infinite;
 }
 
+.animate-spark-spin {
+  animation: framerSpinSlow 8s linear infinite;
+  transform-origin: center;
+}
+
 .animate-dot-1 {
   animation: framerDotBounce 1.4s ease-in-out infinite;
 }

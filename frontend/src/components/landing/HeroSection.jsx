@@ -111,7 +111,11 @@ export default function HeroSection({
         <div className="relative z-10 space-y-4 max-w-4xl">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 text-white/90 text-[13px] font-semibold tracking-[0.08em] uppercase font-['Manrope'] animate-word-blur">
-            <span className="text-[#ff5a2b]">✦</span>
+            <div className="w-3.5 h-3.5 shrink-0 flex items-center justify-center">
+              <svg viewBox="0 0 100 100" className="w-full h-full fill-[#ff5a2b] animate-spark-spin overflow-visible">
+                <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z" />
+              </svg>
+            </div>
             <span>{eyebrow}</span>
           </div>
 
