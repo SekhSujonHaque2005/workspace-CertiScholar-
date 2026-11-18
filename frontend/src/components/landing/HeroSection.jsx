@@ -87,9 +87,9 @@ export default function HeroSection({
 
   return (
     <div id="home" className="w-full">
-      {/* Framer Panel Container - Fixed 893px height on desktop for zero layout shift */}
+      {/* Framer Panel Container - Fixed 893px height on desktop with guaranteed 32px bottom gap */}
       <div 
-        className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:h-[893px] flex flex-col justify-between pt-[130px] sm:pt-[150px] pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl"
+        className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:h-[893px] flex flex-col justify-between pt-[100px] sm:pt-[115px] lg:pt-[125px] pb-7 sm:pb-8 lg:pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl"
         style={{
           background: 'linear-gradient(100deg, rgb(124, 129, 139) 0%, rgb(162, 167, 175) 62%, rgb(169, 174, 181) 100%)'
         }}
@@ -147,17 +147,17 @@ export default function HeroSection({
           </div>
 
           {/* Headline H1 (Manrope 500) + H2 (Bodoni Moda 400 Italic) */}
-          <div className="space-y-1">
-            <h1 className="font-['Manrope'] font-medium text-[68px] sm:text-[105px] lg:text-[135px] xl:text-[150px] leading-[0.9] tracking-[-0.065em] text-white animate-word-blur" style={{ animationDelay: '0.1s' }}>
+          <div className="space-y-0.5">
+            <h1 className="font-['Manrope'] font-medium text-[64px] sm:text-[95px] lg:text-[120px] xl:text-[136px] leading-[0.92] tracking-[-0.065em] text-white animate-word-blur" style={{ animationDelay: '0.1s' }}>
               {headlineSans}
             </h1>
-            <h2 className="font-['Bodoni_Moda'] font-normal italic text-[44px] sm:text-[68px] lg:text-[84px] xl:text-[92px] leading-[1] tracking-[-0.04em] text-white pt-1 animate-word-blur" style={{ animationDelay: '0.2s' }}>
+            <h2 className="font-['Bodoni_Moda'] font-normal italic text-[40px] sm:text-[62px] lg:text-[76px] xl:text-[86px] leading-[1] tracking-[-0.04em] text-white pt-0.5 animate-word-blur" style={{ animationDelay: '0.2s' }}>
               {headlineSerif}
             </h2>
           </div>
 
           {/* Action Buttons with Framer Roll Effect */}
-          <div className="flex flex-wrap items-center gap-3 pt-4 animate-word-blur" style={{ animationDelay: '0.3s' }}>
+          <div className="flex flex-wrap items-center gap-3 pt-3 animate-word-blur" style={{ animationDelay: '0.3s' }}>
             <button
               onClick={onExploreClick}
               className="group bg-white hover:bg-slate-100 text-[#171717] font-semibold px-6 py-3 rounded-full text-xs sm:text-[13px] tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
@@ -182,7 +182,7 @@ export default function HeroSection({
         <div 
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
-          className="relative z-10 pt-6 space-y-4 w-full"
+          className="relative z-10 space-y-3 w-full"
         >
           {/* Paragraph stacked above the tabs on the left */}
           <p className="text-white/90 text-sm leading-relaxed max-w-[350px] font-normal font-['Manrope']">
