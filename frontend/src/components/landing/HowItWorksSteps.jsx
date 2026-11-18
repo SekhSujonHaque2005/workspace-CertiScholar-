@@ -3,7 +3,7 @@ import { Search, FileCheck, CheckCircle2, ArrowRight, ShieldCheck, Cpu } from 'l
 
 const DEFAULT_STEPS = [
   {
-    step: "01",
+    tag: "{ step 01 }",
     title: "Create Student Passport",
     description: "Input your student roll number and link your DigiLocker. CertiScholar securely mounts your academic records into an encrypted personal vault.",
     preview: (
@@ -26,7 +26,7 @@ const DEFAULT_STEPS = [
     ),
   },
   {
-    step: "02",
+    tag: "{ step 02 }",
     title: "Instant OCR & Validation",
     description: "Upload academic marksheets. Our dual OCR pipeline extracts subject marks and recalculates aggregate percentages in under 3 seconds.",
     preview: (
@@ -49,7 +49,7 @@ const DEFAULT_STEPS = [
     ),
   },
   {
-    step: "03",
+    tag: "{ step 03 }",
     title: "Direct Quorum Handoff",
     description: "Submit directly to university scholarship committees. Reviewers inspect verified evidence with zero double-counting or paperwork anxiety.",
     preview: (
@@ -75,7 +75,7 @@ const DEFAULT_STEPS = [
  * Three Simple Steps Section matching Lerova Framer template
  */
 export default function HowItWorksSteps({
-  eyebrow = "How It Works",
+  eyebrow = "Pick a verification path",
   headline = "Three Simple Steps. A World of Possibilities.",
   steps = DEFAULT_STEPS,
 }) {
@@ -99,10 +99,10 @@ export default function HowItWorksSteps({
               key={idx}
               className="bg-white p-7 sm:p-8 rounded-[32px] border border-slate-200/90 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-6 group"
             >
-              {/* Step Pill */}
+              {/* Step Pill & Framer Tag */}
               <div className="flex items-center justify-between">
                 <span className="font-mono text-xs font-black text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-100">
-                  Step {st.step}
+                  {st.tag}
                 </span>
                 <span className="text-slate-300 group-hover:text-indigo-600 transition">
                   <ArrowRight className="w-4 h-4" />

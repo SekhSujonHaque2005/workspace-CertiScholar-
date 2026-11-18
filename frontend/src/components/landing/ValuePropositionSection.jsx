@@ -3,24 +3,28 @@ import { ShieldCheck, Scale, Cpu, CheckCircle2, ArrowRight } from 'lucide-react'
 
 const DEFAULT_FEATURES = [
   {
+    tag: "{ verification }",
     title: "Verified Authenticity",
-    description: "Academic marksheets, board certificates, and income records corroborated directly via DigiLocker and official university gazettes.",
+    description: "Academic marksheets, board certificates, and income records authenticated directly via DigiLocker and official university gazettes.",
     icon: ShieldCheck,
     color: "bg-purple-50 text-purple-600 border-purple-100",
   },
   {
+    tag: "{ anti-stacking }",
     title: "Zero Double-Counting",
     description: "Automated policy rule engine prevents conflicting scholarship stacking and preserves financial aid quotas for deserving peers.",
     icon: Scale,
     color: "bg-emerald-50 text-emerald-600 border-emerald-100",
   },
   {
+    tag: "{ calculation }",
     title: "Automated Calculations",
     description: "High-precision OCR extracts subject marks and mathematically recalculates aggregate percentages, eliminating human entry error.",
     icon: Cpu,
     color: "bg-orange-50 text-orange-600 border-orange-100",
   },
   {
+    tag: "{ quorum }",
     title: "Explainable Quorum",
     description: "Transparent eligibility assessment with auditable rationale, backed by human-in-the-loop review committee quorum.",
     icon: CheckCircle2,
@@ -65,7 +69,7 @@ export default function ValuePropositionSection({
             </div>
           </div>
 
-          {/* Right 4 Pastel Feature Cards */}
+          {/* Right 4 Pastel Feature Cards with Framer-style Tags */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {features.map((feat, idx) => {
               const IconComp = feat.icon;
@@ -74,8 +78,13 @@ export default function ValuePropositionSection({
                   key={idx}
                   className="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-md transition duration-300 space-y-4"
                 >
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${feat.color}`}>
-                    <IconComp className="w-6 h-6" />
+                  <div className="flex items-center justify-between">
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${feat.color}`}>
+                      <IconComp className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-mono font-bold text-slate-400">
+                      {feat.tag}
+                    </span>
                   </div>
                   <h3 className="text-base font-extrabold text-slate-900 tracking-tight">
                     {feat.title}
