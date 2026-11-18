@@ -90,10 +90,7 @@ export default function LandingPage({
             }}
           />
 
-          <TrustStatsGrid
-            headline="Institutional Trust & Verification Governance"
-            sublabel="Corroborated across Lovely Professional University, DigiLocker National Vault, and State Gazette Authorities."
-          />
+          <TrustStatsGrid />
         </section>
 
         {/* 04: "Why LEROVA / The CertiScholar Difference" (Row 1 Text + Row 2 Four Cards) */}

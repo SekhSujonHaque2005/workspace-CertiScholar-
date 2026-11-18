@@ -1,152 +1,221 @@
 import React from 'react';
 
-const LOGOS = [
+const FRAMER_LOGOS = [
   {
-    name: "DIGILOCKER",
+    name: "KINDRA",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M9 12l2 2 4-4" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <path
+          d="M50.00 50.00L88.11 72.00M50.00 50.00L50.00 94.00M50.00 50.00L11.89 72.00M50.00 50.00L11.89 28.00M50.00 50.00L50.00 6.00M50.00 50.00L88.11 28.00"
+          stroke="#171717"
+          strokeWidth="9"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 700,
+      letterSpacing: "0.5px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
   },
   {
-    name: "LPU GAZETTE",
+    name: "nuvio",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <circle cx="76" cy="50" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="63" cy="72.5167" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="37" cy="72.5167" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="24" cy="50" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="37" cy="27.4833" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <circle cx="63" cy="27.4833" r="17" stroke="#171717" strokeWidth="6.75" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 600,
+      letterSpacing: "-1.5px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
   },
   {
-    name: "CBSE ACADEMIC",
+    name: "Halden",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M7 8h10M7 12h10M7 16h6" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <circle cx="22" cy="22" r="6" fill="#171717" />
+        <circle cx="22" cy="50" r="6" fill="#171717" />
+        <circle cx="22" cy="78" r="6" fill="#171717" />
+        <circle cx="50" cy="22" r="6" fill="#171717" />
+        <circle cx="50" cy="50" r="6" fill="#171717" />
+        <circle cx="50" cy="78" r="6" fill="#171717" />
+        <circle cx="78" cy="22" r="6" fill="#171717" />
+        <circle cx="78" cy="50" r="6" fill="#171717" />
+        <circle cx="78" cy="78" r="6" fill="#171717" />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 500,
+      letterSpacing: "-1px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
   },
   {
-    name: "NAD DEPOSITORY",
+    name: "MOSAIQ",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <ellipse cx="12" cy="5" rx="9" ry="3" />
-        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
-        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <path d="M8 30C22 14 36 46 50 30S78 14 92 30" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M8 50C22 34 36 66 50 50S78 34 92 50" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M8 70C22 54 36 86 50 70S78 54 92 70" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 500,
+      letterSpacing: "3px",
+      lineHeight: "1em",
+      color: "#171717",
+      textTransform: "uppercase"
+    }
   },
   {
-    name: "NSP SCHOLARSHIPS",
+    name: "TERRAFOLD",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <circle cx="50" cy="50" r="13" fill="#171717" />
+        <path
+          d="M70.00 50.00L94.00 50.00M69.02 56.18L91.85 63.60M66.18 61.76L85.60 75.86M61.76 66.18L75.86 85.60M56.18 69.02L63.60 91.85M50.00 70.00L50.00 94.00M43.82 69.02L36.40 91.85M38.24 66.18L24.14 85.60M33.82 61.76L14.40 75.86M30.98 56.18L8.15 63.60M30.00 50.00L6.00 50.00M30.98 43.82L8.15 36.40M33.82 38.24L14.40 24.14M38.24 33.82L24.14 14.40M43.82 30.98L36.40 8.15M50.00 30.00L50.00 6.00M56.18 30.98L63.60 8.15M61.76 33.82L75.86 14.40M66.18 38.24L85.60 24.14M69.02 43.82L91.85 36.40"
+          stroke="#171717"
+          strokeWidth="6.3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          fill="none"
+        />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 800,
+      letterSpacing: "-1.25px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
   },
   {
-    name: "PFMS LEDGER",
+    name: "lumen & co",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <path d="M72.00 50.00L94.00 50.00M65.56 65.56L81.11 81.11M50.00 72.00L50.00 94.00M34.44 65.56L18.89 81.11M28.00 50.00L6.00 50.00M34.44 34.44L18.89 18.89M50.00 28.00L50.00 6.00M65.56 34.44L81.11 18.89" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M82.99 41.77L94 50L82.99 58.23" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M79.14 67.51L81.11 81.11L67.51 79.14" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M58.23 82.99L50 94L41.77 82.99" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M32.49 79.14L18.89 81.11L20.86 67.51" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M17.01 58.23L6 50L17.01 41.77" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M20.86 32.49L18.89 18.89L32.49 20.86" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M41.77 17.01L50 6L58.23 17.01" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <path d="M67.51 20.86L81.11 18.89L79.14 32.49" stroke="#171717" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
     ),
-    type: "caps"
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 400,
+      letterSpacing: "-1px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
   },
   {
-    name: "TESSERACT OCR",
+    name: "orbita",
     glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
-        <circle cx="12" cy="12" r="3" />
+      <svg viewBox="0 0 100 100" className="w-6 h-6 overflow-visible shrink-0">
+        <circle cx="50" cy="50" r="10" fill="#171717" />
+        <ellipse cx="50" cy="50" rx="44" ry="18" stroke="#171717" strokeWidth="6.3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <ellipse cx="50" cy="50" rx="44" ry="18" transform="rotate(60 50 50)" stroke="#171717" strokeWidth="6.3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        <ellipse cx="50" cy="50" rx="44" ry="18" transform="rotate(120 50 50)" stroke="#171717" strokeWidth="6.3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
       </svg>
     ),
-    type: "caps"
-  },
-  {
-    name: "POSTGRESQL 16",
-    glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M4 6c0 1.657 3.582 3 8 3s8-1.343 8-3-3.582-3-8-3-8 1.343-8 3z" />
-        <path d="M4 12c0 1.657 3.582 3 8 3s8-1.343 8-3" />
-        <path d="M4 18c0 1.657 3.582 3 8 3s8-1.343 8-3" />
-      </svg>
-    ),
-    type: "caps"
-  },
-  {
-    name: "REACT & TAILWIND",
-    glyph: (
-      <span className="text-sm font-bold text-slate-800">⚛</span>
-    ),
-    type: "caps"
-  },
-  {
-    name: "PYTHON & DJANGO",
-    glyph: (
-      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-    type: "caps"
-  },
+    style: {
+      fontFamily: "'Manrope', sans-serif",
+      fontSize: "25px",
+      fontWeight: 500,
+      letterSpacing: "-1.25px",
+      lineHeight: "1em",
+      color: "#171717"
+    }
+  }
 ];
 
 /**
- * Continuous Infinite Marquee Logo Ticker matching Framer LEROVA template ("Trusted By"):
- * Rounded #f4f4f5 card container sitting directly below Hero Panel with 76px logo gaps.
+ * Authentic Framer LEROVA Infinite Marquee Logo Ticker:
+ * Exact geometric SVG brandmarks, authentic typography, and soft edge gradient masking.
  */
 export default function TrustStatsGrid({
-  headline = "Institutional Trust & Verification Governance",
-  sublabel = "Corroborated across Lovely Professional University, DigiLocker National Vault, and State Gazette Authorities.",
+  headline = "Learning that moves you forward.",
+  sublabel = "Join a growing community of curious minds, ambitious professionals, and lifelong learners.",
 }) {
   return (
-    <div className="w-full bg-[#f4f4f5] rounded-[28px] py-11 px-4 sm:px-8 space-y-8 overflow-hidden select-none">
+    <div className="w-full bg-[#f4f4f5] rounded-[28px] pt-[44px] pb-[48px] px-4 sm:px-8 space-y-[34px] overflow-hidden select-none">
       
-      {/* Copy */}
-      <div className="text-center space-y-1.5">
-        <h3 className="text-[15px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
+      {/* Copy Matching Framer LEROVA */}
+      <div className="text-center space-y-[6px]">
+        <h2 className="text-[17px] font-medium text-[#171717] tracking-[-0.51px] leading-[22.1px] font-['Manrope']">
           {headline}
-        </h3>
-        <p className="text-[13px] text-slate-500 max-w-xl mx-auto font-normal font-['Manrope']">
+        </h2>
+        <p className="text-[13.5px] font-normal text-[#9a9aa1] tracking-[-0.2025px] leading-[19.575px] max-w-xl mx-auto font-['Manrope']">
           {sublabel}
         </p>
       </div>
 
-      {/* Infinite Marquee Ticker Track with 76px gap */}
-      <div className="relative w-full overflow-hidden mask-fade py-2">
-        <div className="animate-ticker items-center space-x-[76px] opacity-80 hover:opacity-100 transition-opacity duration-300">
+      {/* Infinite Marquee Ticker Track with exact Framer linear gradient mask */}
+      <div
+        className="relative w-full overflow-hidden py-1"
+        style={{
+          maskImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12%, rgb(0, 0, 0) 88%, rgba(0, 0, 0, 0) 100%)',
+          WebkitMaskImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12%, rgb(0, 0, 0) 88%, rgba(0, 0, 0, 0) 100%)'
+        }}
+      >
+        <div className="animate-ticker items-center space-x-[76px] transition-opacity duration-300">
           {/* Set 1 */}
-          {LOGOS.map((logo, idx) => (
-            <div key={idx} className="flex items-center gap-2.5 font-bold text-xs sm:text-sm text-slate-700 shrink-0 select-none">
-              {logo.glyph}
-              <span className={logo.type === "caps" ? "tracking-widest uppercase font-mono text-[13px]" : "tracking-tight lowercase text-[14px]"}>
+          {FRAMER_LOGOS.map((logo, idx) => (
+            <div key={idx} className="flex items-center gap-[9px] shrink-0 select-none">
+              <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                {logo.glyph}
+              </div>
+              <span style={logo.style}>
                 {logo.name}
               </span>
             </div>
           ))}
           {/* Set 2 (for continuous seamless loop) */}
-          {LOGOS.map((logo, idx) => (
-            <div key={`dup-${idx}`} className="flex items-center gap-2.5 font-bold text-xs sm:text-sm text-slate-700 shrink-0 select-none">
-              {logo.glyph}
-              <span className={logo.type === "caps" ? "tracking-widest uppercase font-mono text-[13px]" : "tracking-tight lowercase text-[14px]"}>
+          {FRAMER_LOGOS.map((logo, idx) => (
+            <div key={`dup-${idx}`} className="flex items-center gap-[9px] shrink-0 select-none">
+              <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                {logo.glyph}
+              </div>
+              <span style={logo.style}>
                 {logo.name}
               </span>
             </div>
           ))}
-          {/* Set 3 (ensures ultra-wide monitors never see gaps) */}
-          {LOGOS.map((logo, idx) => (
-            <div key={`dup3-${idx}`} className="flex items-center gap-2.5 font-bold text-xs sm:text-sm text-slate-700 shrink-0 select-none">
-              {logo.glyph}
-              <span className={logo.type === "caps" ? "tracking-widest uppercase font-mono text-[13px]" : "tracking-tight lowercase text-[14px]"}>
+          {/* Set 3 (ultra-wide display coverage) */}
+          {FRAMER_LOGOS.map((logo, idx) => (
+            <div key={`dup3-${idx}`} className="flex items-center gap-[9px] shrink-0 select-none">
+              <div className="w-6 h-6 flex items-center justify-center shrink-0">
+                {logo.glyph}
+              </div>
+              <span style={logo.style}>
                 {logo.name}
               </span>
             </div>
