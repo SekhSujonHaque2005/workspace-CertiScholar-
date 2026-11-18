@@ -4,28 +4,28 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 const FAQS = [
   {
-    q: "What is LEROVA?",
-    a: "LEROVA is an online learning platform offering expert-led courses designed to help you build real-world skills in design, technology, business, and data analysis."
+    q: "What is CertiScholar?",
+    a: "CertiScholar is an institutional document verification and scholarship operations platform developed for Lovely Professional University. It provides automated OCR mark calculations, DigiLocker corroboration, anti-stacking policy enforcement, and multi-officer quorum reviews."
   },
   {
-    q: "Who are the courses designed for?",
-    a: "Our courses are created for curious minds, aspiring professionals, and career switchers looking to build practical, in-demand skills at their own pace."
+    q: "How does automated document verification work?",
+    a: "When you upload academic marksheets or category certificates, CertiScholar's high-precision OCR pipeline extracts subject marks, verifies roll numbers against official gazettes, and recalculates eligibility percentages automatically."
   },
   {
-    q: "Can I learn at my own pace?",
-    a: "Yes. All courses provide lifetime access to on-demand video lessons, project files, and exercises, allowing you to fit learning into your schedule."
+    q: "What is the anti-stacking policy engine?",
+    a: "To ensure fair aid distribution and prevent double-dipping, CertiScholar enforces university rules that eliminate conflicting scholarship stacking, guaranteeing that each scholar receives their highest entitled award."
   },
   {
-    q: "Do I need previous experience?",
-    a: "Most foundational courses assume zero prior knowledge. Advanced tracks clearly state prerequisites in their syllabus overview before you enroll."
+    q: "How are verification decisions governed?",
+    a: "Decisions are overseen by an auditable multi-officer Quorum Committee comprising academic deans, registrars, and financial aid auditors who review automated flags before approving aid."
   },
   {
-    q: "Will I receive a certificate?",
-    a: "Yes. Upon completing all lessons and final portfolio projects, you receive an accredited digital completion certificate that you can showcase on LinkedIn or your portfolio."
+    q: "How is sanctioned financial aid disbursed?",
+    a: "Once approved, an official digital Sanction Order with cryptographic verification is generated. Grant amounts and tuition fee waivers are directly credited to your university student ledger."
   },
   {
-    q: "How do I get started?",
-    a: "Simply browse our courses, pick a path that aligns with your ambitions, and start learning immediately with interactive lessons and practical assignments."
+    q: "What documents are required to apply?",
+    a: "Standard requirements include Class 10 and 12 marksheets, entrance examination rank cards (such as LPUNEST or JEE), government photo ID via DigiLocker, and relevant income or category certificates."
   }
 ];
 
@@ -43,7 +43,7 @@ export default function FaqSection() {
               Everything You Need to Know.
             </h2>
             <p className="text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-              Find answers to common questions about LEROVA, our courses, and how learning works.
+              Find answers to common questions about CertiScholar, automated document verification, and scholarship operations.
             </p>
           </div>
         </ScrollReveal>

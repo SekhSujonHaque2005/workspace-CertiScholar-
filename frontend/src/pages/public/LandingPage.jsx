@@ -77,9 +77,9 @@ export default function LandingPage({
         <section className="pt-3 px-3 sm:px-4 max-w-[1400px] mx-auto flex flex-col gap-3">
           <HeroSection
             eyebrow="YOUR FUTURE, YOUR WAY"
-            headlineSans="Build skills."
+            headlineSans="Fund education."
             headlineSerif="unlock your potential."
-            description="Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with CertiScholar. Your next opportunity starts with what you verify today."
+            description="Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips."
             onExploreClick={() => {
               const el = document.getElementById('scholarships');
               el?.scrollIntoView({ behavior: 'smooth' });
@@ -91,8 +91,8 @@ export default function LandingPage({
           />
 
           <TrustStatsGrid
-            headline="Learning that moves you forward."
-            sublabel="Join a growing community of curious minds, ambitious scholars, and accredited institutions."
+            headline="Institutional Trust & Verification Governance"
+            sublabel="Corroborated across Lovely Professional University, DigiLocker National Vault, and State Gazette Authorities."
           />
         </section>
 

@@ -59,7 +59,7 @@ export default function BrandStatementSection({
                   <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                 </span>
                 <span className="text-[11.5px] font-semibold text-[#171717] font-['Manrope']">
-                  Lesson 4 of 12
+                  Verification 4 of 5
                 </span>
               </div>
             </div>
@@ -77,7 +77,7 @@ export default function BrandStatementSection({
             </div>
 
             <div className="text-[13.5px] font-semibold text-[#171717] font-['Manrope']">
-              UI/UX Design: From Zero to Pro
+              LPUNEST Document Quorum
             </div>
 
             {/* Progress Bar */}
@@ -122,7 +122,7 @@ export default function BrandStatementSection({
               Your Goals. Your Pace. Your Progress.
             </h2>
             <p className="text-[14px] sm:text-[15px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-              Learning works best when it feels personal. Create your own routine, revisit lessons whenever you need, and keep building confidence one step at a time.
+              Institutional verification works best when it feels transparent. Authenticate your marksheets, track your quota status in real time, and keep moving forward with confidence.
             </p>
             <div className="pt-2">
               <button
@@ -131,8 +131,8 @@ export default function BrandStatementSection({
               >
                 <span className="btn-roll">
                   <span className="btn-roll-inner">
-                    <span>Start Your Learning Journey</span>
-                    <span>Start Your Learning Journey</span>
+                    <span>Start Your Verification Journey</span>
+                    <span>Start Your Verification Journey</span>
                   </span>
                 </span>
               </button>

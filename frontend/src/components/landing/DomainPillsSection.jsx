@@ -3,9 +3,9 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 const CATEGORIES = [
   {
-    category: "Design & Creativity",
-    title: "Design & Creativity",
-    subtext: "UI/UX, Graphic Design, Branding",
+    category: "Merit Scholarships",
+    title: "Engineering & Technology Merit",
+    subtext: "LPUNEST, JEE National Ranks, Olympiad Honors",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 overflow-visible animate-spark">
         <path
@@ -21,9 +21,9 @@ const CATEGORIES = [
     ),
   },
   {
-    category: "Business & Marketing",
-    title: "Business & Marketing",
-    subtext: "Digital Marketing, Strategy, Sales",
+    category: "Need-Based Aid",
+    title: "Need-Based Financial Aid (EWS)",
+    subtext: "Income Subsidies, Tuition Fee Concessions",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 overflow-visible">
         <path
@@ -39,9 +39,9 @@ const CATEGORIES = [
     ),
   },
   {
-    category: "Technology & Development",
-    title: "Technology & Development",
-    subtext: "Web Development, Programming, AI",
+    category: "Special Wards",
+    title: "Defense & Martyrs Wards",
+    subtext: "Armed Forces, Paramilitary & Police Wards",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 overflow-visible">
         <ellipse
@@ -69,9 +69,9 @@ const CATEGORIES = [
     ),
   },
   {
-    category: "Data & Analytics",
-    title: "Data & Analytics",
-    subtext: "Data Analysis, Visualization, Insights",
+    category: "Excellence Awards",
+    title: "Sports & Cultural Excellence",
+    subtext: "National Sports Medalists, Performing Arts",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-12 h-12 overflow-visible animate-spark" style={{ animationDuration: '40s' }}>
         <circle cx="50" cy="50" r="18" fill="rgb(255, 90, 43)" />
@@ -92,7 +92,7 @@ const CATEGORIES = [
 
 export default function DomainPillsSection({
   eyebrow = "FIND YOUR DIRECTION",
-  headline = "Discover What You Can Become. From creative thinking to technical expertise, explore learning paths that match your interests and ambitions.",
+  headline = "Discover What You Can Become. From merit waivers to need-based financial aid, explore scholarship programs that support your education.",
   onSelectCategory = () => {},
   categories = CATEGORIES,
 }) {

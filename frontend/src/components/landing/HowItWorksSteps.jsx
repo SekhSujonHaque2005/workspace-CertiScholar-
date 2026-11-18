@@ -25,12 +25,12 @@ export default function HowItWorksSteps() {
               {/* Canvas: Mock Card */}
               <div className="w-full bg-[#f4f4f5] rounded-2xl p-4 flex flex-col justify-center space-y-2.5">
                 <span className="text-[11.5px] font-medium text-slate-900 font-['Manrope'] tracking-tight">
-                  Pick a learning path
+                  Select scholarship category
                 </span>
                 
                 {/* Option 1: Selected */}
                 <div className="bg-white p-2.5 rounded-xl border border-slate-900 flex items-center justify-between text-[11.5px] font-medium text-[#171717]">
-                  <span>Design &amp; Creativity</span>
+                  <span>Engineering &amp; Technology Merit</span>
                   <span className="w-3.5 h-3.5 rounded-full bg-[#171717] flex items-center justify-center">
                     <span className="w-1.5 h-1.5 rounded-full bg-white"></span>
                   </span>
@@ -38,19 +38,19 @@ export default function HowItWorksSteps() {
 
                 {/* Option 2 */}
                 <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-[11.5px] font-normal text-slate-500">
-                  <span>Business &amp; Marketing</span>
+                  <span>Need-Based Financial Aid (EWS)</span>
                   <span className="w-3.5 h-3.5 rounded-full border border-slate-300"></span>
                 </div>
 
                 {/* Option 3 */}
                 <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-[11.5px] font-normal text-slate-500">
-                  <span>Technology</span>
+                  <span>Defense &amp; Special Wards</span>
                   <span className="w-3.5 h-3.5 rounded-full border border-slate-300"></span>
                 </div>
 
                 {/* Button */}
                 <div className="bg-[#171717] text-white text-center py-2.5 rounded-xl text-[11.5px] font-medium tracking-tight mt-1 shadow-xs font-['Manrope']">
-                  Start Path
+                  Start Verification
                 </div>
               </div>
 
@@ -60,10 +60,10 @@ export default function HowItWorksSteps() {
                   {"{ step 01 }"}
                 </span>
                 <h3 className="text-[20px] font-semibold text-[#171717] tracking-tight font-['Manrope']">
-                  Choose Your Path
+                  Choose Your Scheme
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Find courses that align with your interests, goals, and the skills you want to develop.
+                  Find scholarship schemes that align with your academic achievements, economic background, and career goals.
                 </p>
               </div>
             </div>
@@ -82,8 +82,8 @@ export default function HowItWorksSteps() {
                       <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
                     <div>
-                      <div className="text-[11.5px] font-medium text-[#171717]">User Research</div>
-                      <div className="text-[10px] text-slate-400">Lesson 3 · Completed</div>
+                      <div className="text-[11.5px] font-medium text-[#171717]">DigiLocker Records</div>
+                      <div className="text-[10px] text-slate-400">Class 12 Marksheets · Verified</div>
                     </div>
                   </div>
                   <span className="text-[11px] font-semibold text-emerald-600">✓</span>
@@ -97,8 +97,8 @@ export default function HowItWorksSteps() {
                         <Clock className="w-3.5 h-3.5" />
                       </div>
                       <div>
-                        <div className="text-[11.5px] font-medium text-[#171717]">Wireframes</div>
-                        <div className="text-[10px] text-slate-400">Lesson 4 · 12 min left</div>
+                        <div className="text-[11.5px] font-medium text-[#171717]">OCR Extraction</div>
+                        <div className="text-[10px] text-slate-400">Subject aggregate: 94.2%</div>
                       </div>
                     </div>
                     <span className="text-[11px] font-bold text-[#ff5a2b]">68%</span>
@@ -115,8 +115,8 @@ export default function HowItWorksSteps() {
                       <List className="w-3.5 h-3.5" />
                     </div>
                     <div>
-                      <div className="text-[11.5px] font-medium text-[#171717]">User Flows</div>
-                      <div className="text-[10px] text-slate-400">Lesson 5 · Up next</div>
+                      <div className="text-[11.5px] font-medium text-[#171717]">Quorum Review</div>
+                      <div className="text-[10px] text-slate-400">Faculty Committee · In Progress</div>
                     </div>
                   </div>
                   <span className="text-[11px] font-medium text-slate-400">—</span>
@@ -130,10 +130,10 @@ export default function HowItWorksSteps() {
                   {"{ step 02 }"}
                 </span>
                 <h3 className="text-[20px] font-semibold text-[#171717] tracking-tight font-['Manrope']">
-                  Learn at Your Pace
+                  Verify at Your Pace
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Follow expert-led lessons, practice new concepts, and make learning part of your routine.
+                  Upload your credentials once. High-precision OCR automatically calculates eligibility and corroborates official gazette records.
                 </p>
               </div>
             </div>
@@ -146,7 +146,7 @@ export default function HowItWorksSteps() {
               <div className="w-full bg-[#f4f4f5] rounded-2xl p-3 flex flex-col justify-between space-y-2">
                 <div className="flex items-center justify-between px-1">
                   <span className="text-[11.5px] font-medium text-[#171717] font-['Manrope']">
-                    Final project
+                    Sanction Order
                   </span>
                   <Share2 className="w-3.5 h-3.5 text-slate-400" />
                 </div>
@@ -154,7 +154,7 @@ export default function HowItWorksSteps() {
                 <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-2xs border border-white">
                   <img
                     src="/images/step-card.jpg"
-                    alt="Portfolio piece"
+                    alt="Sanction credential"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -165,8 +165,8 @@ export default function HowItWorksSteps() {
                     <Check className="w-3 h-3 stroke-[2.5]" />
                   </span>
                   <div>
-                    <div className="text-[11px] font-semibold text-[#171717]">Portfolio piece published</div>
-                    <div className="text-[9.5px] text-slate-400">Shared with 3 reviewers</div>
+                    <div className="text-[11px] font-semibold text-[#171717]">Scholarship Sanctioned</div>
+                    <div className="text-[9.5px] text-slate-400">Credited to LPU Tuition Ledger</div>
                   </div>
                 </div>
               </div>
@@ -177,10 +177,10 @@ export default function HowItWorksSteps() {
                   {"{ step 03 }"}
                 </span>
                 <h3 className="text-[20px] font-semibold text-[#171717] tracking-tight font-['Manrope']">
-                  Put Skills Into Action
+                  Put Aid Into Action
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Apply what you learn to projects, your career, and the opportunities ahead.
+                  Apply sanctioned grant credits directly to university tuition fees, campus living allowances, and research pursuits.
                 </p>
               </div>
             </div>
@@ -190,7 +190,7 @@ export default function HowItWorksSteps() {
 
         {/* Footer Subtext */}
         <div className="text-center text-slate-400 text-xs font-['Manrope']">
-          Start small, stay consistent, and turn every lesson into progress.
+          Automated verification, explainable eligibility, and zero double-counting across all institutional schemes.
         </div>
 
       </div>

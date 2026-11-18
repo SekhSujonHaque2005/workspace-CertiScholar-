@@ -15,8 +15,8 @@ const LOGOS = [
  * Rounded #f4f4f5 card container sitting directly below Hero Panel with 76px logo gaps.
  */
 export default function TrustStatsGrid({
-  headline = "Learning that moves you forward.",
-  sublabel = "Join a growing community of curious minds, ambitious scholars, and accredited institutions.",
+  headline = "Institutional Trust & Verification Governance",
+  sublabel = "Corroborated across Lovely Professional University, DigiLocker National Vault, and State Gazette Authorities.",
 }) {
   return (
     <div className="w-full bg-[#f4f4f5] rounded-[28px] py-11 px-4 sm:px-8 space-y-8 overflow-hidden select-none">

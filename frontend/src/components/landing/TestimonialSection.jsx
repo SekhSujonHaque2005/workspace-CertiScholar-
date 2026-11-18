@@ -17,7 +17,7 @@ export default function TestimonialSection() {
               Small Steps. Big Transformations.
             </h2>
             <p className="text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-              Every learning journey is unique. Here’s how real students used LEROVA to build new skills, find direction, and achieve their goals.
+              Every scholarship journey matters. Here’s how real scholars used CertiScholar to verify credentials, secure financial aid, and achieve their goals.
             </p>
           </div>
         </ScrollReveal>
@@ -49,12 +49,12 @@ export default function TestimonialSection() {
 
                 {/* Headline Quote */}
                 <blockquote className="text-[24px] sm:text-[32px] font-medium text-[#171717] leading-snug tracking-tight font-['Manrope']">
-                  “LEROVA helped me turn my curiosity into real skills.”
+                  “CertiScholar helped me turn my academic performance into a fully funded university degree.”
                 </blockquote>
 
                 {/* Story */}
                 <p className="text-slate-500 text-[14px] sm:text-[15.5px] leading-relaxed font-normal font-['Manrope']">
-                  The learning experience felt structured yet completely flexible. The projects gave me real confidence, and within a few months, I was able to transition into a new design role.
+                  The verification process was transparent, fast, and completely free of manual paperwork. Within 48 hours of uploading my board marksheets, my 100% LPUNEST waiver was corroborated and credited directly to my university tuition ledger.
                 </p>
 
                 {/* Author */}
@@ -63,7 +63,7 @@ export default function TestimonialSection() {
                     Sarah Lin
                   </div>
                   <div className="text-[13px] text-slate-500 font-normal font-['Manrope']">
-                    Product Designer · Former Marketing Specialist
+                    B.Tech Computer Science Scholar · Lovely Professional University
                   </div>
                 </div>
               </div>

@@ -73,7 +73,7 @@ export default function PreFooterCtaSection({
 
             {/* Paragraph */}
             <p className="text-[13.5px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-              Take the first step toward something greater. Learn new skills, explore fresh ideas, and make your next move with CertiScholar.
+              Take the first step toward something greater. Discover verified scholarships, corroborate credentials, and secure your financial aid with CertiScholar.
             </p>
 
             {/* Action Button with Framer Roll Effect */}
@@ -84,8 +84,8 @@ export default function PreFooterCtaSection({
               >
                 <span className="btn-roll">
                   <span className="btn-roll-inner">
-                    <span>Start Learning Today</span>
-                    <span>Start Learning Today</span>
+                    <span>Start Verification Today</span>
+                    <span>Start Verification Today</span>
                   </span>
                 </span>
               </button>

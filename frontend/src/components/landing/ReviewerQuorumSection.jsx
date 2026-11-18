@@ -4,34 +4,34 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 const REVIEWERS = [
   {
     name: "Olivia Bennett",
-    role: "Product Design Mentor",
-    tag: "{ instructor }",
+    role: "Verification Committee Chair",
+    tag: "{ reviewer }",
     image: "/images/mentor-1.jpg",
   },
   {
     name: "Daniel Carter",
-    role: "Web Development Lead",
-    tag: "{ instructor }",
+    role: "Academic Registrar & Gazettes",
+    tag: "{ reviewer }",
     image: "/images/mentor-2.jpg",
   },
   {
     name: "Ethan Brooks",
-    role: "Data Analytics Instructor",
-    tag: "{ instructor }",
+    role: "Financial Aid Auditor (EWS)",
+    tag: "{ reviewer }",
     image: "/images/mentor-3.jpg",
   },
   {
     name: "Sophia Mitchell",
-    role: "Brand Strategy Director",
-    tag: "{ instructor }",
+    role: "State Quota Policy Director",
+    tag: "{ reviewer }",
     image: "/images/mentor-4.jpg",
   },
 ];
 
 export default function ReviewerQuorumSection({
-  eyebrow = "Learn from the best",
-  headline = "Experience Meets Passion for Teaching.",
-  subheadline = "Learn from professionals who bring industry knowledge, practical insights, and real-world expertise to every course.",
+  eyebrow = "Governance you can trust",
+  headline = "Experience Meets Rigor in Governance.",
+  subheadline = "Reviewed by faculty deans and verification officers who uphold institutional standards across all sanctioned scholarships.",
   reviewers = REVIEWERS,
 }) {
   return (

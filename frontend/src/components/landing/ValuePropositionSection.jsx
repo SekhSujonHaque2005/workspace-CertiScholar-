@@ -13,9 +13,9 @@ function ArrowUpRightIcon() {
 
 const FEATURES = [
   {
-    tag: "{ mentors }",
-    title: "Learn From Industry Experts",
-    description: "Gain practical insights from experienced professionals who understand the skills that matter in the real world.",
+    tag: "{ quorum }",
+    title: "Verified Authenticity",
+    description: "Academic marksheets, board certificates, and income records authenticated directly via DigiLocker and official university gazettes.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -52,9 +52,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ flexible }",
-    title: "Learn on Your Schedule",
-    description: "Fit learning into your day with flexible lessons designed to work around your life and commitments.",
+    tag: "{ anti-stacking }",
+    title: "Zero Double-Counting",
+    description: "Automated policy rule engine prevents conflicting scholarship stacking and preserves financial aid quotas for deserving peers.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -105,9 +105,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ practical }",
-    title: "Focus on Practical Skills",
-    description: "Explore hands-on projects, useful techniques, and knowledge you can apply beyond the classroom.",
+    tag: "{ calculation }",
+    title: "Automated OCR Verification",
+    description: "High-precision OCR extracts subject marks and mathematically recalculates aggregate percentages, eliminating human entry error.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -172,9 +172,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ progress }",
+    tag: "{ governance }",
     title: "Make Progress That Matters",
-    description: "Build confidence, track your learning journey, and keep moving toward your personal and professional goals.",
+    description: "Track application milestones in real time, receive quorum decision rationale, and turn verified credentials into disbursed aid.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -258,9 +258,9 @@ const FEATURES = [
 ];
 
 export default function ValuePropositionSection({
-  eyebrow = "The LEROVA difference",
-  headline = "More Than Learning. A Step Toward Your Future.",
-  description = "Great learning should fit your life, support your goals, and help you make meaningful progress. LEROVA brings everything together in one place.",
+  eyebrow = "The CertiScholar difference",
+  headline = "More Than Aid. A Step Toward Your Future.",
+  description = "Great scholarship platforms should fit your life, eliminate red tape, and help you make verifiable progress. CertiScholar brings discovery, OCR verification, and institutional review into one unified place.",
   onLearnMore = () => {},
   features = FEATURES,
 }) {

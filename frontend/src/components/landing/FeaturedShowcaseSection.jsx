@@ -4,44 +4,44 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 const HIGHLIGHT_CARDS = [
   {
-    id: "course-1",
-    title: "UI/UX Design: From Zero to Pro",
-    category: "Design & Creativity",
+    id: "lpu-nest-2026",
+    title: "LPUNEST Merit Scholarship 2026",
+    category: "Technology & Engineering",
     rating: "4.9",
-    price: "$49",
-    badge: "Bestseller",
-    description: "Learn user research, wireframing, prototyping, and interface design.",
+    price: "100% Waiver",
+    badge: "Top Merit",
+    description: "Premier academic scholarship awarded based on LPUNEST percentile and 12th board qualifying marks.",
     image: "/images/card-code.jpg",
-    meta: ["12 Lessons", "4.5 Hours"],
+    meta: ["12 Reviewers", "48h Turnaround"],
   },
   {
-    id: "course-2",
-    title: "Digital Marketing Essentials",
-    category: "Business & Marketing",
+    id: "lpu-ews-2026",
+    title: "Need-Based Financial Aid (EWS)",
+    category: "Social Justice & Inclusion",
     rating: "4.8",
-    price: "$39",
+    price: "₹1,50,000/yr",
     badge: "Popular",
-    description: "Understand content strategy, SEO, social media, and campaign planning.",
+    description: "Dedicated assistance for economically weaker sections with annual family income certified under ₹2.5L.",
     image: "/images/card-design.jpg",
-    meta: ["16 Lessons", "6 Hours"],
+    meta: ["16 Quorum Members", "72h Turnaround"],
   },
   {
-    id: "course-3",
-    title: "Modern Web Development",
-    category: "Technology & Development",
+    id: "lpu-shikshak-2026",
+    title: "Shikshak Samman & Defense Anudaan",
+    category: "Special Wards Scheme",
     rating: "4.9",
-    price: "$59",
-    badge: "New",
-    description: "Build responsive websites and understand the fundamentals of the modern web.",
+    price: "75% Waiver",
+    badge: "Priority",
+    description: "Special institutional grant honoring the wards of school teachers, armed forces, and paramilitary personnel.",
     image: "/images/card-finance.jpg",
-    meta: ["20 Lessons", "8 Hours"],
+    meta: ["8 Officers", "24h Turnaround"],
   },
 ];
 
 export default function FeaturedShowcaseSection({
   eyebrow = "HANDPICKED FOR YOU",
-  headline = "Skills Worth Investing In.",
-  subheadline = "Discover thoughtfully designed courses that help you move from curiosity to capability.",
+  headline = "Schemes Worth Applying For.",
+  subheadline = "Discover verified institutional scholarships that turn academic excellence into fully funded education.",
   onViewDetails = () => {},
   cards = HIGHLIGHT_CARDS,
 }) {
@@ -140,8 +140,8 @@ export default function FeaturedShowcaseSection({
             >
               <span className="btn-roll">
                 <span className="btn-roll-inner">
-                  <span>View All Courses</span>
-                  <span>View All Courses</span>
+                  <span>View All Schemes</span>
+                  <span>View All Schemes</span>
                 </span>
               </span>
             </button>

@@ -5,9 +5,9 @@ const DEFAULT_TABS = [
   {
     id: "01",
     badgeNumber: "01",
-    title: "Self-Paced Learning",
-    description: "Learn at your own pace. Grow at your own speed.",
-    badge: "Expert-led",
+    title: "Self-Paced Verification",
+    description: "Verify academic marksheets once at your own speed. Valid across all schemes.",
+    badge: "Expert Quorum",
     avatars: [
       "/images/avatar-1.jpg", 
       "/images/avatar-2.jpg", 
@@ -18,9 +18,9 @@ const DEFAULT_TABS = [
     id: "02",
     badgeNumber: "02",
     value: "10K+",
-    title: "Active Learners*",
-    description: "Join over 10,000 ambitious learners mastering real-world skills.",
-    badge: "Active Community",
+    title: "Active Scholars*",
+    description: "Over 10,000 students verified across Lovely Professional University.",
+    badge: "Verified Cohort",
     avatars: [
       "/images/avatar-2.jpg", 
       "/images/avatar-3.jpg",
@@ -31,9 +31,9 @@ const DEFAULT_TABS = [
     id: "03",
     badgeNumber: "03",
     value: "250+",
-    title: "Expert-Led Courses*",
-    description: "Thoughtfully structured curricula designed by industry professionals.",
-    badge: "Curated Tracks",
+    title: "Verified Schemes*",
+    description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS aid, and defense wards.",
+    badge: "Gazette Corroborated",
     avatars: [
       "/images/avatar-1.jpg", 
       "/images/avatar-3.jpg",
@@ -44,9 +44,9 @@ const DEFAULT_TABS = [
     id: "04",
     badgeNumber: "04",
     value: "95%",
-    title: "Learner Satisfaction*",
-    description: "Consistently rated 5 stars by students and career switchers worldwide.",
-    badge: "Verified Reviews",
+    title: "Decision Accuracy*",
+    description: "Auditable mathematical verification with zero double-counting, backed by quorum review.",
+    badge: "Audit Verified",
     avatars: [
       "/images/avatar-3.jpg", 
       "/images/avatar-2.jpg",
@@ -57,9 +57,9 @@ const DEFAULT_TABS = [
 
 export default function HeroSection({
   eyebrow = "YOUR FUTURE, YOUR WAY",
-  headlineSans = "Build skills.",
+  headlineSans = "Fund education.",
   headlineSerif = "unlock your potential.",
-  description = "Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with LEROVA. Your next opportunity starts with what you learn today.",
+  description = "Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips.",
   onExploreClick = () => {},
   onHowItWorksClick = () => {},
   tabs = DEFAULT_TABS,
@@ -133,8 +133,8 @@ export default function HeroSection({
             >
               <span className="btn-roll">
                 <span className="btn-roll-inner">
-                  <span>Explore Courses</span>
-                  <span>Explore Courses</span>
+                  <span>Explore Scholarships</span>
+                  <span>Explore Scholarships</span>
                 </span>
               </span>
             </button>
