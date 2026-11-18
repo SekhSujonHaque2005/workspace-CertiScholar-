@@ -1,64 +1,54 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { WifiOff } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import HeroSection from '../../components/landing/HeroSection';
 import TrustStatsGrid from '../../components/landing/TrustStatsGrid';
+import ValuePropositionSection from '../../components/landing/ValuePropositionSection';
+import DomainPillsSection from '../../components/landing/DomainPillsSection';
+import FeaturedShowcaseSection from '../../components/landing/FeaturedShowcaseSection';
 import HowItWorksSteps from '../../components/landing/HowItWorksSteps';
-import ScholarshipFilterBar from '../../components/landing/ScholarshipFilterBar';
-import ScholarshipGrid from '../../components/landing/ScholarshipGrid';
-import AudienceSection from '../../components/landing/AudienceSection';
+import BrandStatementSection from '../../components/landing/BrandStatementSection';
+import ReviewerQuorumSection from '../../components/landing/ReviewerQuorumSection';
+import TestimonialSection from '../../components/landing/TestimonialSection';
 import FaqSection from '../../components/landing/FaqSection';
+import PreFooterCtaSection from '../../components/landing/PreFooterCtaSection';
 import ScholarshipDetailModal from '../../components/landing/ScholarshipDetailModal';
 import { MOCK_SCHOLARSHIPS } from '../../services/mockScholarships';
 
 /**
  * PUB-001: Public Landing Page
- * Prop-driven architectural orchestrator assembling modular, reusable components.
- * 
- * @param {Object} props
- * @param {() => void} [props.onNavigateLogin]
- * @param {() => void} [props.onNavigateRegister]
- * @param {() => void} [props.onNavigateStudentWorkspace]
+ * Completely aligned with the Lerova Framer template design system:
+ * - Geometric modern sans-serif (Manrope) + High-contrast luxury serif italic (Bodoni Moda)
+ * - Rounded hero container with Indian student portrait cutout & 4 expandable interactive capsule tabs
+ * - Monochrome partner logo bar
+ * - 4-card pastel difference grid
+ * - Domain categorization cards
+ * - 3-card dark scheme showcase
+ * - 3 simple step workflow mockups
+ * - Watermark brand statement
+ * - 4 grayscale verification quorum portraits
+ * - Student testimonial card
+ * - Expandable FAQ accordion
+ * - Pre-footer concentric circular portal CTA
+ * - Minimalist 5-column footer
  */
 export default function LandingPage({
   onNavigateLogin = () => {},
   onNavigateRegister = () => {},
   onNavigateStudentWorkspace = () => {},
 }) {
-  // Accessibility & Localization State
+  // Localization & Accessibility
   const [language, setLanguage] = useState('EN');
   const [fontScale, setFontScale] = useState(100);
   const [isOnline, setIsOnline] = useState(navigator.onLine);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Search & Filter State
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedLevel, setSelectedLevel] = useState('All');
-  const [selectedLocation, setSelectedLocation] = useState('All');
-  const [isLoading, setIsLoading] = useState(false);
 
   // Interaction State
   const [savedIds, setSavedIds] = useState([]);
   const [selectedScholarshipForModal, setSelectedScholarshipForModal] = useState(null);
   const [activeFaq, setActiveFaq] = useState(null);
 
-  const searchInputRef = useRef(null);
-
-  // Keyboard shortcut: Pressing '/' focuses search input
-  useEffect(() => {
-    const handleKeyDown = (e) => {
-      if (e.key === '/' && document.activeElement !== searchInputRef.current) {
-        e.preventDefault();
-        searchInputRef.current?.focus();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  // Online / Offline Status Listener
+  // Online / Offline Status
   useEffect(() => {
     const handleOnline = () => setIsOnline(true);
     const handleOffline = () => setIsOnline(false);
@@ -70,39 +60,7 @@ export default function LandingPage({
     };
   }, []);
 
-  // Debounced skeleton transition for realistic responsive UI feedback
-  const triggerFilterTransition = (updateStateCallback) => {
-    setIsLoading(true);
-    updateStateCallback();
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 180);
-  };
-
-  // Filter Logic
-  const filteredScholarships = MOCK_SCHOLARSHIPS.filter((s) => {
-    const matchesSearch =
-      s.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.publisher.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      s.description.toLowerCase().includes(searchTerm.toLowerCase());
-
-    const matchesCategory = selectedCategory === 'All' || s.category === selectedCategory;
-    const matchesLevel = selectedLevel === 'All' || s.educationLevel === selectedLevel || s.educationLevel === 'All Levels';
-    const matchesLocation = selectedLocation === 'All' || s.location.includes(selectedLocation);
-
-    return matchesSearch && matchesCategory && matchesLevel && matchesLocation;
-  });
-
   // Action Handlers
-  const handleClearFilters = () => {
-    triggerFilterTransition(() => {
-      setSearchTerm('');
-      setSelectedCategory('All');
-      setSelectedLevel('All');
-      setSelectedLocation('All');
-    });
-  };
-
   const handleToggleSave = (id) => {
     setSavedIds((prev) =>
       prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
@@ -121,13 +79,13 @@ export default function LandingPage({
     onNavigateStudentWorkspace();
   };
 
-  // Dynamic root font scale style
+  // Font scale style for WCAG 2.2 AA compliance
   const rootScaleStyle = {
     fontSize: fontScale === 90 ? '90%' : fontScale === 110 ? '110%' : '100%',
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-sans antialiased selection:bg-indigo-500 selection:text-white" style={rootScaleStyle}>
+    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 font-sans antialiased selection:bg-slate-900 selection:text-white" style={rootScaleStyle}>
       
       {/* Offline Status Warning Bar */}
       {!isOnline && (
@@ -137,7 +95,7 @@ export default function LandingPage({
         </div>
       )}
 
-      {/* 01: Global Header Component */}
+      {/* 01: Floating Pill Header */}
       <Header
         language={language}
         onLanguageChange={setLanguage}
@@ -145,103 +103,89 @@ export default function LandingPage({
         onFontScaleChange={setFontScale}
         onLogin={onNavigateLogin}
         onRegister={onNavigateRegister}
-        mobileMenuOpen={mobileMenuOpen}
-        onToggleMobileMenu={() => setMobileMenuOpen(!mobileMenuOpen)}
       />
 
       <main>
-        {/* 02: Hero Section Component */}
+        {/* 02: Lerova-Style Hero Card with Indian Student Cutout & 4 Interactive Tabs */}
         <HeroSection
-          searchTerm={searchTerm}
-          onSearchChange={(val) => triggerFilterTransition(() => setSearchTerm(val))}
-          onSearchSubmit={() => {
-            const el = document.getElementById('featured');
-            el?.scrollIntoView({ behavior: 'smooth' });
-          }}
+          eyebrow="YOUR FUTURE, YOUR WAY"
+          headlineSans="Fund education."
+          headlineSerif="unlock your potential"
+          description="Explore verified scholarships, eliminate manual paperwork, and turn your academic ambitions into funded achievements with CertiScholar. Your next opportunity starts with what you verify today."
           onExploreClick={() => {
-            const el = document.getElementById('featured');
+            const el = document.getElementById('scholarships');
             el?.scrollIntoView({ behavior: 'smooth' });
           }}
           onHowItWorksClick={() => {
             const el = document.getElementById('how-it-works');
             el?.scrollIntoView({ behavior: 'smooth' });
           }}
-          onLoginClick={onNavigateLogin}
-          searchInputRef={searchInputRef}
         />
 
-        {/* 03: Trust & Stats Grid Component */}
-        <TrustStatsGrid />
+        {/* 03: Minimalist Monochrome Partner Logo Marquee */}
+        <TrustStatsGrid
+          headline="Opportunities that move you forward."
+          sublabel="Join a growing community of ambitious scholars, verified academic offices, and philanthropic trusts."
+        />
 
-        {/* 04: How It Works Steps Component */}
+        {/* 04: "The CertiScholar Difference" (4 Pastel Feature Cards) */}
+        <ValuePropositionSection
+          eyebrow="The CertiScholar Difference"
+          headline="More Than Aid. A Step Toward Your Future."
+          description="Great scholarship platforms should fit your life, eliminate red tape, and help you make verifiable progress. CertiScholar brings discovery, OCR verification, and institutional review into one unified place."
+          onLearnMore={() => {
+            const el = document.getElementById('how-it-works');
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
+
+        {/* 05: "What You Can Become" (Academic Discipline Stream Cards) */}
+        <DomainPillsSection
+          onSelectCategory={(cat) => {
+            const el = document.getElementById('scholarships');
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
+
+        {/* 06: "Scholarships Worth Applying For" (Dark 3-Card High-Tech Showcase) */}
+        <FeaturedShowcaseSection
+          onViewDetails={(card) => {
+            // Find matched mock scholarship data or use card
+            const match = MOCK_SCHOLARSHIPS.find((s) => s.id === card.id) || card;
+            setSelectedScholarshipForModal(match);
+          }}
+          onSave={handleToggleSave}
+          onWhatsAppShare={handleWhatsAppShare}
+          savedIds={savedIds}
+        />
+
+        {/* 07: "Three Simple Steps. A World of Possibilities" */}
         <HowItWorksSteps />
 
-        {/* 05 & 06: Featured Scholarships Directory */}
-        <section id="featured" className="py-20 bg-slate-50 border-t border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-              <div>
-                <span className="text-xs uppercase font-bold tracking-widest text-indigo-600">Verified Opportunities</span>
-                <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-1">
-                  Active Scholarships
-                </h2>
-                <p className="text-slate-500 text-sm mt-1">
-                  Hand-picked, official gazette corroborated schemes with automated verification.
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-xs">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span>{filteredScholarships.length} Schemes Available</span>
-              </div>
-            </div>
+        {/* 08: Giant Typography Watermark Statement */}
+        <BrandStatementSection />
 
-            {/* Filter Bar Component */}
-            <ScholarshipFilterBar
-              searchTerm={searchTerm}
-              onSearchChange={(val) => triggerFilterTransition(() => setSearchTerm(val))}
-              selectedCategory={selectedCategory}
-              onCategoryChange={(val) => triggerFilterTransition(() => setSelectedCategory(val))}
-              selectedLevel={selectedLevel}
-              onLevelChange={(val) => triggerFilterTransition(() => setSelectedLevel(val))}
-              selectedLocation={selectedLocation}
-              onLocationChange={(val) => triggerFilterTransition(() => setSelectedLocation(val))}
-              onReset={handleClearFilters}
-              resultsCount={filteredScholarships.length}
-              searchInputRef={searchInputRef}
-            />
+        {/* 09: Institutional Governance / 4 Grayscale Committee Portraits */}
+        <ReviewerQuorumSection />
 
-            {/* Scholarship Cards Grid Component */}
-            <ScholarshipGrid
-              scholarships={filteredScholarships}
-              isLoading={isLoading}
-              savedIds={savedIds}
-              onToggleSave={handleToggleSave}
-              onViewDetails={(s) => setSelectedScholarshipForModal(s)}
-              onWhatsAppShare={handleWhatsAppShare}
-              onResetFilters={handleClearFilters}
-            />
-          </div>
-        </section>
+        {/* 10: "Small Steps. Big Transformations" (Rahul Sharma Student Testimonial) */}
+        <TestimonialSection />
 
-        {/* 07: Audience Ecosystem Section */}
-        <AudienceSection
-          onStudentRegister={onNavigateRegister}
-          onInstitutionEnquire={() => {
-            alert('Institution Partner Onboarding Request dispatched to LPU Financial Aid Secretariat.');
-          }}
-          onAgencyGetStarted={() => {
-            alert('Agency Grant Publisher Onboarding initiated.');
-          }}
-        />
-
-        {/* 08: FAQ Section Component */}
+        {/* 11: Frequently Asked Questions Accordion */}
         <FaqSection
           activeFaq={activeFaq}
           onToggleFaq={(idx) => setActiveFaq(activeFaq === idx ? null : idx)}
         />
+
+        {/* 12: Pre-Footer Concentric Rings Portal CTA */}
+        <PreFooterCtaSection
+          onGetStarted={(val) => {
+            onNavigateRegister();
+          }}
+        />
       </main>
 
-      {/* 09: Global Footer Component */}
+      {/* 13: Minimalist 5-Column Footer */}
       <Footer
         onNavigateHome={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         onNavigateLogin={onNavigateLogin}
@@ -251,7 +195,7 @@ export default function LandingPage({
         onOpenAccessibility={() => alert('PUB-014: WCAG 2.2 Level AA Accessibility Statement')}
       />
 
-      {/* 10: Scholarship Details Modal Component (PUB-011) */}
+      {/* Scholarship Details Modal (PUB-011) */}
       <ScholarshipDetailModal
         scholarship={selectedScholarshipForModal}
         onClose={() => setSelectedScholarshipForModal(null)}

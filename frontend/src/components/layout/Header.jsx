@@ -1,174 +1,151 @@
-import React from 'react';
-import { GraduationCap, Globe, Menu, X } from 'lucide-react';
-import Button from '../common/Button';
+import React, { useState } from 'react';
+import { Menu, X, Globe, ChevronDown, Sparkles } from 'lucide-react';
 
+/**
+ * Prop-driven Header matching Lerova Framer template
+ * Floating pill logo badge + floating navigation bar + dark pill action button
+ */
 export default function Header({
-  language = 'EN',
-  onLanguageChange,
+  brandName = "CertiScholar",
+  onLogin = () => {},
+  onRegister = () => {},
+  language = "EN",
+  onLanguageChange = () => {},
   fontScale = 100,
-  onFontScaleChange,
-  onLogin,
-  onRegister,
-  mobileMenuOpen = false,
-  onToggleMobileMenu,
+  onFontScaleChange = () => {},
 }) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-xs">
-      {/* Top Utility Bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-1.5 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-6">
-            <a href="mailto:support@certischolar.org" className="hover:text-white transition">
-              support@certischolar.org
-            </a>
-            <span className="text-slate-600 hidden sm:inline">|</span>
-            <a href="tel:+15551234567" className="hover:text-white transition hidden sm:inline">
-              +1 (555) 123-4567
-            </a>
-          </div>
+    <header className="w-full pt-4 sm:pt-6 px-4 sm:px-8 relative z-40">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        
+        {/* Brand Logo Capsule (Lerova Pill Style) */}
+        <a 
+          href="#home" 
+          className="bg-white/95 backdrop-blur-md text-slate-900 px-4 py-2.5 rounded-full font-bold flex items-center gap-2.5 shadow-sm border border-slate-200/80 hover:shadow-md transition"
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span>
+          </span>
+          <span className="tracking-tight text-sm font-extrabold text-slate-950 font-sans">
+            {brandName}
+          </span>
+        </a>
 
-          <div className="flex items-center space-x-4">
-            {/* Language Switcher */}
-            <div className="flex items-center space-x-1.5">
-              <Globe className="w-3.5 h-3.5 text-slate-400" />
-              <select
-                value={language}
-                onChange={(e) => onLanguageChange && onLanguageChange(e.target.value)}
-                className="bg-transparent text-slate-300 hover:text-white focus:outline-none cursor-pointer text-xs"
-              >
-                <option value="EN" className="bg-slate-800 text-white">English</option>
-                <option value="HI" className="bg-slate-800 text-white">हिंदी (Hindi)</option>
-                <option value="PA" className="bg-slate-800 text-white">ਪੰਜਾਬੀ (Punjabi)</option>
-              </select>
-            </div>
+        {/* Center Floating Pill Navigation Menu */}
+        <nav className="hidden lg:flex items-center bg-white/90 backdrop-blur-md px-7 py-2.5 rounded-full shadow-sm border border-slate-200/70 space-x-7 text-xs font-semibold text-slate-700">
+          <a href="#home" className="hover:text-black transition-colors">Home</a>
+          <a href="#about" className="hover:text-black transition-colors">About</a>
+          <a href="#scholarships" className="hover:text-black transition-colors">Scholarships</a>
+          <a href="#how-it-works" className="hover:text-black transition-colors">How It Works</a>
+          <a href="#verification" className="hover:text-black transition-colors">Verification</a>
+          <a href="#faq" className="hover:text-black transition-colors">FAQ</a>
+        </nav>
 
-            <span className="text-slate-600">|</span>
+        {/* Right Action Group */}
+        <div className="flex items-center space-x-3">
+          
+          {/* Subtle Language / Accessibility Capsule */}
+          <div className="hidden sm:flex items-center bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/70 text-xs text-slate-600 gap-2">
+            <Globe className="w-3.5 h-3.5 text-slate-400" />
+            <select
+              value={language}
+              onChange={(e) => onLanguageChange(e.target.value)}
+              className="bg-transparent text-slate-700 font-semibold cursor-pointer focus:outline-none"
+            >
+              <option value="EN">EN</option>
+              <option value="HI">HI</option>
+              <option value="PA">PA</option>
+            </select>
 
-            {/* Accessibility Controls */}
-            <div className="flex items-center space-x-1 text-[11px] font-semibold">
-              <span className="text-slate-400 mr-1 hidden sm:inline">Text Size:</span>
+            <span className="text-slate-300">|</span>
+
+            {/* Font Scaler (WCAG 2.2 AA) */}
+            <div className="flex items-center gap-1 font-semibold text-[11px]">
               <button
-                onClick={() => onFontScaleChange && onFontScaleChange(90)}
-                className={`px-1.5 py-0.5 rounded hover:text-white ${fontScale === 90 ? 'text-indigo-400 font-bold' : ''}`}
+                onClick={() => onFontScaleChange(90)}
+                className={`px-1 rounded hover:text-slate-950 ${fontScale === 90 ? 'text-indigo-600 font-bold' : ''}`}
                 title="Smaller text"
               >
                 A-
               </button>
               <button
-                onClick={() => onFontScaleChange && onFontScaleChange(100)}
-                className={`px-1.5 py-0.5 rounded hover:text-white ${fontScale === 100 ? 'text-indigo-400 font-bold' : ''}`}
+                onClick={() => onFontScaleChange(100)}
+                className={`px-1 rounded hover:text-slate-950 ${fontScale === 100 ? 'text-indigo-600 font-bold' : ''}`}
                 title="Default text"
               >
                 A
               </button>
               <button
-                onClick={() => onFontScaleChange && onFontScaleChange(110)}
-                className={`px-1.5 py-0.5 rounded hover:text-white ${fontScale === 110 ? 'text-indigo-400 font-bold' : ''}`}
+                onClick={() => onFontScaleChange(110)}
+                className={`px-1 rounded hover:text-slate-950 ${fontScale === 110 ? 'text-indigo-600 font-bold' : ''}`}
                 title="Larger text"
               >
                 A+
               </button>
             </div>
           </div>
-        </div>
-      </div>
 
-      {/* Main Navbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo */}
-        <div 
-          className="flex items-center space-x-3 cursor-pointer" 
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-        >
-          <div className="bg-indigo-600 text-white p-2.5 rounded-xl shadow-md shadow-indigo-600/20">
-            <GraduationCap className="w-7 h-7" />
-          </div>
-          <div>
-            <span className="font-black text-2xl tracking-tight text-slate-900 block leading-tight">
-              CertiScholar
-            </span>
-            <span className="text-[10px] tracking-widest uppercase font-semibold text-slate-400 block">
-              Trust. Transparency. Opportunity.
-            </span>
-          </div>
-        </div>
-
-        {/* Desktop Nav Items */}
-        <nav className="hidden lg:flex items-center space-x-8 text-sm font-semibold text-slate-600">
-          <a href="#hero" className="hover:text-indigo-600 transition">Home</a>
-          <a href="#how-it-works" className="hover:text-indigo-600 transition">How It Works</a>
-          <a href="#featured" className="hover:text-indigo-600 transition">Scholarships</a>
-          <a href="#audiences" className="hover:text-indigo-600 transition">For Institutions</a>
-          <a href="#audiences" className="hover:text-indigo-600 transition">For Agencies</a>
-          <a href="#faq" className="hover:text-indigo-600 transition">FAQ</a>
-        </nav>
-
-        {/* Desktop Auth CTAs */}
-        <div className="hidden lg:flex items-center space-x-3">
-          <Button variant="ghost" size="md" onClick={onLogin}>
-            Login
-          </Button>
-          <Button variant="primary" size="md" onClick={onRegister}>
-            Register
-          </Button>
-        </div>
-
-        {/* Mobile Hamburger Toggle */}
-        <div className="lg:hidden flex items-center">
+          {/* Student Login link */}
           <button
-            onClick={onToggleMobileMenu}
-            className="p-2 rounded-lg text-slate-700 hover:bg-slate-100"
+            onClick={onLogin}
+            className="hidden sm:inline-block text-xs font-bold text-slate-800 hover:text-black px-3 py-2 transition"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            Login
+          </button>
+
+          {/* Dark Pill CTA Button (Lerova Signature) */}
+          <button
+            onClick={onRegister}
+            className="bg-slate-950 hover:bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold tracking-tight shadow-sm hover:shadow transition transform active:scale-95"
+          >
+            Get Started
+          </button>
+
+          {/* Mobile Hamburger Toggle */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden p-2 rounded-full bg-white/90 border border-slate-200 text-slate-700 hover:text-black"
+            aria-label="Toggle Navigation"
+          >
+            {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
           </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-3">
-          <a 
-            href="#hero" 
-            onClick={onToggleMobileMenu}
-            className="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            Home
-          </a>
-          <a 
-            href="#how-it-works" 
-            onClick={onToggleMobileMenu}
-            className="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            How It Works
-          </a>
-          <a 
-            href="#featured" 
-            onClick={onToggleMobileMenu}
-            className="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            Scholarships
-          </a>
-          <a 
-            href="#audiences" 
-            onClick={onToggleMobileMenu}
-            className="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            For Institutions & Agencies
-          </a>
-          <a 
-            href="#faq" 
-            onClick={onToggleMobileMenu}
-            className="block px-3 py-2 rounded-md font-semibold text-slate-700 hover:bg-slate-50"
-          >
-            FAQ
-          </a>
-          <div className="pt-3 border-t border-slate-100 flex gap-2">
-            <Button variant="outline" size="md" className="flex-1" onClick={onLogin}>
-              Login
-            </Button>
-            <Button variant="primary" size="md" className="flex-1" onClick={onRegister}>
-              Register
-            </Button>
+        <div className="lg:hidden mt-3 bg-white rounded-3xl p-5 shadow-xl border border-slate-200 space-y-4 animate-in fade-in slide-in-from-top-2">
+          <nav className="flex flex-col space-y-3 text-sm font-semibold text-slate-800">
+            <a href="#home" onClick={() => setMobileMenuOpen(false)} className="py-1">Home</a>
+            <a href="#about" onClick={() => setMobileMenuOpen(false)} className="py-1">About</a>
+            <a href="#scholarships" onClick={() => setMobileMenuOpen(false)} className="py-1">Scholarships</a>
+            <a href="#how-it-works" onClick={() => setMobileMenuOpen(false)} className="py-1">How It Works</a>
+            <a href="#verification" onClick={() => setMobileMenuOpen(false)} className="py-1">Verification</a>
+            <a href="#faq" onClick={() => setMobileMenuOpen(false)} className="py-1">FAQ</a>
+          </nav>
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onLogin();
+              }}
+              className="text-xs font-bold text-slate-800"
+            >
+              Student Login
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onRegister();
+              }}
+              className="bg-slate-950 text-white px-4 py-2 rounded-full text-xs font-bold"
+            >
+              Get Started &rarr;
+            </button>
           </div>
         </div>
       )}
