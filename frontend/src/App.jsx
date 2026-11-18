@@ -35,13 +35,13 @@ export default function App() {
         />
 
         {/* Floating Developer / Evaluator Mode Switcher */}
-        <div className="fixed bottom-5 right-5 z-50">
+        <div className="fixed bottom-3 right-3 z-50">
           <button
             onClick={() => setCurrentView('workspace')}
-            className="flex items-center gap-2 bg-slate-900/90 hover:bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-2xl border border-slate-700 backdrop-blur-md transition transform hover:scale-105"
+            className="flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/60 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
           >
-            <LayoutDashboard className="w-4 h-4 text-indigo-400" />
-            <span>Open Portals (Reviewer / Committee / Student) &rarr;</span>
+            <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Open Portals &rarr;</span>
           </button>
         </div>
       </div>

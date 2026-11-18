@@ -1,87 +1,87 @@
 import React from 'react';
-import { ArrowRight } from 'lucide-react';
 
-const DEFAULT_MEMBERS = [
+const REVIEWERS = [
   {
-    name: "Dr. Rajesh Verma",
-    title: "Dean of Student Welfare",
-    affiliation: "LPU Financial Aid Directorate",
+    name: "Olivia Bennett",
+    role: "Verification Committee Chair",
+    tag: "{ reviewer }",
     image: "/images/mentor-1.jpg",
   },
   {
-    name: "Prof. Sunita Sharma",
-    title: "Chairperson, Scrutiny Quorum",
-    affiliation: "Academic Council",
+    name: "Daniel Carter",
+    role: "Academic Registrar & Gazettes",
+    tag: "{ reviewer }",
     image: "/images/mentor-2.jpg",
   },
   {
-    name: "Er. Harpreet Singh",
-    title: "Lead Verification Officer",
-    affiliation: "M5 Document Audit Team",
+    name: "Ethan Brooks",
+    role: "Financial Aid Auditor (EWS)",
+    tag: "{ reviewer }",
     image: "/images/mentor-3.jpg",
   },
   {
-    name: "Dr. Anita Roy",
-    title: "Director of Philanthropic Grants",
-    affiliation: "External Trust Liaison",
+    name: "Sophia Mitchell",
+    role: "State Quota Policy Director",
+    tag: "{ reviewer }",
     image: "/images/mentor-4.jpg",
   },
 ];
 
-/**
- * Reviewer Quorum Section matching Framer LEROVA Instructors section:
- * Grayscale portrait grid with clean typography and hover zoom
- */
 export default function ReviewerQuorumSection({
-  eyebrow = "Institutional Governance",
-  headline = "Experience Meets Passion for Teaching.",
-  description = "Learn from professionals who bring real-world experience, thoughtful guidance, and a passion for helping others grow.",
-  members = DEFAULT_MEMBERS,
+  eyebrow = "Learn from the best",
+  headline = "Experience Meets Rigor in Governance.",
+  subheadline = "Reviewed by faculty deans and verification officers who uphold institutional standards across all sanctioned scholarships.",
+  reviewers = REVIEWERS,
 }) {
   return (
-    <section id="verification" className="py-20 sm:py-28 bg-[#F8F9FA] border-b border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="verification" className="py-20 sm:py-28 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 space-y-16">
         
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div className="max-w-xl space-y-2">
-            <span className="text-[11px] font-bold tracking-widest text-slate-400 uppercase">
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="lg:col-span-4">
+            <span className="text-[12px] font-semibold tracking-wider text-slate-400 uppercase font-['Manrope']">
               {eyebrow}
             </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+          </div>
+          <div className="lg:col-span-8 space-y-3">
+            <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] leading-tight text-slate-950 tracking-[-0.035em]">
               {headline}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-500 font-normal">
-              {description}
+            <p className="text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope'] max-w-xl">
+              {subheadline}
             </p>
           </div>
-
-          <a href="#about" className="text-xs font-bold text-slate-900 hover:text-indigo-600 transition flex items-center gap-1.5 shrink-0">
-            <span>Meet All Verification Officers</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </a>
         </div>
 
-        {/* 4 Grayscale Portraits Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {members.map((m, idx) => (
-            <div key={idx} className="group space-y-3 cursor-pointer">
-              <div className="relative aspect-[3/4] rounded-[24px] overflow-hidden bg-slate-200 border border-slate-300/60 shadow-xs">
+        {/* 4 Monochrome Portrait Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {reviewers.map((rev, idx) => (
+            <div
+              key={idx}
+              className="group space-y-3 cursor-pointer"
+            >
+              {/* Photo Box with Greyscale Effect */}
+              <div className="relative rounded-[20px] overflow-hidden aspect-[3/4] bg-slate-100">
                 <img
-                  src={m.image}
-                  alt={m.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  src={rev.image}
+                  alt={rev.name}
+                  className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-60 group-hover:opacity-20 transition-opacity"></div>
+                <div className="absolute top-3 left-3">
+                  <span className="bg-black/60 backdrop-blur-md text-white text-[10px] font-mono font-medium px-2.5 py-0.5 rounded-full">
+                    {rev.tag}
+                  </span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-sm font-extrabold text-slate-900 tracking-tight">
-                  {m.name}
-                </h4>
-                <p className="text-[11px] text-slate-500 font-medium">
-                  {m.title}
-                </p>
-                <p className="text-[10px] text-indigo-600 font-semibold mt-0.5">
-                  {m.affiliation}
+
+              {/* Information */}
+              <div className="space-y-0.5">
+                <h3 className="text-[17px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
+                  {rev.name}
+                </h3>
+                <p className="text-[13px] text-slate-500 font-normal font-['Manrope']">
+                  {rev.role}
                 </p>
               </div>
             </div>

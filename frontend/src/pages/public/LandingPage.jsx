@@ -16,23 +16,6 @@ import PreFooterCtaSection from '../../components/landing/PreFooterCtaSection';
 import ScholarshipDetailModal from '../../components/landing/ScholarshipDetailModal';
 import { MOCK_SCHOLARSHIPS } from '../../services/mockScholarships';
 
-/**
- * PUB-001: Public Landing Page
- * Completely aligned with the Lerova Framer template design system:
- * - Geometric modern sans-serif (Manrope) + High-contrast luxury serif italic (Bodoni Moda)
- * - Rounded hero container with Indian student portrait cutout & 4 expandable interactive capsule tabs
- * - Monochrome partner logo bar
- * - 4-card pastel difference grid
- * - Domain categorization cards
- * - 3-card dark scheme showcase
- * - 3 simple step workflow mockups
- * - Watermark brand statement
- * - 4 grayscale verification quorum portraits
- * - Student testimonial card
- * - Expandable FAQ accordion
- * - Pre-footer concentric circular portal CTA
- * - Minimalist 5-column footer
- */
 export default function LandingPage({
   onNavigateLogin = () => {},
   onNavigateRegister = () => {},
@@ -46,7 +29,6 @@ export default function LandingPage({
   // Interaction State
   const [savedIds, setSavedIds] = useState([]);
   const [selectedScholarshipForModal, setSelectedScholarshipForModal] = useState(null);
-  const [activeFaq, setActiveFaq] = useState(null);
 
   // Online / Offline Status
   useEffect(() => {
@@ -60,32 +42,17 @@ export default function LandingPage({
     };
   }, []);
 
-  // Action Handlers
-  const handleToggleSave = (id) => {
-    setSavedIds((prev) =>
-      prev.includes(id) ? prev.filter((item) => item !== id) : [...prev, id]
-    );
-  };
-
-  const handleWhatsAppShare = (scholarship) => {
-    const text = encodeURIComponent(
-      `Check out this verified scholarship on CertiScholar:\n\n*${scholarship.title}*\nOffered by: ${scholarship.publisher}\nAward: ${scholarship.amount}\nDeadline: ${scholarship.deadline}\n\nLearn more: https://certischolar.org/scholarships/${scholarship.id}`
-    );
-    window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
-  };
-
-  const handleApplyDirect = (scholarship) => {
+  const handleApplyDirect = () => {
     setSelectedScholarshipForModal(null);
     onNavigateStudentWorkspace();
   };
 
-  // Font scale style for WCAG 2.2 AA compliance
   const rootScaleStyle = {
     fontSize: fontScale === 90 ? '90%' : fontScale === 110 ? '110%' : '100%',
   };
 
   return (
-    <div className="min-h-screen bg-[#F8F9FA] text-slate-900 font-sans antialiased selection:bg-slate-900 selection:text-white" style={rootScaleStyle}>
+    <div className="min-h-screen bg-white text-slate-900 font-['Manrope'] antialiased selection:bg-slate-900 selection:text-white" style={rootScaleStyle}>
       
       {/* Offline Status Warning Bar */}
       {!isOnline && (
@@ -95,7 +62,7 @@ export default function LandingPage({
         </div>
       )}
 
-      {/* 01: Floating Pill Header */}
+      {/* 01: Inverted Tabbed Header hanging from top */}
       <Header
         language={language}
         onLanguageChange={setLanguage}
@@ -106,31 +73,32 @@ export default function LandingPage({
       />
 
       <main>
-        {/* 02: Lerova-Style Hero Card with Indian Student Cutout & 4 Interactive Tabs */}
-        <HeroSection
-          eyebrow="YOUR FUTURE, YOUR WAY"
-          headlineSans="Fund education."
-          headlineSerif="unlock your potential"
-          description="Explore verified scholarships, eliminate manual paperwork, and turn your academic ambitions into funded achievements with CertiScholar. Your next opportunity starts with what you verify today."
-          onExploreClick={() => {
-            const el = document.getElementById('scholarships');
-            el?.scrollIntoView({ behavior: 'smooth' });
-          }}
-          onHowItWorksClick={() => {
-            const el = document.getElementById('how-it-works');
-            el?.scrollIntoView({ behavior: 'smooth' });
-          }}
-        />
+        {/* 02 & 03: Top Hero Section Container (contains Hero Panel + Trusted By Logo Ticker) */}
+        <section className="pt-3 px-3 sm:px-4 max-w-[1400px] mx-auto flex flex-col gap-3">
+          <HeroSection
+            eyebrow="YOUR FUTURE, YOUR WAY"
+            headlineSans="Build skills."
+            headlineSerif="unlock your potential."
+            description="Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with CertiScholar. Your next opportunity starts with what you verify today."
+            onExploreClick={() => {
+              const el = document.getElementById('scholarships');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            onHowItWorksClick={() => {
+              const el = document.getElementById('how-it-works');
+              el?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          />
 
-        {/* 03: Minimalist Monochrome Partner Logo Marquee */}
-        <TrustStatsGrid
-          headline="Opportunities that move you forward."
-          sublabel="Join a growing community of ambitious scholars, verified academic offices, and philanthropic trusts."
-        />
+          <TrustStatsGrid
+            headline="Learning that moves you forward."
+            sublabel="Join a growing community of curious minds, ambitious scholars, and accredited institutions."
+          />
+        </section>
 
-        {/* 04: "The CertiScholar Difference" (4 Pastel Feature Cards) */}
+        {/* 04: "Why LEROVA / The CertiScholar Difference" (Row 1 Text + Row 2 Four Cards) */}
         <ValuePropositionSection
-          eyebrow="The CertiScholar Difference"
+          eyebrow="The CertiScholar difference"
           headline="More Than Aid. A Step Toward Your Future."
           description="Great scholarship platforms should fit your life, eliminate red tape, and help you make verifiable progress. CertiScholar brings discovery, OCR verification, and institutional review into one unified place."
           onLearnMore={() => {
@@ -139,7 +107,7 @@ export default function LandingPage({
           }}
         />
 
-        {/* 05: "What You Can Become" (Academic Discipline Stream Cards) */}
+        {/* 05: "Explore Categories / Find Your Direction" (4 Category Cards) */}
         <DomainPillsSection
           onSelectCategory={(cat) => {
             const el = document.getElementById('scholarships');
@@ -147,45 +115,41 @@ export default function LandingPage({
           }}
         />
 
-        {/* 06: "Scholarships Worth Applying For" (Dark 3-Card High-Tech Showcase) */}
+        {/* 06: "Skills Worth Investing In / Scholarships Worth Applying For" (3 Dark Cards on White) */}
         <FeaturedShowcaseSection
           onViewDetails={(card) => {
-            // Find matched mock scholarship data or use card
             const match = MOCK_SCHOLARSHIPS.find((s) => s.id === card.id) || card;
             setSelectedScholarshipForModal(match);
           }}
-          onSave={handleToggleSave}
-          onWhatsAppShare={handleWhatsAppShare}
-          savedIds={savedIds}
         />
 
-        {/* 07: "Three Simple Steps. A World of Possibilities" */}
+        {/* 07: "Three Simple Steps. A World of Possibilities" (#f4f4f5 background) */}
         <HowItWorksSteps />
 
-        {/* 08: Giant Typography Watermark Statement */}
-        <BrandStatementSection />
+        {/* 08: Giant Bodoni Moda Typography Watermark Statement */}
+        <BrandStatementSection
+          onStartJourney={() => {
+            const el = document.getElementById('scholarships');
+            el?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        />
 
         {/* 09: Institutional Governance / 4 Grayscale Committee Portraits */}
         <ReviewerQuorumSection />
 
-        {/* 10: "Small Steps. Big Transformations" (Rahul Sharma Student Testimonial) */}
+        {/* 10: "Small Steps. Big Transformations" (Student Testimonial Card) */}
         <TestimonialSection />
 
         {/* 11: Frequently Asked Questions Accordion */}
-        <FaqSection
-          activeFaq={activeFaq}
-          onToggleFaq={(idx) => setActiveFaq(activeFaq === idx ? null : idx)}
-        />
+        <FaqSection />
 
-        {/* 12: Pre-Footer Concentric Rings Portal CTA */}
+        {/* 12: Pre-Footer Orbit Concentric Rings Portal CTA */}
         <PreFooterCtaSection
-          onGetStarted={(val) => {
-            onNavigateRegister();
-          }}
+          onGetStarted={onNavigateRegister}
         />
       </main>
 
-      {/* 13: Minimalist 5-Column Footer */}
+      {/* 13: Minimalist 4-Column Footer */}
       <Footer
         onNavigateHome={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         onNavigateLogin={onNavigateLogin}
@@ -195,12 +159,11 @@ export default function LandingPage({
         onOpenAccessibility={() => alert('PUB-014: WCAG 2.2 Level AA Accessibility Statement')}
       />
 
-      {/* Scholarship Details Modal (PUB-011) */}
+      {/* Scholarship Details Modal */}
       <ScholarshipDetailModal
         scholarship={selectedScholarshipForModal}
         onClose={() => setSelectedScholarshipForModal(null)}
         onApply={handleApplyDirect}
-        onWhatsAppShare={handleWhatsAppShare}
       />
     </div>
   );

@@ -1,82 +1,76 @@
 import React from 'react';
-import { Star, ArrowRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 const HIGHLIGHT_CARDS = [
   {
     id: "lpu-nest-2026",
-    title: "Modern Web Development",
-    altTitle: "LPUNEST Merit Scholarship 2026",
-    category: "Technology & Development",
+    title: "LPUNEST Merit Scholarship 2026",
+    category: "Technology & Engineering",
     rating: "4.9",
-    price: "$59",
-    badge: "Popular",
-    description: "Build responsive websites and understand the fundamentals of the modern web.",
+    price: "100% Waiver",
+    badge: "Bestseller",
+    description: "Direct academic marks-based tuition waiver authenticated via DigiLocker and gazettes.",
     image: "/images/card-code.jpg",
-    meta: ["20 Lessons", "8 Hours"],
+    meta: ["12 Reviewers", "48h Turnaround"],
   },
   {
     id: "lpu-ews-2026",
-    title: "Brand Identity & Visual Design",
-    altTitle: "Need-Based Financial Assistance (EWS)",
-    category: "Design & Creativity",
+    title: "Need-Based Financial Assistance (EWS)",
+    category: "Social Justice & Inclusion",
     rating: "4.8",
-    price: "$45",
-    badge: "Editor's Pick",
-    description: "Shape a brand from idea to identity with colour, type, and visual systems.",
+    price: "₹1,50,000/yr",
+    badge: "Popular",
+    description: "Income verification with anti-stacking checks and decentralized quorum approval.",
     image: "/images/card-design.jpg",
-    meta: ["14 Lessons", "5 Hours"],
+    meta: ["16 Quorum Members", "72h Turnaround"],
   },
   {
     id: "lpu-defense-2026",
-    title: "Data Analytics for Beginners",
-    altTitle: "Shikshak Samman & Defense Anudaan",
-    category: "Data & Analytics",
-    rating: "4.7",
-    price: "$35",
-    badge: "Bestseller",
-    description: "Turn raw numbers into clear charts, insights, and better decisions.",
+    title: "Shikshak Samman & Defense Anudaan",
+    category: "Special Wards Scheme",
+    rating: "4.9",
+    price: "75% Waiver",
+    badge: "Editor's Pick",
+    description: "Honoring armed forces and university educators' children with priority verification.",
     image: "/images/card-finance.jpg",
-    meta: ["15 Lessons", "5.5 Hours"],
+    meta: ["8 Officers", "24h Turnaround"],
   },
 ];
 
-/**
- * Featured Courses Section matching Framer LEROVA template ("Skills Worth Investing In"):
- * Dark section (#0B0F17) with photography cards, ratings, lessons meta, and roll-effect white pill CTAs
- */
 export default function FeaturedShowcaseSection({
-  eyebrow = "Handpicked for you",
-  headline = "Skills Worth Investing In.",
-  subheadline = "Discover thoughtfully designed courses that help you move from curiosity to capability.",
+  eyebrow = "HANDPICKED FOR YOU",
+  headline = "Schemes Worth Applying For.",
+  subheadline = "Discover thoughtfully designed opportunities that help you move from curiosity to capability.",
   onViewDetails = () => {},
   cards = HIGHLIGHT_CARDS,
 }) {
   return (
-    <section id="scholarships" className="py-24 sm:py-32 bg-[#0B0F17] text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+    <section id="scholarships" className="py-24 sm:py-32 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 space-y-16">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <span className="text-[11px] font-bold tracking-widest text-indigo-400 uppercase">
+          <span className="text-[12px] font-semibold tracking-wider text-slate-400 uppercase font-['Manrope']">
             {eyebrow}
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+          <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] lg:text-[48px] leading-tight text-slate-950 tracking-[-0.035em]">
             {headline}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed font-normal">
+          <p className="text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
             {subheadline}
           </p>
         </div>
 
-        {/* 3 Dark Cards Grid with Framer Hover Physics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* 3 Dark Cards Grid with Framer Dimensions & Aesthetic */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cards.map((card) => (
             <div
               key={card.id}
-              className="group bg-[#161B26] rounded-[28px] border border-slate-800/80 overflow-hidden flex flex-col justify-between hover:border-slate-700 hover:-translate-y-2 transition-all duration-400 shadow-xl hover:shadow-2xl"
+              onClick={() => onViewDetails(card)}
+              className="group bg-[#171717] text-white rounded-[24px] overflow-hidden flex flex-col justify-between min-h-[560px] p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl cursor-pointer"
             >
-              {/* Image Preview with Aspect Ratio */}
-              <div className="relative aspect-[16/11] overflow-hidden bg-slate-900">
+              {/* Image Preview with Mask & Badge */}
+              <div className="relative rounded-2xl overflow-hidden aspect-[16/11] bg-slate-900">
                 <img
                   src={card.image}
                   alt={card.title}
@@ -84,72 +78,60 @@ export default function FeaturedShowcaseSection({
                 />
                 
                 {/* Badge Top Left */}
-                <div className="absolute top-4 left-4">
-                  <span className="bg-slate-950/80 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1.5 rounded-full border border-white/10">
+                <div className="absolute top-3.5 left-3.5">
+                  <span className="bg-black/60 backdrop-blur-md text-white text-[11px] font-semibold px-3 py-1 rounded-full border border-white/10 font-['Manrope']">
                     {card.badge}
                   </span>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-7 space-y-4 flex-1 flex flex-col justify-between">
-                <div>
-                  {/* Rating, Category & Price Row */}
-                  <div className="flex items-center justify-between text-xs text-slate-400 pb-1">
-                    <div className="flex items-center gap-1.5 font-semibold">
-                      <span className="flex items-center gap-1 text-amber-400">
-                        <Star className="w-3.5 h-3.5 fill-amber-400" />
-                        <span>{card.rating}</span>
-                      </span>
-                      <span>•</span>
-                      <span>{card.category}</span>
+              {/* Card Meta & Title */}
+              <div className="space-y-3 pt-6 flex-1 flex flex-col justify-between">
+                <div className="space-y-2">
+                  {/* Category, Rating, Price */}
+                  <div className="flex items-center justify-between text-xs text-slate-400 font-['Manrope']">
+                    <span className="text-slate-300 font-medium">{card.category}</span>
+                    <div className="flex items-center gap-1.5 font-semibold text-amber-400">
+                      <Star className="w-3.5 h-3.5 fill-current" />
+                      <span>{card.rating}</span>
                     </div>
-                    <span className="text-white font-extrabold text-sm">{card.price}</span>
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-lg font-extrabold text-white group-hover:text-indigo-300 transition-colors tracking-tight mt-1">
+                  <h3 className="text-[20px] font-semibold text-white tracking-tight leading-snug font-['Manrope']">
                     {card.title}
                   </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-2 font-normal line-clamp-2">
+
+                  <p className="text-[13px] text-slate-400 leading-relaxed font-normal font-['Manrope']">
                     {card.description}
                   </p>
                 </div>
 
-                {/* Footer: Meta & White Pill Button with Framer Roll */}
-                <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between gap-4">
-                  <div className="text-[11px] text-slate-500 font-medium">
-                    {card.meta.join(" • ")}
+                {/* Bottom Row: Meta & Award */}
+                <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-[11px] text-slate-400 font-['Manrope']">
+                    <span>{card.meta[0]}</span>
+                    <span>·</span>
+                    <span>{card.meta[1]}</span>
                   </div>
-
-                  <button
-                    onClick={() => onViewDetails(card)}
-                    className="group/btn bg-white hover:bg-slate-100 text-slate-950 font-bold px-5 py-2.5 rounded-full text-xs transition-all duration-300 cursor-pointer shrink-0 shadow-sm overflow-hidden"
-                  >
-                    <span className="btn-roll">
-                      <span className="btn-roll-inner">
-                        <span>View Course</span>
-                        <span>View Course</span>
-                      </span>
-                    </span>
-                  </button>
+                  <span className="text-[15px] font-bold text-white font-['Manrope']">
+                    {card.price}
+                  </span>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
 
-        {/* View All Button */}
+        {/* Footer: View All Button */}
         <div className="text-center pt-4">
           <button
             onClick={() => onViewDetails(cards[0])}
-            className="group inline-flex items-center gap-2 bg-[#202736] hover:bg-[#2b3447] text-white font-bold px-8 py-3.5 rounded-full text-xs tracking-tight border border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
+            className="group inline-flex items-center bg-[#171717] hover:bg-black text-white px-7 py-3.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
           >
             <span className="btn-roll">
               <span className="btn-roll-inner">
-                <span>View All Courses &rarr;</span>
-                <span>View All Courses &rarr;</span>
+                <span>View All Schemes</span>
+                <span>View All Schemes</span>
               </span>
             </span>
           </button>

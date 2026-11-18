@@ -4,52 +4,57 @@ import { Plus, Minus } from 'lucide-react';
 const DEFAULT_TABS = [
   {
     id: "01",
-    label: "Self-Paced Verification",
-    number: "01",
-    value: null,
-    description: "Verify academic marksheets once at your own speed. Valid across all university, state, and central schemes.",
+    badgeNumber: "01",
+    title: "Self-Paced Verification",
+    description: "Verify marksheets once at your own speed. Valid across all schemes.",
+    badge: "Expert-led",
     avatars: [
       "/images/avatar-1.jpg", 
       "/images/avatar-2.jpg", 
-      "/images/avatar-3.jpg",
-      "/images/avatar-1.jpg"
-    ],
-    badge: "Expert-led",
+      "/images/avatar-3.jpg"
+    ]
   },
   {
     id: "02",
-    label: "Active Scholars*",
-    number: "02",
+    badgeNumber: "02",
     value: "10K+",
-    description: "Over 10,000 students verified across Lovely Professional University and partner colleges with zero processing backlog.",
-    avatars: ["/images/avatar-2.jpg", "/images/avatar-3.jpg"],
+    title: "Active Scholars*",
+    description: "Over 10,000 verified students with zero processing backlog.",
     badge: "Live Network",
+    avatars: [
+      "/images/avatar-2.jpg", 
+      "/images/avatar-3.jpg",
+      "/images/avatar-1.jpg"
+    ]
   },
   {
     id: "03",
-    label: "Verified Schemes*",
-    number: "03",
+    badgeNumber: "03",
     value: "250+",
-    description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS aid, and armed forces wards.",
-    avatars: ["/images/avatar-1.jpg", "/images/avatar-3.jpg"],
+    title: "Verified Schemes*",
+    description: "Direct gazette-corroborated merit and state scholarships.",
     badge: "Gazette Checked",
+    avatars: [
+      "/images/avatar-1.jpg", 
+      "/images/avatar-3.jpg",
+      "/images/avatar-2.jpg"
+    ]
   },
   {
     id: "04",
-    label: "Decision Accuracy*",
-    number: "04",
+    badgeNumber: "04",
     value: "95%",
-    description: "Auditable mathematical verification with zero double-counting, backed by verification officer quorum review.",
-    avatars: ["/images/avatar-1.jpg", "/images/avatar-2.jpg"],
+    title: "Decision Accuracy*",
+    description: "Auditable mathematical verification with zero double-counting.",
     badge: "M5 Quorum",
-  },
+    avatars: [
+      "/images/avatar-3.jpg", 
+      "/images/avatar-2.jpg",
+      "/images/avatar-1.jpg"
+    ]
+  }
 ];
 
-/**
- * Exact Framer LEROVA Hero Section:
- * Full-bleed studio panel with CSS gradient mask on student photo,
- * left & bottom shade overlays, entrance animations, and interactive expandable pills.
- */
 export default function HeroSection({
   eyebrow = "YOUR FUTURE, YOUR WAY",
   headlineSans = "Fund education.",
@@ -62,71 +67,69 @@ export default function HeroSection({
   const [activeTabId, setActiveTabId] = useState("01");
 
   return (
-    <section id="home" className="pt-3 sm:pt-4 pb-8 px-3 sm:px-4 max-w-[1400px] mx-auto animate-framer-appear">
+    <div id="home" className="w-full animate-framer-appear">
       {/* Framer Panel Container */}
       <div 
-        className="relative rounded-[28px] overflow-hidden min-h-[760px] lg:min-h-[820px] flex flex-col justify-between pt-[140px] sm:pt-[150px] pb-9 px-6 sm:px-10 lg:px-12 shadow-2xl transition-all"
+        className="relative rounded-[28px] overflow-hidden min-h-[820px] lg:min-h-[893px] flex flex-col justify-between pt-[130px] sm:pt-[150px] pb-9 px-6 sm:px-9 lg:px-9 shadow-2xl transition-all"
         style={{
-          background: 'linear-gradient(100deg, #7c818b 0%, #a2a7af 62%, #a9aeb5 100%)'
+          background: 'linear-gradient(100deg, rgb(124, 129, 139) 0%, rgb(162, 167, 175) 62%, rgb(169, 174, 181) 100%)'
         }}
       >
-        {/* Layer 1: Student Photo with Smooth Left-Mask (Framer Signature) */}
+        {/* Layer 1: Student Photo with Precise Framer Mask */}
         <div 
-          className="absolute top-0 right-0 w-full sm:w-[85%] lg:w-[75%] h-full pointer-events-none z-0 overflow-hidden"
+          className="absolute top-0 left-0 lg:left-[220px] right-0 lg:right-[-220px] bottom-0 w-full lg:w-[1376px] h-full pointer-events-none z-0 overflow-hidden"
           style={{
-            WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%)',
-            maskImage: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.8) 25%, black 100%)',
+            WebkitMaskImage: 'linear-gradient(90deg, transparent 0%, black 26%)',
+            maskImage: 'linear-gradient(90deg, transparent 0%, black 26%)',
+            transform: 'scale(1.02)'
           }}
         >
           <img
             src="/images/hero-student.jpg"
-            alt="Student Looking Upwards with Ambition"
-            className="w-full h-full object-cover object-[50%_30%] lg:object-[60%_30%] select-none scale-[1.02] transition-transform duration-700"
+            alt="Student Ambition"
+            className="w-full h-full object-cover object-[50%_30%] select-none"
           />
         </div>
 
-        {/* Layer 2: Left Lighting Shade Overlay */}
+        {/* Layer 2: Lighting Shade Overlay */}
         <div 
           className="absolute inset-0 pointer-events-none z-1"
           style={{
-            background: 'linear-gradient(100deg, rgba(88, 92, 104, 0.75) 0%, rgba(88, 92, 104, 0.25) 46%, rgba(88, 92, 104, 0) 70%)'
+            background: 'linear-gradient(100deg, rgba(88, 92, 104, 0.5) 0%, rgba(88, 92, 104, 0.12) 46%, rgba(88, 92, 104, 0) 70%)'
           }}
         />
 
         {/* Layer 3: Bottom Vignette Shade Overlay */}
         <div 
-          className="absolute bottom-0 left-0 right-0 h-[46%] pointer-events-none z-1"
+          className="absolute bottom-0 left-0 right-0 h-[410px] pointer-events-none z-1"
           style={{
-            background: 'linear-gradient(to top, rgba(40, 42, 50, 0.85) 0%, rgba(60, 63, 72, 0.4) 60%, transparent 100%)'
+            background: 'linear-gradient(rgba(60, 63, 72, 0) 0%, rgba(60, 63, 72, 0.5) 100%)'
           }}
         />
 
-        {/* Layer 4: Foreground Content with Staggered Entrance */}
-        <div className="relative z-10 max-w-xl lg:max-w-2xl space-y-5">
+        {/* Layer 4: Headline & Actions */}
+        <div className="relative z-10 space-y-4 max-w-4xl">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 text-slate-200 text-xs font-semibold tracking-wider uppercase">
-            <span className="text-orange-400">✦</span>
+          <div className="inline-flex items-center gap-2 text-white/90 text-[13px] font-semibold tracking-[0.08em] uppercase font-['Manrope']">
+            <span className="text-[#ff5a2b]">✦</span>
             <span>{eyebrow}</span>
           </div>
 
-          {/* Headline: Grotesque Bold + Luxury Serif Italic */}
-          <h1 className="text-5xl sm:text-6xl lg:text-[76px] font-black text-white tracking-tight leading-[1.04]">
-            {headlineSans} <br />
-            <span className="font-serif italic font-normal tracking-normal text-white drop-shadow-xs">
+          {/* Headline H1 (Manrope 500) + H2 (Bodoni Moda 400 Italic) */}
+          <div className="space-y-1">
+            <h1 className="font-['Manrope'] font-medium text-[68px] sm:text-[105px] lg:text-[135px] xl:text-[150px] leading-[0.9] tracking-[-0.065em] text-white">
+              {headlineSans}
+            </h1>
+            <h2 className="font-['Bodoni_Moda'] font-normal italic text-[44px] sm:text-[68px] lg:text-[84px] xl:text-[92px] leading-[1] tracking-[-0.04em] text-white">
               {headlineSerif}
-            </span>
-          </h1>
-
-          {/* Description */}
-          <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-md font-normal pt-1">
-            {description}
-          </p>
+            </h2>
+          </div>
 
           {/* Action Buttons with Framer Roll Effect */}
-          <div className="flex flex-wrap items-center gap-3 pt-3">
+          <div className="flex flex-wrap items-center gap-3 pt-4">
             <button
               onClick={onExploreClick}
-              className="group bg-white text-slate-950 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-full text-xs sm:text-sm tracking-tight transition-all duration-300 shadow-sm hover:shadow active:scale-95 cursor-pointer overflow-hidden"
+              className="group bg-white hover:bg-slate-100 text-[#171717] font-semibold px-6 py-3 rounded-full text-xs sm:text-[13px] tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
             >
               <span className="btn-roll">
                 <span className="btn-roll-inner">
@@ -137,59 +140,64 @@ export default function HeroSection({
             </button>
             <button
               onClick={onHowItWorksClick}
-              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-medium px-7 py-3.5 rounded-full text-xs sm:text-sm transition-all duration-300 active:scale-95 cursor-pointer"
+              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-medium px-6 py-3 rounded-full text-xs sm:text-[13px] transition-all duration-300 active:scale-95 cursor-pointer font-['Manrope']"
             >
               How It Works
             </button>
           </div>
         </div>
 
-        {/* Layer 5: Pinned Bottom Interactive Tabs (Highlights) */}
-        <div className="relative z-20 pt-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 items-end">
-            {tabs.map((tab) => {
-              const isActive = activeTabId === tab.id;
+        {/* Layer 5: Bottom Row with Description & Interactive Highlights Tabs */}
+        <div className="relative z-10 pt-10 flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+          
+          {/* Paragraph */}
+          <p className="text-white/90 text-sm leading-relaxed max-w-[360px] font-normal font-['Manrope']">
+            {description}
+          </p>
 
-              if (isActive) {
+          {/* 4 Interactive Pinned Tabs */}
+          <div className="flex flex-wrap sm:flex-nowrap items-end gap-3">
+            {tabs.map((tab) => {
+              const isOpen = activeTabId === tab.id;
+
+              if (isOpen) {
                 return (
                   <div
                     key={tab.id}
-                    className="bg-white text-slate-900 p-5 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 transition-all duration-400 animate-framer-appear"
+                    onClick={() => setActiveTabId(tab.id)}
+                    className="w-full sm:w-[370px] bg-white rounded-[16px] p-[18px] shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex flex-col justify-between gap-3.5 transition-all duration-300 cursor-pointer animate-framer-appear"
                   >
-                    <div className="flex items-center justify-between mb-2">
+                    {/* Head */}
+                    <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
-                        <span className="bg-slate-950 text-white text-[10.5px] font-mono font-bold px-1.5 py-0.5 rounded-full">
-                          {tab.number}
+                        <span className="bg-[#171717] text-white text-[10.5px] font-semibold font-['Manrope'] px-2 py-0.5 rounded-full">
+                          {tab.badgeNumber}
                         </span>
-                        <span className="text-xs font-bold text-slate-900 tracking-tight">
-                          {tab.label}
-                        </span>
+                        <h4 className="text-[14px] font-semibold text-slate-900 tracking-tight font-['Manrope']">
+                          {tab.title}
+                        </h4>
                       </div>
-                      <button
-                        onClick={() => setActiveTabId(activeTabId === tab.id ? null : tab.id)}
-                        className="w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
-                        title="Collapse"
-                      >
-                        <Minus className="w-3 h-3" />
-                      </button>
+                      <Minus className="w-4 h-4 text-slate-400" />
                     </div>
 
-                    <p className="text-[11px] text-slate-500 leading-snug line-clamp-2 mb-3">
+                    {/* Description */}
+                    <p className="text-slate-500 text-[12.5px] leading-relaxed font-normal font-['Manrope']">
                       {tab.description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-slate-100">
-                      <div className="flex -space-x-1.5 overflow-hidden">
-                        {tab.avatars.map((av, idx) => (
+                    {/* Learners / Avatars + Badge */}
+                    <div className="flex items-center justify-between pt-1">
+                      <div className="flex items-center -space-x-2">
+                        {tab.avatars.map((av, i) => (
                           <img
-                            key={idx}
+                            key={i}
                             src={av}
-                            alt="Scholar"
-                            className="inline-block h-6 w-6 rounded-full border-[1.5px] border-white object-cover"
+                            alt="Avatar"
+                            className="w-[28px] h-[28px] rounded-full object-cover border-2 border-white shadow-xs"
                           />
                         ))}
                       </div>
-                      <span className="bg-[#F8F9FA] border border-slate-200 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
+                      <span className="bg-slate-100 text-slate-700 text-[11px] font-medium font-['Manrope'] px-2.5 py-0.5 rounded-full">
                         {tab.badge}
                       </span>
                     </div>
@@ -197,33 +205,31 @@ export default function HeroSection({
                 );
               }
 
+              // Collapsed Tab
               return (
-                <button
+                <div
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className="bg-white/90 hover:bg-white text-slate-900 px-5 py-3.5 rounded-full font-bold text-xs flex items-center justify-between transition-all duration-300 shadow-sm hover:shadow cursor-pointer hover:scale-[1.01]"
+                  className="bg-white hover:bg-slate-50 rounded-[14px] px-4 py-3 shadow-[0_20px_40px_-20px_rgba(23,23,23,0.35)] flex items-center gap-2.5 cursor-pointer transition-all duration-200 select-none shrink-0"
                 >
-                  <span className="flex items-center gap-2 truncate">
-                    <span className="bg-slate-200 text-slate-700 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full">
-                      {tab.number}
-                    </span>
-                    {tab.value ? (
-                      <span className="font-extrabold text-sm text-slate-950 tracking-tight">
-                        {tab.value}
-                      </span>
-                    ) : null}
-                    <span className="truncate text-slate-800">{tab.label}</span>
+                  <span className="bg-[#171717] text-white text-[10.5px] font-semibold font-['Manrope'] px-2 py-0.5 rounded-full">
+                    {tab.badgeNumber}
                   </span>
-                  <span className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 ml-2">
-                    <Plus className="w-3 h-3" />
+                  <span className="font-['Manrope'] font-semibold text-[17px] text-[#171717] tracking-tight tabular-nums">
+                    {tab.value}
                   </span>
-                </button>
+                  <span className="text-slate-600 text-[13px] font-normal font-['Manrope']">
+                    {tab.title}
+                  </span>
+                  <Plus className="w-4 h-4 text-slate-400 shrink-0 ml-1" />
+                </div>
               );
             })}
           </div>
+
         </div>
 
       </div>
-    </section>
+    </div>
   );
 }

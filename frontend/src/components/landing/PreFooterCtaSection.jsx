@@ -1,109 +1,94 @@
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import React from 'react';
 
-/**
- * Pre-Footer Call to Action Section matching Framer LEROVA template exactly:
- * 3D Dark Orb with concentric ripples + floating white card with spark + newsletter capsule
- */
 export default function PreFooterCtaSection({
-  eyebrow = "Your next chapter",
-  headline = "Your Future Won’t Build Itself.",
-  description = "Take the first step toward something greater. Verify your academic credentials, explore verified scholarships, and make your next move with CertiScholar.",
   onGetStarted = () => {},
 }) {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      onGetStarted(email);
-    }
-  };
-
   return (
-    <section className="py-24 sm:py-32 bg-white relative overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-12">
-        
-        {/* Framer 3D Sphere / Orb Stage */}
-        <div className="relative w-64 h-64 sm:w-72 sm:h-72 mx-auto flex items-center justify-center">
-          {/* Subtle Outer Concentric Ring */}
-          <div className="absolute inset-0 rounded-full border border-slate-200/60 scale-125 pointer-events-none"></div>
-          <div className="absolute inset-0 rounded-full border border-slate-200 pointer-events-none"></div>
-
-          {/* Luxury 3D Dark Orb */}
-          <div 
-            className="w-48 h-48 sm:w-56 sm:h-56 rounded-full relative flex items-center justify-center"
-            style={{
-              background: 'radial-gradient(circle at 35% 30%, #2f3440 0%, #171920 60%, #0d0e12 100%)',
-              boxShadow: '0px 40px 80px -20px rgba(22, 23, 27, 0.55), inset 0px 0px 0px 3px rgba(255, 255, 255, 0.14), inset 0px 30px 60px 0px rgba(22, 23, 27, 0.25)',
-            }}
-          >
-            {/* Floating White Card Over Orb */}
-            <div 
-              className="bg-white rounded-[20px] px-5 py-3 shadow-2xl flex items-center gap-2.5 z-10 transform -translate-y-1 hover:scale-105 transition-transform"
-              style={{
-                boxShadow: '0px 30px 70px -24px rgba(22, 23, 27, 0.45)',
-              }}
-            >
-              {/* Framer Orange 4-Point Star Spark */}
-              <svg viewBox="0 0 100 100" className="w-4 h-4 shrink-0 fill-[#ff5a2b]">
-                <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z" />
-              </svg>
-              <span className="text-xs font-bold text-slate-900 tracking-tight">
-                {eyebrow}
-              </span>
-            </div>
-          </div>
+    <section className="py-14 px-3 sm:px-6 bg-white">
+      <div 
+        className="max-w-[1376px] mx-auto rounded-[28px] overflow-hidden min-h-[580px] p-6 sm:p-14 relative flex items-center justify-center shadow-lg"
+        style={{
+          background: 'linear-gradient(rgb(245, 246, 249) 0%, rgb(211, 214, 224) 42%, rgb(138, 144, 165) 100%)'
+        }}
+      >
+        {/* SVG Orbit Concentric Rings with Slow Rotations */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <svg viewBox="-700 -700 1400 1400" preserveAspectRatio="xMidYMid slice" className="w-full h-full opacity-90">
+            <circle r="190" fill="none" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1.2" vectorEffect="non-scaling-stroke"></circle>
+            <circle
+              r="340"
+              fill="none"
+              stroke="rgb(255, 255, 255)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeDasharray="0.1 26"
+              vectorEffect="non-scaling-stroke"
+              className="animate-spin"
+              style={{ animationDuration: '80s' }}
+            ></circle>
+            <circle r="490" fill="none" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1.2" vectorEffect="non-scaling-stroke"></circle>
+            <circle
+              r="640"
+              fill="none"
+              stroke="rgb(255, 255, 255)"
+              strokeWidth="5"
+              strokeLinecap="round"
+              strokeDasharray="0.1 26"
+              vectorEffect="non-scaling-stroke"
+              className="animate-spin"
+              style={{ animationDuration: '100s', animationDirection: 'reverse' }}
+            ></circle>
+            <circle r="790" fill="none" stroke="rgba(255, 255, 255, 0.7)" strokeWidth="1.2" vectorEffect="non-scaling-stroke"></circle>
+          </svg>
         </div>
 
-        {/* Headline & Description */}
-        <div className="max-w-xl mx-auto space-y-3 pt-2">
-          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-slate-900 tracking-tight leading-[1.12]">
-            {headline}
+        {/* 3D Black Donut Ring Layer (Signature Framer 3D Object) */}
+        <div 
+          className="w-[320px] sm:w-[440px] h-[320px] sm:h-[440px] rounded-full pointer-events-none absolute"
+          style={{
+            border: '46px solid rgb(22, 23, 27)',
+            boxShadow: 'rgba(22, 23, 27, 0.55) 0px 40px 80px -20px, rgba(255, 255, 255, 0.14) 0px 0px 0px 3px inset, rgba(22, 23, 27, 0.25) 0px 30px 60px 0px inset'
+          }}
+        />
+
+        {/* Floating White Center Card */}
+        <div className="bg-white rounded-[20px] p-8 sm:p-10 shadow-[0_30px_70px_-24px_rgba(22,23,27,0.45)] max-w-md mx-auto space-y-4 relative z-10 text-center">
+          
+          {/* Eyebrow with Spark Icon */}
+          <div className="inline-flex items-center gap-2 justify-center">
+            <svg viewBox="0 0 100 100" className="w-4 h-4 fill-[#ff5a2b]">
+              <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z"></path>
+            </svg>
+            <span className="text-[12px] font-semibold text-slate-500 font-['Manrope']">
+              Your next chapter
+            </span>
+          </div>
+
+          {/* Heading */}
+          <h2 className="font-['Manrope'] font-medium text-[28px] sm:text-[30px] leading-[1.12] tracking-[-0.055em] text-[#171717]">
+            Your Future Won’t Build Itself.
           </h2>
-          <p className="text-xs sm:text-sm text-slate-500 leading-relaxed font-normal">
-            {description}
+
+          {/* Paragraph */}
+          <p className="text-[13.5px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
+            Take the first step toward something greater. Discover verified scholarships, corroborate credentials, and make your next move with CertiScholar.
           </p>
 
+          {/* Action Button */}
           <div className="pt-2">
             <button
-              onClick={() => onGetStarted(email)}
-              className="inline-flex items-center gap-2 bg-slate-950 hover:bg-black text-white font-bold px-7 py-3 rounded-full text-xs transition shadow-sm"
+              onClick={onGetStarted}
+              className="w-full group bg-gradient-to-b from-[#fbfbfc] to-[#e9e9ec] border border-black/8 hover:border-black/20 text-[#171717] py-3.5 px-6 rounded-[14px] text-xs sm:text-[13px] font-semibold tracking-tight shadow-[0_10px_22px_-8px_rgba(23,23,23,0.22)] active:scale-98 transition-all cursor-pointer overflow-hidden font-['Manrope']"
             >
-              <span>Explore Scholarships</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span className="btn-roll">
+                <span className="btn-roll-inner">
+                  <span>Start Verification Today</span>
+                  <span>Start Verification Today</span>
+                </span>
+              </span>
             </button>
           </div>
-        </div>
 
-        {/* Framer Newsletter / Roll Box */}
-        <div className="max-w-md mx-auto pt-4 border-t border-slate-100 space-y-3">
-          <p className="text-xs font-bold text-slate-700">
-            A Little Inspiration for Your Inbox.
-          </p>
-          
-          <form onSubmit={handleSubscribe} className="flex items-center bg-[#F8F9FA] rounded-full p-1.5 border border-slate-200/90 shadow-2xs focus-within:ring-2 focus-within:ring-slate-900 transition">
-            <input
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your student email..."
-              className="w-full bg-transparent px-5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none font-medium"
-            />
-            <button
-              type="submit"
-              className="bg-slate-950 hover:bg-black text-white px-5 py-2.5 rounded-full text-xs font-bold shrink-0 transition"
-            >
-              {subscribed ? 'Subscribed ✓' : 'Subscribe'}
-            </button>
-          </form>
-
-          <p className="text-[10px] text-slate-400">
-            By subscribing, you agree to receive scholarship notices from CertiScholar. Unsubscribe anytime.
-          </p>
         </div>
 
       </div>

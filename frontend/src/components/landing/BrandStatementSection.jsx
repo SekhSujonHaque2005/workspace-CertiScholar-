@@ -1,49 +1,81 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
 
-/**
- * Brand Statement Section matching Framer LEROVA template
- * Soft, low-contrast watermark serif lettering with centered institutional endorsement
- */
 export default function BrandStatementSection({
-  watermarkText = "certischolar",
-  quote = "CertiScholar eliminated fraudulent submissions, reduced our scholarship audit turnaround from 45 days to under 48 hours, and ensured financial aid reaches deserving students with complete transparency.",
-  author = "Dr. Rajesh Verma",
-  role = "Dean, Student Welfare & Financial Aid Secretariat",
-  institution = "Lovely Professional University",
+  onStartJourney = () => {},
 }) {
   return (
-    <section className="py-28 sm:py-36 bg-white relative overflow-hidden border-b border-slate-100">
-      {/* Giant Background Watermark Serif Typography (Soft & Elegant) */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden">
-        <span 
-          className="font-serif italic text-[120px] sm:text-[200px] lg:text-[280px] font-bold text-slate-900 tracking-tighter lowercase leading-none"
-          style={{ opacity: 0.035 }}
-        >
-          {watermarkText}
-        </span>
-      </div>
-
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-7">
+    <section id="experience" className="py-24 sm:py-32 bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-10 space-y-16">
         
-        <div className="inline-flex items-center gap-2 bg-[#F8F9FA] text-slate-700 px-4 py-1.5 rounded-full text-xs font-semibold border border-slate-200/80 shadow-xs">
-          <ShieldCheck className="w-3.5 h-3.5 text-indigo-600" />
-          <span>Institutional Endorsement</span>
+        {/* Eyebrow */}
+        <div className="text-center">
+          <span className="text-[12px] font-semibold tracking-wider text-slate-400 uppercase font-['Manrope']">
+            Built around you
+          </span>
         </div>
 
-        {/* Elegant Quote in Sans/Serif harmony */}
-        <blockquote className="text-xl sm:text-2xl lg:text-[28px] font-extrabold text-slate-900 leading-snug tracking-tight font-sans max-w-3xl mx-auto">
-          "{quote}"
-        </blockquote>
+        {/* Stage Container with Giant Bodoni Moda Watermark */}
+        <div className="relative min-h-[480px] sm:min-h-[580px] flex items-center justify-center">
+          
+          {/* Watermark Behind */}
+          <div className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
+            <span className="font-['Bodoni_Moda'] text-[130px] sm:text-[200px] lg:text-[280px] font-normal italic tracking-[-0.04em] text-slate-100 whitespace-nowrap">
+              certischolar
+            </span>
+          </div>
 
-        {/* Author Attribution */}
-        <div className="space-y-1 pt-1">
-          <p className="text-sm font-black text-slate-900 tracking-tight">
-            {author}
+          {/* Center Image (Magazine / Book from Framer) */}
+          <div className="relative z-10 w-[240px] sm:w-[320px] rounded-2xl shadow-2xl overflow-hidden border-4 border-white transform hover:scale-105 transition-transform duration-500">
+            <img
+              src="/images/lerova-magazine.jpg"
+              alt="CertiScholar Platform Experience"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+
+          {/* Floating Progress Card (Left) */}
+          <div className="absolute left-4 sm:left-12 lg:left-24 bottom-6 sm:bottom-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl p-5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.15)] border border-slate-100 max-w-[280px] space-y-3">
+            <div className="flex items-center justify-between text-[11px] text-slate-400 font-mono">
+              <span>Verification 4 of 5</span>
+              <span>{"{ your progress }"}</span>
+            </div>
+            <div className="text-[14px] font-semibold text-slate-900 font-['Manrope']">
+              LPUNEST Eligibility Quorum
+            </div>
+            <div className="flex items-center justify-between pt-1">
+              <span className="text-xs font-bold text-emerald-600">98% Verified</span>
+              <button
+                onClick={onStartJourney}
+                className="bg-slate-900 text-white text-[11px] font-semibold px-3 py-1.5 rounded-full hover:bg-black transition cursor-pointer"
+              >
+                Continue
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        {/* Copy Below */}
+        <div className="text-center max-w-2xl mx-auto space-y-5">
+          <h2 className="font-['Manrope'] font-medium text-[32px] sm:text-[42px] leading-tight text-slate-950 tracking-[-0.035em]">
+            Your Goals. Your Pace. Your Progress.
+          </h2>
+          <p className="text-[14px] sm:text-[15px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
+            Institutional verification works best when it feels transparent. Authenticate your marksheets, track your quota status in real time, and keep moving forward with confidence.
           </p>
-          <p className="text-xs text-slate-500 font-medium">
-            {role} • <span className="text-slate-800 font-semibold">{institution}</span>
-          </p>
+          <div className="pt-2">
+            <button
+              onClick={onStartJourney}
+              className="group inline-flex items-center bg-[#171717] hover:bg-black text-white px-7 py-3.5 rounded-full text-xs sm:text-[13px] font-semibold tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
+            >
+              <span className="btn-roll">
+                <span className="btn-roll-inner">
+                  <span>Start Your Verification Journey</span>
+                  <span>Start Your Verification Journey</span>
+                </span>
+              </span>
+            </button>
+          </div>
         </div>
 
       </div>
