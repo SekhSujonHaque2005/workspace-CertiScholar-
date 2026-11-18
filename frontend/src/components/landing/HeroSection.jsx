@@ -85,10 +85,10 @@ const DEFAULT_TABS = [
 ];
 
 export default function HeroSection({
-  eyebrow = "YOUR FUTURE, YOUR WAY",
-  headlineSans = "Fund education.",
-  headlineSerif = "unlock your potential.",
-  description = "Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips.",
+  eyebrow = "INSTITUTIONAL SCHOLARSHIP PLATFORM",
+  headlineSans = "Verify credentials.",
+  headlineSerif = "claim your scholarship.",
+  description = "The unified scholarship & document verification platform for Lovely Professional University. Authenticate academic records via DigiLocker OCR, eliminate paperwork, and secure institutional aid with transparent quorum review.",
   onExploreClick = () => {},
   onHowItWorksClick = () => {},
   tabs = DEFAULT_TABS,

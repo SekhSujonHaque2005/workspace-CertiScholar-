@@ -78,10 +78,10 @@ export default function LandingPage({
         {/* 02 & 03: Top Hero Section Container (contains Hero Panel + Trusted By Logo Ticker) */}
         <section className="pt-3 px-3 sm:px-4 max-w-[1400px] mx-auto flex flex-col gap-3">
           <HeroSection
-            eyebrow="YOUR FUTURE, YOUR WAY"
-            headlineSans="Fund education."
-            headlineSerif="unlock your potential."
-            description="Cut through the noise of scattered deadlines, unverified claims, and manual paperwork. CertiScholar brings automated verification, explainable eligibility, and trusted institutional aid directly to your fingertips."
+            eyebrow="INSTITUTIONAL SCHOLARSHIP PLATFORM"
+            headlineSans="Verify credentials."
+            headlineSerif="claim your scholarship."
+            description="The unified scholarship & document verification platform for Lovely Professional University. Authenticate academic records via DigiLocker OCR, eliminate paperwork, and secure institutional aid with transparent quorum review."
             onExploreClick={() => {
               const el = document.getElementById('scholarships');
               el?.scrollIntoView({ behavior: 'smooth' });
