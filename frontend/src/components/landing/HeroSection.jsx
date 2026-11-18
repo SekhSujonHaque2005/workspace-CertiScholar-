@@ -5,8 +5,8 @@ const DEFAULT_TABS = [
   {
     id: "01",
     badgeNumber: "01",
-    title: "Self-Paced Verification",
-    description: "Verify marksheets once at your own speed. Valid across all schemes.",
+    title: "Self-Paced Learning",
+    description: "Learn at your own pace. Grow at your own speed.",
     badge: "Expert-led",
     avatars: [
       "/images/avatar-1.jpg", 
@@ -18,9 +18,9 @@ const DEFAULT_TABS = [
     id: "02",
     badgeNumber: "02",
     value: "10K+",
-    title: "Active Scholars*",
-    description: "Over 10,000 verified students with zero processing backlog.",
-    badge: "Live Network",
+    title: "Active Learners*",
+    description: "Join over 10,000 ambitious learners mastering real-world skills.",
+    badge: "Active Community",
     avatars: [
       "/images/avatar-2.jpg", 
       "/images/avatar-3.jpg",
@@ -31,9 +31,9 @@ const DEFAULT_TABS = [
     id: "03",
     badgeNumber: "03",
     value: "250+",
-    title: "Verified Schemes*",
-    description: "Direct gazette-corroborated merit and state scholarships.",
-    badge: "Gazette Checked",
+    title: "Expert-Led Courses*",
+    description: "Thoughtfully structured curricula designed by industry professionals.",
+    badge: "Curated Tracks",
     avatars: [
       "/images/avatar-1.jpg", 
       "/images/avatar-3.jpg",
@@ -44,9 +44,9 @@ const DEFAULT_TABS = [
     id: "04",
     badgeNumber: "04",
     value: "95%",
-    title: "Decision Accuracy*",
-    description: "Auditable mathematical verification with zero double-counting.",
-    badge: "M5 Quorum",
+    title: "Learner Satisfaction*",
+    description: "Consistently rated 5 stars by students and career switchers worldwide.",
+    badge: "Verified Reviews",
     avatars: [
       "/images/avatar-3.jpg", 
       "/images/avatar-2.jpg",
@@ -57,9 +57,9 @@ const DEFAULT_TABS = [
 
 export default function HeroSection({
   eyebrow = "YOUR FUTURE, YOUR WAY",
-  headlineSans = "Fund education.",
+  headlineSans = "Build skills.",
   headlineSerif = "unlock your potential.",
-  description = "Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with CertiScholar. Your next opportunity starts with what you verify today.",
+  description = "Learn in-demand skills, explore new possibilities, and turn your ambitions into real-world achievements with LEROVA. Your next opportunity starts with what you learn today.",
   onExploreClick = () => {},
   onHowItWorksClick = () => {},
   tabs = DEFAULT_TABS,
@@ -107,34 +107,34 @@ export default function HeroSection({
           }}
         />
 
-        {/* Layer 4: Headline & Actions */}
+        {/* Layer 4: Headline & Actions with Word-Blur Entrance */}
         <div className="relative z-10 space-y-4 max-w-4xl">
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 text-white/90 text-[13px] font-semibold tracking-[0.08em] uppercase font-['Manrope']">
+          <div className="inline-flex items-center gap-2 text-white/90 text-[13px] font-semibold tracking-[0.08em] uppercase font-['Manrope'] animate-word-blur">
             <span className="text-[#ff5a2b]">✦</span>
             <span>{eyebrow}</span>
           </div>
 
           {/* Headline H1 (Manrope 500) + H2 (Bodoni Moda 400 Italic) */}
           <div className="space-y-1">
-            <h1 className="font-['Manrope'] font-medium text-[68px] sm:text-[105px] lg:text-[135px] xl:text-[150px] leading-[0.9] tracking-[-0.065em] text-white">
+            <h1 className="font-['Manrope'] font-medium text-[68px] sm:text-[105px] lg:text-[135px] xl:text-[150px] leading-[0.9] tracking-[-0.065em] text-white animate-word-blur" style={{ animationDelay: '0.1s' }}>
               {headlineSans}
             </h1>
-            <h2 className="font-['Bodoni_Moda'] font-normal italic text-[44px] sm:text-[68px] lg:text-[84px] xl:text-[92px] leading-[1] tracking-[-0.04em] text-white">
+            <h2 className="font-['Bodoni_Moda'] font-normal italic text-[44px] sm:text-[68px] lg:text-[84px] xl:text-[92px] leading-[1] tracking-[-0.04em] text-white pt-1 animate-word-blur" style={{ animationDelay: '0.2s' }}>
               {headlineSerif}
             </h2>
           </div>
 
           {/* Action Buttons with Framer Roll Effect */}
-          <div className="flex flex-wrap items-center gap-3 pt-4">
+          <div className="flex flex-wrap items-center gap-3 pt-4 animate-word-blur" style={{ animationDelay: '0.3s' }}>
             <button
               onClick={onExploreClick}
               className="group bg-white hover:bg-slate-100 text-[#171717] font-semibold px-6 py-3 rounded-full text-xs sm:text-[13px] tracking-tight transition-all duration-300 shadow-sm cursor-pointer overflow-hidden font-['Manrope']"
             >
               <span className="btn-roll">
                 <span className="btn-roll-inner">
-                  <span>Explore Scholarships</span>
-                  <span>Explore Scholarships</span>
+                  <span>Explore Courses</span>
+                  <span>Explore Courses</span>
                 </span>
               </span>
             </button>

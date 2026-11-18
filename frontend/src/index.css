@@ -7,24 +7,38 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: #F8F9FA;
-  color: #111827;
+  background-color: #ffffff;
+  color: #171717;
   overflow-x: hidden;
 }
 
-/* Framer LEROVA Custom Ease & Animations */
+/* Framer LEROVA Custom Ease & Timing */
 :root {
   --framer-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --framer-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Smooth Entrance Fade & Slide Up */
+/* Entrance Animations */
 @keyframes framerAppear {
   0% {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(32px);
   }
   100% {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes framerWordBlur {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(22px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
   }
 }
@@ -39,8 +53,68 @@ body {
   }
 }
 
+/* Continuous Micro-Animations */
+@keyframes framerSpinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes framerSpinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes framerDotBounce {
+  0%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes framerFloatingBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1.5deg);
+  }
+}
+
+@keyframes framerClockHand {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes framerBarScale {
+  0% {
+    transform: scaleY(0.25);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Classes */
 .animate-framer-appear {
   animation: framerAppear 0.9s var(--framer-ease) forwards;
+}
+
+.animate-word-blur {
+  animation: framerWordBlur 0.85s var(--framer-ease) forwards;
 }
 
 .animate-ticker {
@@ -51,6 +125,44 @@ body {
 
 .animate-ticker:hover {
   animation-play-state: paused;
+}
+
+.animate-spin-slow {
+  animation: framerSpinSlow 60s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: framerSpinReverse 80s linear infinite;
+}
+
+.animate-spark {
+  animation: framerSpinSlow 24s linear infinite;
+}
+
+.animate-dot-1 {
+  animation: framerDotBounce 1.4s ease-in-out infinite;
+}
+
+.animate-dot-2 {
+  animation: framerDotBounce 1.4s ease-in-out infinite 0.2s;
+}
+
+.animate-dot-3 {
+  animation: framerDotBounce 1.4s ease-in-out infinite 0.4s;
+}
+
+.animate-float-bob {
+  animation: framerFloatingBob 4s ease-in-out infinite;
+}
+
+.animate-clock-minute {
+  transform-origin: 50% 50%;
+  animation: framerClockHand 12s linear infinite;
+}
+
+.animate-clock-hour {
+  transform-origin: 50% 50%;
+  animation: framerClockHand 72s linear infinite;
 }
 
 /* Custom button text roll on hover (Framer signature) */
@@ -71,4 +183,17 @@ body {
 button:hover .btn-roll-inner,
 a:hover .btn-roll-inner {
   transform: translateY(-50%);
+}
+
+/* Scroll reveal utility classes */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  transition: opacity 0.85s var(--framer-ease), transform 0.85s var(--framer-ease), filter 0.85s var(--framer-ease);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
