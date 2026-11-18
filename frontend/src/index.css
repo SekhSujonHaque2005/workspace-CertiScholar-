@@ -213,3 +213,47 @@ a:hover .btn-roll-inner {
   opacity: 1;
   transform: translateY(0) scale(1);
 }
+
+/* Category Domain Emblems Micro-Animations */
+@keyframes iconSpinClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes iconSpinCounterClockwise {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+@keyframes iconPulseSubtle {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+.animate-icon-spin-slow {
+  animation: iconSpinClockwise 22s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.animate-icon-spin-reverse {
+  animation: iconSpinCounterClockwise 18s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.animate-icon-pulse {
+  animation: iconPulseSubtle 3.5s ease-in-out infinite;
+  transform-origin: 50% 50%;
+}
+
+/* Speed boost on card hover */
+.group:hover .animate-icon-spin-slow {
+  animation-duration: 4s;
+}
+
+.group:hover .animate-icon-spin-reverse {
+  animation-duration: 3.5s;
+}
+
+.group:hover .animate-icon-pulse {
+  animation-duration: 1.5s;
+}

@@ -9,20 +9,25 @@ const CATEGORIES = [
     subtext: "LPUNEST, JEE Ranks, Board Percentiles",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
-        {[...Array(12)].map((_, i) => (
-          <line
-            key={i}
-            x1="50"
-            y1="16"
-            x2="50"
-            y2="28"
-            stroke="currentColor"
-            strokeWidth="5"
-            strokeLinecap="round"
-            transform={`rotate(${i * 30} 50 50)`}
-          />
-        ))}
-        <circle cx="50" cy="50" r="9" stroke="currentColor" strokeWidth="4" />
+        {/* 12 radial spokes rotating smoothly, accelerates on card hover */}
+        <g className="animate-icon-spin-slow">
+          {[...Array(12)].map((_, i) => (
+            <line
+              key={i}
+              x1="50"
+              y1="14"
+              x2="50"
+              y2="28"
+              stroke="currentColor"
+              strokeWidth="5"
+              strokeLinecap="round"
+              transform={`rotate(${i * 30} 50 50)`}
+            />
+          ))}
+        </g>
+        {/* Center core pulsing */}
+        <circle cx="50" cy="50" r="9" stroke="currentColor" strokeWidth="4" className="animate-icon-pulse" />
+        <circle cx="50" cy="50" r="3.5" fill="currentColor" />
       </svg>
     ),
   },
@@ -33,19 +38,23 @@ const CATEGORIES = [
     subtext: "Tehsildar EWS, Low-Income Waivers",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
-        {[...Array(8)].map((_, i) => (
-          <line
-            key={i}
-            x1="50"
-            y1="14"
-            x2="50"
-            y2="50"
-            stroke="currentColor"
-            strokeWidth="5"
-            strokeLinecap="round"
-            transform={`rotate(${i * 45} 50 50)`}
-          />
-        ))}
+        {/* 8-spoke geometric star rotating counter-clockwise */}
+        <g className="animate-icon-spin-reverse">
+          {[...Array(8)].map((_, i) => (
+            <line
+              key={i}
+              x1="50"
+              y1="14"
+              x2="50"
+              y2="50"
+              stroke="currentColor"
+              strokeWidth="5"
+              strokeLinecap="round"
+              transform={`rotate(${i * 45} 50 50)`}
+            />
+          ))}
+          <circle cx="50" cy="50" r="4.5" fill="currentColor" />
+        </g>
       </svg>
     ),
   },
@@ -56,10 +65,17 @@ const CATEGORIES = [
     subtext: "Defense Anudaan, Shikshak Samman",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
-        <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" />
-        <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" transform="rotate(60 50 50)" />
-        <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" transform="rotate(120 50 50)" />
-        <circle cx="50" cy="50" r="4.5" fill="currentColor" />
+        {/* 3 multi-layered orbital rings rotating independently like a quantum atom */}
+        <g className="animate-icon-spin-slow" style={{ animationDuration: '14s' }}>
+          <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" />
+        </g>
+        <g className="animate-icon-spin-reverse" style={{ animationDuration: '18s' }}>
+          <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" transform="rotate(60 50 50)" />
+        </g>
+        <g className="animate-icon-spin-slow" style={{ animationDuration: '24s' }}>
+          <ellipse cx="50" cy="50" rx="36" ry="14" stroke="currentColor" strokeWidth="4" transform="rotate(120 50 50)" />
+        </g>
+        <circle cx="50" cy="50" r="4.5" fill="currentColor" className="animate-icon-pulse" />
       </svg>
     ),
   },
@@ -70,9 +86,17 @@ const CATEGORIES = [
     subtext: "National Medalists, Performing Arts",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
-        <circle cx="50" cy="50" r="10" stroke="currentColor" strokeWidth="4" />
-        <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="3.5" strokeDasharray="3 4.5" />
-        <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="3" />
+        {/* Center Target with dot */}
+        <circle cx="50" cy="50" r="9" stroke="currentColor" strokeWidth="4" />
+        <circle cx="50" cy="50" r="3" fill="currentColor" />
+
+        {/* Middle Dashed Radar Ring rotating continuously */}
+        <g className="animate-icon-spin-slow" style={{ animationDuration: '16s' }}>
+          <circle cx="50" cy="50" r="22" stroke="currentColor" strokeWidth="3.5" strokeDasharray="3.5 4.5" />
+        </g>
+
+        {/* Outer Ring with gentle breathing pulse */}
+        <circle cx="50" cy="50" r="35" stroke="currentColor" strokeWidth="3" className="animate-icon-pulse" />
       </svg>
     ),
   },
@@ -105,7 +129,7 @@ export default function DomainPillsSection({
           </div>
         </ScrollReveal>
 
-        {/* 4 Category Cards - ON HOVER ONLY black state */}
+        {/* 4 Category Cards - ON HOVER ONLY black state with animated geometric emblems */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {categories.map((cat, idx) => (
             <ScrollReveal
@@ -123,8 +147,8 @@ export default function DomainPillsSection({
 
                 {/* Centered Glyph & Copy */}
                 <div className="flex flex-col items-center justify-center space-y-7 my-auto">
-                  {/* Geometric Emblem: Turns white on card hover */}
-                  <div className="text-[#171717] group-hover:text-white group-hover:scale-108 transition-all duration-300">
+                  {/* Geometric Emblem: Dynamic micro-animations with scale & color shift on card hover */}
+                  <div className="text-[#171717] group-hover:text-white group-hover:scale-115 transition-all duration-300">
                     {cat.glyph}
                   </div>
 
