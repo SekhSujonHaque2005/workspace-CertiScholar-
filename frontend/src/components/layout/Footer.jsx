@@ -40,10 +40,10 @@ export default function Footer({
 
             {/* Tagline & Attribution */}
             <p className="text-[15px] font-normal text-[#171717] leading-relaxed max-w-sm font-['Manrope']">
-              A better way to discover, verify, and secure institutional scholarship funding.
+              A simple way to verify documents and receive university scholarships.
             </p>
             <p className="text-[13px] text-[#9a9aa1] leading-relaxed max-w-sm font-['Manrope']">
-              Institutional document verification and scholarship governance platform developed for Lovely Professional University.
+              Official scholarship and document verification portal for Lovely Professional University.
             </p>
 
             {/* Follow Us Social Icon Buttons */}

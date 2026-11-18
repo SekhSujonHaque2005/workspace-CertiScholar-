@@ -4,20 +4,20 @@ import { ArrowUpRight } from 'lucide-react';
 
 const ARTICLES = [
   {
-    title: "How Quorum Verification Validates Academic Marksheets",
-    description: "Learn how Lovely Professional University evaluates Class 10/12 marksheets, calculates percentiles, and prevents credential fraud.",
+    title: "How We Verify Academic Marksheets Online",
+    description: "A quick guide on how 10th and 12th board marks are checked safely to give you the highest scholarship you deserve.",
     image: "https://framerusercontent.com/images/AuNMTxFb2gdYMgzE5W1TQXHnLs4.jpg?width=2000&height=1333",
     slug: "#resources"
   },
   {
-    title: "The Anti-Stacking Policy & Merit Optimization Engine",
-    description: "Explore how CertiScholar allocates your highest entitled scholarship award without conflicting state or central grants.",
+    title: "How to Get the Maximum Scholarship Amount",
+    description: "Understand how the system automatically selects the highest scholarship benefit for your branch and category.",
     image: "https://framerusercontent.com/images/NaGMKeql8FnolnikdR35FIRdg.jpg?width=2000&height=1333",
     slug: "#resources"
   },
   {
-    title: "DigiLocker Integration & DPDP Act Privacy Standards",
-    description: "Understand how your academic identity, roll numbers, and category credentials remain encrypted and auditable.",
+    title: "Keeping Your Personal Data Safe & Private",
+    description: "How your certificates, roll numbers, and personal details stay encrypted and secure under Indian privacy laws.",
     image: "https://framerusercontent.com/images/C1KpNH6IWsrXJkqpcGfPeLfsb8.jpg?width=2000&height=1333",
     slug: "#resources"
   }
@@ -46,18 +46,18 @@ export default function LearningResourcesSection() {
                 </svg>
               </div>
               <span className="text-[12px] font-semibold text-slate-500 font-['Manrope'] uppercase tracking-wider">
-                Ideas that inspire
+                Helpful Guides
               </span>
             </div>
 
             {/* Headline */}
             <h2 className="text-[38px] sm:text-[46px] font-medium text-[#171717] tracking-[-0.04em] leading-[1.12] font-['Manrope']">
-              Fresh Perspectives for Your Next Step.
+              Simple Guides for Your Application.
             </h2>
             
             {/* Subhead */}
             <p className="text-[15.5px] text-[#6b6b75] max-w-2xl font-normal leading-relaxed font-['Manrope']">
-              Explore practical advice, thoughtful insights, and useful resources to keep your curiosity alive and guide your scholarship journey.
+              Step-by-step articles to help you understand eligibility, prepare your documents, and get your scholarship approved.
             </p>
           </div>
         </ScrollReveal>

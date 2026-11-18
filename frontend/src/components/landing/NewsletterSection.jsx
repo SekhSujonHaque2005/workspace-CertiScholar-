@@ -7,8 +7,8 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
  * luxury Manrope typography, and pill email input with embedded black Subscribe button.
  */
 export default function NewsletterSection({
-  headline = "A Little Inspiration for Your Inbox.",
-  description = "Get scholarship deadlines, institutional circulars, and merit application notices delivered fresh.",
+  headline = "Never Miss a Scholarship Deadline.",
+  description = "Get notified about new scholarships, application deadlines, and fee concession updates directly in your inbox.",
 }) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);

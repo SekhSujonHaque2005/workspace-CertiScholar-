@@ -62,18 +62,18 @@ export default function PreFooterCtaSection({
                 </svg>
               </div>
               <span className="text-[12px] font-semibold text-slate-500 font-['Manrope'] uppercase tracking-wider">
-                Your next chapter
+                Start Today
               </span>
             </div>
 
             {/* Heading */}
             <h2 className="font-['Manrope'] font-medium text-[28px] sm:text-[32px] leading-[1.15] tracking-[-0.04em] text-[#171717]">
-              Your Future Won’t Build Itself.
+              Ready to Claim Your Scholarship?
             </h2>
 
             {/* Paragraph */}
             <p className="text-[14px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope']">
-              Take the first step toward something greater. Discover verified scholarships, corroborate credentials, and secure your financial aid with CertiScholar.
+              It takes less than two minutes. Create your account, verify your marks with DigiLocker, and check your college scholarship eligibility today.
             </p>
 
             {/* Action Button with Framer Roll Effect */}
@@ -84,8 +84,8 @@ export default function PreFooterCtaSection({
               >
                 <span className="btn-roll">
                   <span className="btn-roll-inner">
-                    <span>Start Verification Today</span>
-                    <span>Start Verification Today</span>
+                    <span>Check Your Eligibility Now</span>
+                    <span>Check Your Eligibility Now</span>
                   </span>
                 </span>
               </button>

@@ -13,9 +13,9 @@ function ArrowUpRightIcon() {
 
 const FEATURES = [
   {
-    tag: "{ quorum }",
-    title: "Verified by Quorum Experts",
-    description: "Academic marksheets, board certificates, and income records authenticated directly by faculty deans and gazette officers.",
+    tag: "{ trusted }",
+    title: "Officially Verified",
+    description: "Your marksheets, certificates, and income records are checked directly with official university databases.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -53,8 +53,8 @@ const FEATURES = [
   },
   {
     tag: "{ flexible }",
-    title: "Verify on Your Schedule",
-    description: "Fit document verification into your day with instant DigiLocker sync designed to eliminate physical queue delays.",
+    title: "Apply on Your Schedule",
+    description: "Connect DigiLocker in seconds. No standing in long college queues, no physical xerox copies needed.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -105,9 +105,9 @@ const FEATURES = [
     ),
   },
   {
-    tag: "{ practical }",
-    title: "Focus on Explainable Aid",
-    description: "Explore transparent eligibility cutoffs, OCR-corroborated marks, and knowledge you can trust before submitting.",
+    tag: "{ clear }",
+    title: "Clear Eligibility Rules",
+    description: "Know exactly which scholarships you qualify for before you apply. 100% transparent cutoffs with no surprises.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -173,8 +173,8 @@ const FEATURES = [
   },
   {
     tag: "{ progress }",
-    title: "Make Progress That Matters",
-    description: "Track application milestones in real time, receive quorum decision rationale, and turn verified credentials into disbursed aid.",
+    title: "Track Every Step",
+    description: "Follow your application status live from initial review to final scholarship approval and fee deduction.",
     illustration: (
       <div className="w-full h-[190px] bg-white rounded-2xl flex items-center justify-center relative overflow-hidden shadow-2xs border border-slate-100">
         <svg viewBox="0 0 200 200" className="w-[170px] h-[170px] overflow-visible">
@@ -258,9 +258,9 @@ const FEATURES = [
 ];
 
 export default function ValuePropositionSection({
-  eyebrow = "The CertiScholar difference",
-  headline = "More Than Aid. A Step Toward Your Future.",
-  description = "Great scholarship platforms should fit your life, eliminate red tape, and help you make verifiable progress. CertiScholar brings discovery, OCR verification, and institutional review into one unified place.",
+  eyebrow = "WHY CERTISCHOLAR",
+  headline = "More than funding. A clear path to college.",
+  description = "Applying for college scholarships shouldn't be confusing or stressful. CertiScholar brings simple document uploads, clear eligibility rules, and official university reviews together in one easy place.",
   onLearnMore = () => {},
   features = FEATURES,
 }) {

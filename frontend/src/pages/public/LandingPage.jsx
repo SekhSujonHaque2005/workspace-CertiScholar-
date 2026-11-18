@@ -81,7 +81,7 @@ export default function LandingPage({
             eyebrow="INSTITUTIONAL SCHOLARSHIP PLATFORM"
             headlineSans="Verify credentials."
             headlineSerif="claim your scholarship."
-            description="The unified scholarship & document verification platform for Lovely Professional University. Authenticate academic records via DigiLocker OCR, eliminate paperwork, and secure institutional aid with transparent quorum review."
+            description="The official scholarship portal for Lovely Professional University. Upload your marksheets, check your eligibility in minutes, and get your tuition scholarship approved with zero paperwork."
             onExploreClick={() => {
               const el = document.getElementById('scholarships');
               el?.scrollIntoView({ behavior: 'smooth' });
@@ -95,11 +95,11 @@ export default function LandingPage({
           <TrustStatsGrid />
         </section>
 
-        {/* 04: "Why LEROVA / The CertiScholar Difference" (Row 1 Text + Row 2 Four Cards) */}
+        {/* 04: "Why CertiScholar / The CertiScholar Difference" */}
         <ValuePropositionSection
-          eyebrow="The CertiScholar difference"
-          headline="More Than Aid. A Step Toward Your Future."
-          description="Great scholarship platforms should fit your life, eliminate red tape, and help you make verifiable progress. CertiScholar brings discovery, OCR verification, and institutional review into one unified place."
+          eyebrow="WHY CERTISCHOLAR"
+          headline="More than funding. A clear path to college."
+          description="Applying for college scholarships shouldn't be confusing or stressful. CertiScholar brings simple document uploads, clear eligibility rules, and official university reviews together in one easy place."
           onLearnMore={() => {
             const el = document.getElementById('how-it-works');
             el?.scrollIntoView({ behavior: 'smooth' });

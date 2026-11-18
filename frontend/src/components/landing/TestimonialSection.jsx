@@ -5,29 +5,29 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 const TESTIMONIAL_STORIES = [
   {
     id: "story-sarah",
-    quote: "“CertiScholar helped me turn my academic marks into a fully funded university degree.”",
-    description: "The verification process was transparent, fast, and completely free of manual paperwork. Within 48 hours of uploading my CBSE marksheets, my 100% LPUNEST waiver was corroborated and credited directly to my university tuition ledger.",
+    quote: "“CertiScholar helped me turn my marks into a fully funded degree.”",
+    description: "The verification was simple, fast, and completely online. Within two days of uploading my 12th marksheets, my full tuition fee waiver was approved and credited directly to my university fee portal.",
     author: "Sarah Lin",
-    role: "B.Tech Computer Science Scholar · Lovely Professional University",
-    badge: "100% LPUNEST Merit Waiver",
+    role: "B.Tech Computer Science Student · Lovely Professional University",
+    badge: "100% Merit Fee Waiver",
     image: "/images/student-quote.jpg",
   },
   {
     id: "story-rahul",
-    quote: "“Zero bureaucratic delays or hidden paperwork barriers for my financial aid.”",
-    description: "Having my family's income certificate validated through state revenue APIs gave my parents immense peace of mind. CertiScholar eliminated months of running between administrative offices and sanctioned my stipend directly.",
+    quote: "“No office visits or stress — my financial aid was approved from home.”",
+    description: "Verifying our family income certificate online gave my parents immense relief. CertiScholar saved us from months of traveling to college counters and granted my fee support directly.",
     author: "Rahul Sharma",
-    role: "B.Tech Mechanical Engineering Scholar · Lovely Professional University",
+    role: "B.Tech Mechanical Engineering Student · Lovely Professional University",
     badge: "Need-Based Financial Aid (EWS)",
     image: "/images/mentor-1.jpg",
   },
   {
     id: "story-priya",
-    quote: "“Instant single-click service record verification for defense personnel wards.”",
-    description: "As a daughter of an armed forces veteran, claiming my defense ward concession used to require physical attestation at service headquarters. CertiScholar verified service records in one click, crediting my 75% fee concession immediately.",
+    quote: "“Quick and easy fee discount for children of defense personnel.”",
+    description: "As the daughter of an army veteran, claiming my fee discount used to mean collecting multiple physical stamps and signatures. With CertiScholar, it took just a few minutes online.",
     author: "Priya Nair",
-    role: "B.Design Multimedia Scholar · Lovely Professional University",
-    badge: "Defense Wards Anudaan (75% Waiver)",
+    role: "B.Design Multimedia Student · Lovely Professional University",
+    badge: "Defense Personnel Fee Concession",
     image: "/images/mentor-4.jpg",
   },
 ];
@@ -54,17 +54,17 @@ export default function TestimonialSection() {
         {/* Header with Framer Rotating Spark Emblem */}
         <ScrollReveal yOffset={30}>
           <div className="text-center max-w-2xl mx-auto space-y-3">
-            <div className="flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider text-slate-500 uppercase font-['Manrope']">
+            <div className="flex items-center justify-center gap-1.5 text-xs font-semibold tracking-wider text-[#FF5A2B] uppercase font-['Manrope']">
               <svg viewBox="0 0 100 100" className="w-3.5 h-3.5 fill-[#FF5A2B] animate-spark-spin">
                 <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z" />
               </svg>
-              <span>Stories of growth</span>
+              <span>Student Success Stories</span>
             </div>
             <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] lg:text-[48px] leading-[1.1] text-[#171717] tracking-[-0.035em]">
-              Small Steps. Big Transformations.
+              Real Students. Real Scholarships.
             </h2>
             <p className="text-[14px] sm:text-[15px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-              Every learning and scholarship journey is different. The right institutional platform helps you discover opportunities and move forward with confidence.
+              Read how students from all backgrounds used CertiScholar to verify their marks and fund their university education.
             </p>
           </div>
         </ScrollReveal>

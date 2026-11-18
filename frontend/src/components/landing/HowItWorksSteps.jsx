@@ -47,14 +47,14 @@ export default function HowItWorksSteps({
               <div className="w-full bg-[#eaeaea] rounded-[20px] p-5 flex items-center justify-center min-h-[260px]">
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_25px_rgba(0,0,0,0.08)] w-full max-w-[270px] space-y-2.5">
                   <span className="text-[11.5px] font-medium text-slate-900 font-['Manrope'] tracking-tight block">
-                    Pick a scholarship path
+                    Pick your scholarship category
                   </span>
                   
                   {/* Option 1: Selected */}
                   <div className="bg-white p-2.5 rounded-xl border border-slate-900 flex items-center justify-between text-[11px] font-medium text-[#171717]">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full bg-[#FF5A2B] shrink-0"></span>
-                      <span>Engineering &amp; Merit</span>
+                      <span>Merit &amp; Board Marks</span>
                     </div>
                   </div>
 
@@ -62,7 +62,7 @@ export default function HowItWorksSteps({
                   <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-[11px] font-normal text-slate-500">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full border border-slate-300 shrink-0"></span>
-                      <span>Need-Based Aid (EWS)</span>
+                      <span>Need-Based Financial Aid</span>
                     </div>
                   </div>
 
@@ -70,13 +70,13 @@ export default function HowItWorksSteps({
                   <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200 flex items-center justify-between text-[11px] font-normal text-slate-500">
                     <div className="flex items-center gap-2">
                       <span className="w-2.5 h-2.5 rounded-full border border-slate-300 shrink-0"></span>
-                      <span>Defense &amp; Special Wards</span>
+                      <span>Sports &amp; Defense Wards</span>
                     </div>
                   </div>
 
                   {/* Button */}
                   <div className="bg-[#171717] text-white text-center py-2 rounded-xl text-[11px] font-medium tracking-tight mt-1 shadow-xs font-['Manrope']">
-                    Start Path
+                    Check Eligibility
                   </div>
                 </div>
               </div>
@@ -90,7 +90,7 @@ export default function HowItWorksSteps({
                   Choose Your Scheme
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Find courses and schemes that align with your academic achievements, economic background, and future career goals.
+                  Find the right scholarship based on your 12th board marks, entrance rank, or family financial background.
                 </p>
               </div>
 
@@ -105,21 +105,21 @@ export default function HowItWorksSteps({
               <div className="w-full bg-[#eaeaea] rounded-[20px] p-5 flex items-center justify-center min-h-[260px]">
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_25px_rgba(0,0,0,0.08)] w-full max-w-[270px] space-y-2.5">
                   
-                  {/* Lesson 1: Completed */}
+                  {/* Item 1: Completed */}
                   <div className="bg-white p-2.5 rounded-xl border border-slate-200/70 flex items-center justify-between shadow-2xs">
                     <div className="flex items-center gap-2.5">
                       <div className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
                         <Check className="w-3 h-3 stroke-[2.5]" />
                       </div>
                       <div>
-                        <div className="text-[11px] font-medium text-[#171717]">User Research</div>
-                        <div className="text-[9.5px] text-slate-400">Lesson 3 · Completed</div>
+                        <div className="text-[11px] font-medium text-[#171717]">DigiLocker Marksheet</div>
+                        <div className="text-[9.5px] text-slate-400">Class 12 Marks · Verified</div>
                       </div>
                     </div>
                     <span className="text-[10.5px] font-semibold text-emerald-600">✓</span>
                   </div>
 
-                  {/* Lesson 2: Active with Progress Bar */}
+                  {/* Item 2: Active with Progress Bar */}
                   <div className="bg-white p-2.5 rounded-xl border border-slate-200/70 space-y-1.5 shadow-2xs">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
@@ -127,26 +127,26 @@ export default function HowItWorksSteps({
                           <Clock className="w-3 h-3" />
                         </div>
                         <div>
-                          <div className="text-[11px] font-medium text-[#171717]">OCR Verification</div>
-                          <div className="text-[9.5px] text-slate-400">Lesson 4 · 12 min left</div>
+                          <div className="text-[11px] font-medium text-[#171717]">Eligibility Check</div>
+                          <div className="text-[9.5px] text-slate-400">Cutoff 94.2% · 100% Eligible</div>
                         </div>
                       </div>
-                      <span className="text-[10.5px] font-bold text-[#FF5A2B]">68%</span>
+                      <span className="text-[10.5px] font-bold text-[#FF5A2B]">100%</span>
                     </div>
                     <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden">
-                      <div className="bg-[#FF5A2B] h-full rounded-full" style={{ width: '68%' }}></div>
+                      <div className="bg-[#FF5A2B] h-full rounded-full" style={{ width: '100%' }}></div>
                     </div>
                   </div>
 
-                  {/* Lesson 3: Up Next */}
+                  {/* Item 3: Up Next */}
                   <div className="bg-white/80 p-2.5 rounded-xl border border-slate-200/50 flex items-center justify-between opacity-60">
                     <div className="flex items-center gap-2.5">
                       <div className="w-5 h-5 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center shrink-0">
                         <List className="w-3 h-3" />
                       </div>
                       <div>
-                        <div className="text-[11px] font-medium text-[#171717]">Quorum Review</div>
-                        <div className="text-[9.5px] text-slate-400">Lesson 5 · Up next</div>
+                        <div className="text-[11px] font-medium text-[#171717]">Faculty Committee</div>
+                        <div className="text-[9.5px] text-slate-400">Official Sign-off · In Review</div>
                       </div>
                     </div>
                     <span className="text-[10.5px] font-medium text-slate-400">—</span>
@@ -161,10 +161,10 @@ export default function HowItWorksSteps({
                   [ step 02 ]
                 </span>
                 <h3 className="text-[20px] font-semibold text-[#171717] tracking-tight font-['Manrope']">
-                  Verify at Your Pace
+                  Verify Online in Minutes
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Follow expert-led lessons, upload your credentials, and make verification part of your routine.
+                  Upload your marksheets or sync via DigiLocker. Our system checks your scores instantly with zero manual errors.
                 </p>
               </div>
 
@@ -180,7 +180,7 @@ export default function HowItWorksSteps({
                 <div className="bg-white rounded-[16px] p-4 shadow-[0_10px_25px_rgba(0,0,0,0.08)] w-full max-w-[270px] space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] font-medium text-[#171717] font-['Manrope']">
-                      Final project
+                      Scholarship Awarded
                     </span>
                     <span className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px]">
                       ✓
@@ -190,7 +190,7 @@ export default function HowItWorksSteps({
                   <div className="relative aspect-[16/10] rounded-xl overflow-hidden shadow-2xs border border-white">
                     <img
                       src="/images/step-card.jpg"
-                      alt="Final project verification"
+                      alt="Scholarship awarded"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -201,8 +201,8 @@ export default function HowItWorksSteps({
                       <Check className="w-2.5 h-2.5 stroke-[2.5]" />
                     </span>
                     <div>
-                      <div className="text-[10.5px] font-semibold text-[#171717]">Portfolio piece published</div>
-                      <div className="text-[9px] text-slate-400">Shared with 3 reviewers</div>
+                      <div className="text-[10.5px] font-semibold text-[#171717]">Fee Discount Applied</div>
+                      <div className="text-[9px] text-slate-400">Credited to your student account</div>
                     </div>
                   </div>
                 </div>
@@ -214,10 +214,10 @@ export default function HowItWorksSteps({
                   [ step 03 ]
                 </span>
                 <h3 className="text-[20px] font-semibold text-[#171717] tracking-tight font-['Manrope']">
-                  Put Skills Into Action
+                  Receive Your Scholarship
                 </h3>
                 <p className="text-[13px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
-                  Apply what you learn to real projects, your academic career, and the financial aid opportunities ahead.
+                  Once approved, your scholarship grant is directly deducted from your college tuition fee or credited to your account.
                 </p>
               </div>
 
@@ -232,7 +232,7 @@ export default function HowItWorksSteps({
             <div className="w-full border-t border-slate-300/60" />
             <div className="text-center max-w-xl mx-auto">
               <p className="font-['Manrope'] font-normal text-[22px] sm:text-[26px] lg:text-[28px] leading-snug tracking-[-0.03em] text-[#171717]">
-                Start small, stay consistent, and turn every lesson into progress.
+                Simple verification, fair reviews, and guaranteed financial support for your education.
               </p>
             </div>
           </div>

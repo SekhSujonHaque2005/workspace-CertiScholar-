@@ -13,35 +13,35 @@ function ArrowUpRightIcon() {
 
 const REVIEWERS = [
   {
-    name: "Olivia Bennett",
-    role: "Verification Committee Chair",
-    tag: "{ reviewer }",
+    name: "Dr. Olivia Bennett",
+    role: "Dean of Student Scholarships",
+    tag: "{ faculty }",
     image: "/images/mentor-1.jpg",
   },
   {
-    name: "Daniel Carter",
-    role: "Academic Registrar & Gazettes",
-    tag: "{ reviewer }",
+    name: "Prof. Daniel Carter",
+    role: "University Academic Registrar",
+    tag: "{ registrar }",
     image: "/images/mentor-2.jpg",
   },
   {
     name: "Ethan Brooks",
-    role: "Financial Aid Auditor (EWS)",
-    tag: "{ reviewer }",
+    role: "Financial Aid & EWS Coordinator",
+    tag: "{ financial aid }",
     image: "/images/mentor-3.jpg",
   },
   {
-    name: "Sophia Mitchell",
-    role: "State Quota Policy Director",
-    tag: "{ reviewer }",
+    name: "Dr. Sophia Mitchell",
+    role: "Admissions & Quota Committee",
+    tag: "{ admissions }",
     image: "/images/mentor-4.jpg",
   },
 ];
 
 export default function ReviewerQuorumSection({
-  eyebrow = "Governance you can trust",
-  headline = "Experience Meets Rigor in Governance.",
-  subheadline = "Reviewed by faculty deans and verification officers who uphold institutional standards across all sanctioned scholarships.",
+  eyebrow = "FAIR & HONEST REVIEWS",
+  headline = "Reviewed by Real University Experts.",
+  subheadline = "Every application is reviewed fairly by university deans and officers to ensure scholarships reach deserving students quickly.",
   onMeetReviewers = () => {},
   reviewers = REVIEWERS,
 }) {
@@ -71,8 +71,8 @@ export default function ReviewerQuorumSection({
                 >
                   <span className="btn-roll">
                     <span className="btn-roll-inner">
-                      <span>Meet All Reviewers</span>
-                      <span>Meet All Reviewers</span>
+                      <span>Meet Our Team</span>
+                      <span>Meet Our Team</span>
                     </span>
                   </span>
                 </button>

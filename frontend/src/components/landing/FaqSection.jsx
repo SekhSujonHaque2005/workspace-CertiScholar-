@@ -5,27 +5,27 @@ import { ScrollReveal } from '../../hooks/useScrollReveal';
 const FAQS = [
   {
     q: "What is CertiScholar?",
-    a: "CertiScholar is an institutional document verification and scholarship operations platform developed for Lovely Professional University. It provides automated OCR mark calculations, DigiLocker corroboration, anti-stacking policy enforcement, and multi-officer quorum reviews."
+    a: "CertiScholar is the official online scholarship portal for Lovely Professional University. It allows students to upload their academic certificates, check eligibility automatically, and receive university fee discounts without paperwork."
   },
   {
-    q: "Who is eligible for institutional scholarships?",
-    a: "Undergraduate and postgraduate students enrolled at Lovely Professional University across merit (LPUNEST / JEE / Board percentiles), economic need (EWS / TFW), sports excellence, and reserved categories with verified credentials."
+    q: "Who can apply for scholarships?",
+    a: "All undergraduate and postgraduate students enrolled at Lovely Professional University. Scholarships are available for high test scores (LPUNEST / JEE / 12th Board marks), family financial need, sports achievements, and defense personnel wards."
   },
   {
-    q: "How does automated document verification work?",
-    a: "When you upload academic marksheets or category certificates, CertiScholar's high-precision OCR pipeline extracts subject marks, verifies roll numbers against official state and national gazettes, and recalculates eligibility percentages automatically."
+    q: "How are my documents verified?",
+    a: "When you upload your marksheets or connect DigiLocker, the system securely reads your marks and checks them against official board records. This ensures fast verification with zero manual calculation errors."
   },
   {
-    q: "What is the anti-stacking policy engine?",
-    a: "To ensure fair aid distribution and prevent double-dipping, CertiScholar enforces university policy rules that eliminate conflicting scholarship stacking, guaranteeing that each scholar receives their highest entitled award."
+    q: "Can I receive more than one scholarship?",
+    a: "The system automatically checks every scholarship you qualify for and awards you the single highest benefit so you save the maximum amount on your tuition fees."
   },
   {
-    q: "How are verification decisions governed?",
-    a: "Decisions are overseen by an auditable multi-officer Quorum Committee comprising academic deans, registrars, and financial aid auditors who review automated flags before approving aid."
+    q: "Who reviews and approves my scholarship?",
+    a: "Applications are reviewed by an official university committee comprising academic deans, the registrar, and student welfare officers to ensure every decision is fair and honest."
   },
   {
-    q: "How is sanctioned financial aid disbursed?",
-    a: "Once approved, an official digital Sanction Order with cryptographic verification is generated. Grant amounts and tuition fee waivers are directly credited to your university student ledger."
+    q: "How is the scholarship money given to me?",
+    a: "Once approved, your scholarship grant is directly applied to your university fee account, reducing the tuition amount you need to pay for college."
   }
 ];
 
@@ -45,10 +45,10 @@ export default function FaqSection() {
         <ScrollReveal yOffset={30}>
           <div className="space-y-3">
             <h2 className="font-['Manrope'] font-medium text-[38px] sm:text-[48px] leading-[1.12] text-[#171717] tracking-[-0.04em]">
-              Everything You Need to Know.
+              Frequently Asked Questions.
             </h2>
             <p className="text-[15.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] max-w-2xl">
-              Find answers to common questions about CertiScholar, automated document verification, and scholarship operations.
+              Quick answers to common questions about eligibility, document verification, and claiming your university scholarship.
             </p>
           </div>
         </ScrollReveal>

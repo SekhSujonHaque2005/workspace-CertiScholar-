@@ -89,8 +89,8 @@ const TECH_LOGOS = [
  * representing CertiScholar's real enterprise technology architecture and SRS specifications.
  */
 export default function TrustStatsGrid({
-  headline = "Architected on verified, enterprise-grade technology.",
-  sublabel = "Powered by modern cloud infrastructure, event streams, and resilient open standards.",
+  headline = "Built on trusted, secure technology.",
+  sublabel = "Fast, reliable, and verified with top institutional security standards.",
 }) {
   return (
     <div className="w-full bg-[#f4f4f5] rounded-[28px] pt-[44px] pb-[48px] px-4 sm:px-8 space-y-[34px] overflow-hidden select-none">

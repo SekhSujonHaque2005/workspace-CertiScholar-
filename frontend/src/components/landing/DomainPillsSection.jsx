@@ -6,7 +6,7 @@ const CATEGORIES = [
     id: "merit",
     category: "Merit Scholarships",
     title: "Merit & Engineering",
-    subtext: "LPUNEST, JEE Ranks, Board Percentiles",
+    subtext: "LPUNEST, JEE Ranks, 12th Board Marks",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
         {/* 12 radial spokes rotating smoothly, accelerates on card hover */}
@@ -35,7 +35,7 @@ const CATEGORIES = [
     id: "ews",
     category: "Need-Based Aid",
     title: "Need-Based Financial Aid",
-    subtext: "Tehsildar EWS, Low-Income Waivers",
+    subtext: "Family income support and fee concessions",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
         {/* 8-spoke geometric star rotating counter-clockwise */}
@@ -61,8 +61,8 @@ const CATEGORIES = [
   {
     id: "defense",
     category: "Special Wards",
-    title: "Faculty & Special Wards",
-    subtext: "Defense Anudaan, Shikshak Samman",
+    title: "Teachers & Defense Wards",
+    subtext: "Honoring children of armed forces & educators",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
         {/* 3 multi-layered orbital rings rotating independently like a quantum atom */}
@@ -83,7 +83,7 @@ const CATEGORIES = [
     id: "sports",
     category: "Sports & Cultural",
     title: "Sports & Cultural Grants",
-    subtext: "National Medalists, Performing Arts",
+    subtext: "State medalists, athletes & performing artists",
     glyph: (
       <svg viewBox="0 0 100 100" className="w-14 h-14 overflow-visible" fill="none">
         {/* Center Target with dot */}
@@ -103,9 +103,9 @@ const CATEGORIES = [
 ];
 
 export default function DomainPillsSection({
-  eyebrow = "FIND YOUR DIRECTION",
-  titleBold = "Discover What You Can Become. ",
-  titleFaded = "From merit waivers to need-based financial aid, explore scholarship paths that match your achievements and ambitions.",
+  eyebrow = "FIND YOUR SCHOLARSHIP",
+  titleBold = "Scholarships for every ambition. ",
+  titleFaded = "From engineering and board merits to financial aid and sports grants, find the right scholarship for you.",
   onSelectCategory = () => {},
   categories = CATEGORIES,
 }) {
