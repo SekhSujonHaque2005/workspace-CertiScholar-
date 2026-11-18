@@ -5,12 +5,12 @@ export default function PreFooterCtaSection({
   onGetStarted = () => {},
 }) {
   return (
-    <section className="py-14 px-3 sm:px-6 bg-white">
-      <ScrollReveal yOffset={70} scale={0.93} duration={900}>
+    <section className="w-full max-w-[1400px] mx-auto pt-10 pb-3 px-3 sm:px-4 select-none">
+      <ScrollReveal yOffset={60} scale={0.94} duration={900}>
         <div 
-          className="max-w-[1376px] mx-auto rounded-[28px] overflow-hidden min-h-[580px] p-6 sm:p-14 relative flex items-center justify-center shadow-lg"
+          className="w-full rounded-[28px] overflow-hidden min-h-[580px] p-6 sm:p-14 relative flex items-center justify-center shadow-lg"
           style={{
-            background: 'linear-gradient(rgb(245, 246, 249) 0%, rgb(211, 214, 224) 42%, rgb(138, 144, 165) 100%)'
+            background: 'linear-gradient(180deg, rgb(245, 246, 249) 0%, rgb(211, 214, 224) 42%, rgb(138, 144, 165) 100%)'
           }}
         >
           {/* SVG Orbit Concentric Rings with Continuous Motion */}
@@ -52,7 +52,7 @@ export default function PreFooterCtaSection({
           />
 
           {/* Floating White Center Card */}
-          <div className="bg-white rounded-[20px] p-8 sm:p-10 shadow-[0_30px_70px_-24px_rgba(22,23,27,0.45)] max-w-md mx-auto space-y-4 relative z-10 text-center">
+          <div className="bg-white rounded-[24px] p-8 sm:p-10 shadow-[0_30px_70px_-24px_rgba(22,23,27,0.45)] max-w-md mx-auto space-y-4 relative z-10 text-center">
             
             {/* Eyebrow with Rotating Spark Icon */}
             <div className="inline-flex items-center gap-2 justify-center">
@@ -61,18 +61,18 @@ export default function PreFooterCtaSection({
                   <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z"></path>
                 </svg>
               </div>
-              <span className="text-[12px] font-semibold text-slate-500 font-['Manrope']">
+              <span className="text-[12px] font-semibold text-slate-500 font-['Manrope'] uppercase tracking-wider">
                 Your next chapter
               </span>
             </div>
 
             {/* Heading */}
-            <h2 className="font-['Manrope'] font-medium text-[28px] sm:text-[30px] leading-[1.12] tracking-[-0.055em] text-[#171717]">
+            <h2 className="font-['Manrope'] font-medium text-[28px] sm:text-[32px] leading-[1.15] tracking-[-0.04em] text-[#171717]">
               Your Future Won’t Build Itself.
             </h2>
 
             {/* Paragraph */}
-            <p className="text-[13.5px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
+            <p className="text-[14px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope']">
               Take the first step toward something greater. Discover verified scholarships, corroborate credentials, and secure your financial aid with CertiScholar.
             </p>
 

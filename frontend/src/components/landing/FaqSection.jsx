@@ -33,24 +33,35 @@ export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState(0);
 
   return (
-    <section id="faq" className="py-24 sm:py-32 bg-white">
-      <div className="max-w-[900px] mx-auto px-6 space-y-14">
+    <section id="faq" className="py-20 sm:py-28 bg-white select-none">
+      <div className="max-w-[860px] mx-auto px-4 sm:px-6 space-y-12">
         
-        {/* Header */}
+        {/* Header with Rotating Spark Eyebrow */}
         <ScrollReveal yOffset={30}>
           <div className="space-y-3">
-            <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] leading-tight text-[#171717] tracking-[-0.035em]">
+            <div className="inline-flex items-center gap-2">
+              <div className="w-4 h-4 animate-spark">
+                <svg viewBox="0 0 100 100" className="w-full h-full fill-[#ff5a2b]">
+                  <path d="M50 4C53 34 66 47 96 50C66 53 53 66 50 96C47 66 34 53 4 50C34 47 47 34 50 4Z"></path>
+                </svg>
+              </div>
+              <span className="text-[12px] font-semibold text-slate-500 font-['Manrope'] uppercase tracking-wider">
+                Got questions?
+              </span>
+            </div>
+
+            <h2 className="font-['Manrope'] font-medium text-[36px] sm:text-[44px] leading-tight text-[#171717] tracking-[-0.04em]">
               Everything You Need to Know.
             </h2>
-            <p className="text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope']">
+            <p className="text-[14.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope']">
               Find answers to common questions about CertiScholar, automated document verification, and scholarship operations.
             </p>
           </div>
         </ScrollReveal>
 
-        {/* Accordion List with Scroll Reveal */}
+        {/* Accordion List with Framer Styling */}
         <ScrollReveal yOffset={40}>
-          <div className="divide-y divide-slate-200/80 border-t border-slate-200/80">
+          <div className="divide-y divide-[#e4e4e7] border-t border-[#e4e4e7]">
             {FAQS.map((faq, idx) => {
               const isOpen = openIdx === idx;
               return (
@@ -60,24 +71,24 @@ export default function FaqSection() {
                   onClick={() => setOpenIdx(isOpen ? null : idx)}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h3 className="text-[17px] font-semibold text-[#171717] tracking-tight font-['Manrope'] group-hover:text-black transition-colors">
+                    <h3 className="text-[17px] sm:text-[18px] font-semibold text-[#171717] tracking-tight font-['Manrope'] group-hover:text-black transition-colors">
                       {faq.q}
                     </h3>
                     <div className="shrink-0 text-slate-400 group-hover:text-black transition-colors">
                       {isOpen ? (
-                        <div className="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-[#f4f4f5] flex items-center justify-center transition-transform">
                           <Minus className="w-4 h-4 text-[#171717]" />
                         </div>
                       ) : (
-                        <div className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center">
-                          <Plus className="w-4 h-4 text-slate-600" />
+                        <div className="w-8 h-8 rounded-full bg-[#f4f4f5] flex items-center justify-center transition-transform group-hover:bg-[#e4e4e7]">
+                          <Plus className="w-4 h-4 text-[#171717]" />
                         </div>
                       )}
                     </div>
                   </div>
 
                   {isOpen && (
-                    <div className="pt-3 text-[14px] text-slate-500 leading-relaxed font-normal font-['Manrope'] animate-framer-appear">
+                    <div className="pt-3 text-[14.5px] text-[#6b6b75] leading-relaxed font-normal font-['Manrope'] animate-framer-appear">
                       {faq.a}
                     </div>
                   )}

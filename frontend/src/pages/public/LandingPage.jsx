@@ -11,8 +11,10 @@ import HowItWorksSteps from '../../components/landing/HowItWorksSteps';
 import BrandStatementSection from '../../components/landing/BrandStatementSection';
 import ReviewerQuorumSection from '../../components/landing/ReviewerQuorumSection';
 import TestimonialSection from '../../components/landing/TestimonialSection';
+import LearningResourcesSection from '../../components/landing/LearningResourcesSection';
 import FaqSection from '../../components/landing/FaqSection';
 import PreFooterCtaSection from '../../components/landing/PreFooterCtaSection';
+import NewsletterSection from '../../components/landing/NewsletterSection';
 import ScholarshipDetailModal from '../../components/landing/ScholarshipDetailModal';
 import { MOCK_SCHOLARSHIPS } from '../../services/mockScholarships';
 
@@ -137,16 +139,22 @@ export default function LandingPage({
         {/* 10: "Small Steps. Big Transformations" (Student Testimonial Card) */}
         <TestimonialSection />
 
-        {/* 11: Frequently Asked Questions Accordion */}
+        {/* 11: Learning Resources / Fresh Perspectives Articles */}
+        <LearningResourcesSection />
+
+        {/* 12: Frequently Asked Questions Accordion */}
         <FaqSection />
 
-        {/* 12: Pre-Footer Orbit Concentric Rings Portal CTA */}
+        {/* 13: Pre-Footer Orbit Concentric Rings Portal CTA */}
         <PreFooterCtaSection
           onGetStarted={onNavigateRegister}
         />
+
+        {/* 14: Direct Aid Newsletter Subscription Card */}
+        <NewsletterSection />
       </main>
 
-      {/* 13: Minimalist 4-Column Footer */}
+      {/* 15: Authentic Framer LEROVA Rounded Card Footer */}
       <Footer
         onNavigateHome={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         onNavigateLogin={onNavigateLogin}
