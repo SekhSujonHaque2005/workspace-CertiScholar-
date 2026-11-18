@@ -5,8 +5,8 @@ import { Globe } from 'lucide-react';
  * Inverted Tabbed Header matching Framer LEROVA template:
  * - Hanging Logo Tab (left), Links Tab (center), and Action Tab (right).
  * - Animated show/hide behavior on scroll with Framer spring physics.
- * - When scrolling down: header slides down animately into view.
- * - When scrolling up: header smoothly retreats out of view.
+ * - When scrolling down: header smoothly retreats out of view.
+ * - When scrolling up: header slides down animately into view.
  * - At top of page: always visible.
  */
 export default function Header({
@@ -42,11 +42,11 @@ export default function Header({
       if (Math.abs(diff) < 6) return;
 
       if (diff > 0) {
-        // Scrolling DOWN -> Header slides in animately
-        setIsVisible(true);
-      } else {
-        // Scrolling UP -> Header retreats smoothly
+        // Scrolling DOWN -> Header hides smoothly
         setIsVisible(false);
+      } else {
+        // Scrolling UP -> Header slides down animately
+        setIsVisible(true);
       }
 
       lastY = currentY;
