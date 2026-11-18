@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 const CATEGORIES = [
@@ -85,9 +85,6 @@ export default function DomainPillsSection({
   onSelectCategory = () => {},
   categories = CATEGORIES,
 }) {
-  // Default active category index set to 1 (matches Framer screenshot media_1795038208736_8b03505e.png)
-  const [activeIdx, setActiveIdx] = useState(1);
-
   return (
     <section className="py-20 sm:py-28 bg-white">
       <div className="max-w-[1400px] mx-auto px-6 sm:px-10 space-y-14">
@@ -108,82 +105,52 @@ export default function DomainPillsSection({
           </div>
         </ScrollReveal>
 
-        {/* 4 Category Cards matching Framer layout and active black state */}
+        {/* 4 Category Cards - ON HOVER ONLY black state */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {categories.map((cat, idx) => {
-            const isActive = activeIdx === idx;
-
-            return (
-              <ScrollReveal
-                key={cat.id}
-                delay={idx * 80}
-                yOffset={40 + idx * 30}
-                className="h-full"
+          {categories.map((cat, idx) => (
+            <ScrollReveal
+              key={cat.id}
+              delay={idx * 80}
+              yOffset={40 + idx * 30}
+              className="h-full"
+            >
+              <div
+                onClick={() => onSelectCategory(cat.category)}
+                className="group relative rounded-[26px] p-7 flex flex-col justify-between items-center text-center min-h-[390px] bg-[#f4f4f5] hover:bg-[#171717] text-[#171717] hover:text-white border border-slate-200/50 hover:border-[#171717] shadow-2xs hover:shadow-xl hover:scale-[1.01] transition-all duration-300 cursor-pointer select-none"
               >
-                <div
-                  onMouseEnter={() => setActiveIdx(idx)}
-                  onClick={() => {
-                    setActiveIdx(idx);
-                    onSelectCategory(cat.category);
-                  }}
-                  className={`group relative rounded-[26px] p-7 flex flex-col justify-between items-center text-center min-h-[390px] transition-all duration-300 cursor-pointer select-none border ${
-                    isActive
-                      ? 'bg-[#171717] text-white border-[#171717] shadow-xl scale-[1.01]'
-                      : 'bg-[#f4f4f5] text-[#171717] border-slate-200/50 hover:border-slate-300 shadow-2xs hover:shadow-md'
-                  }`}
-                >
-                  {/* Top space filler to balance vertical rhythm */}
-                  <div className="w-full pt-4"></div>
+                {/* Top space filler to balance vertical rhythm */}
+                <div className="w-full pt-4"></div>
 
-                  {/* Centered Glyph & Copy */}
-                  <div className="flex flex-col items-center justify-center space-y-7 my-auto">
-                    {/* Geometric Emblem */}
-                    <div
-                      className={`transition-colors duration-300 ${
-                        isActive ? 'text-white' : 'text-[#171717] group-hover:scale-108'
-                      } transition-transform duration-300`}
-                    >
-                      {cat.glyph}
-                    </div>
-
-                    {/* Title & Subtitle */}
-                    <div className="space-y-2">
-                      <h3
-                        className={`text-[19px] sm:text-[20px] font-semibold tracking-tight font-['Manrope'] transition-colors duration-200 ${
-                          isActive ? 'text-white' : 'text-[#171717]'
-                        }`}
-                      >
-                        {cat.title}
-                      </h3>
-                      <p
-                        className={`text-[12.5px] leading-relaxed font-normal font-['Manrope'] transition-colors duration-200 max-w-[210px] mx-auto ${
-                          isActive ? 'text-zinc-400' : 'text-slate-500'
-                        }`}
-                      >
-                        {cat.subtext}
-                      </p>
-                    </div>
+                {/* Centered Glyph & Copy */}
+                <div className="flex flex-col items-center justify-center space-y-7 my-auto">
+                  {/* Geometric Emblem: Turns white on card hover */}
+                  <div className="text-[#171717] group-hover:text-white group-hover:scale-108 transition-all duration-300">
+                    {cat.glyph}
                   </div>
 
-                  {/* Bottom Pill Button: Appears on Active State, Matches Framer media_1795038208736_8b03505e.png */}
-                  <div className="w-full pt-4 pb-2 flex justify-center h-[52px]">
-                    <div
-                      className={`transition-all duration-300 transform ${
-                        isActive
-                          ? 'opacity-100 translate-y-0 pointer-events-auto'
-                          : 'opacity-0 translate-y-2 pointer-events-none'
-                      }`}
-                    >
-                      <span className="inline-flex items-center px-6 py-2.5 rounded-full bg-white text-[#171717] text-[12px] font-semibold shadow-sm hover:bg-slate-100 transition-colors font-['Manrope']">
-                        Explore Category
-                      </span>
-                    </div>
+                  {/* Title & Subtitle */}
+                  <div className="space-y-2">
+                    <h3 className="text-[19px] sm:text-[20px] font-semibold tracking-tight font-['Manrope'] text-[#171717] group-hover:text-white transition-colors duration-200">
+                      {cat.title}
+                    </h3>
+                    <p className="text-[12.5px] leading-relaxed font-normal font-['Manrope'] text-slate-500 group-hover:text-zinc-400 transition-colors duration-200 max-w-[210px] mx-auto">
+                      {cat.subtext}
+                    </p>
                   </div>
-
                 </div>
-              </ScrollReveal>
-            );
-          })}
+
+                {/* Bottom Pill Button: Appears ON HOVER ONLY */}
+                <div className="w-full pt-4 pb-2 flex justify-center h-[52px]">
+                  <div className="opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 group-hover:pointer-events-auto transition-all duration-300">
+                    <span className="inline-flex items-center px-6 py-2.5 rounded-full bg-white text-[#171717] text-[12px] font-semibold shadow-sm hover:bg-slate-100 transition-colors font-['Manrope']">
+                      Explore Category
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+            </ScrollReveal>
+          ))}
         </div>
 
       </div>
