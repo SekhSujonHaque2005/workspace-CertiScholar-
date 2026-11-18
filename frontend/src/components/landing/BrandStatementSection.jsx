@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Play } from 'lucide-react';
 import { ScrollReveal, useScrollParallax } from '../../hooks/useScrollReveal';
 
@@ -14,7 +14,8 @@ function ArrowUpRightIcon() {
 export default function BrandStatementSection({
   onStartJourney = () => {},
 }) {
-  const parallaxOffset = useScrollParallax(0.12);
+  const containerRef = useRef(null);
+  const parallaxOffset = useScrollParallax(0.08, containerRef);
 
   return (
     <section id="experience" className="py-24 sm:py-32 bg-white overflow-hidden">
@@ -29,19 +30,24 @@ export default function BrandStatementSection({
           </div>
         </ScrollReveal>
 
-        {/* Stage Container with Parallax Watermark & Centered Magazine */}
-        <div className="relative min-h-[500px] sm:min-h-[620px] flex items-center justify-center">
+        {/* Stage Container with Parallax Wordmark & Centered Magazine */}
+        <div ref={containerRef} className="relative min-h-[500px] sm:min-h-[620px] flex items-center justify-center">
           
-          {/* Giant Bodoni Moda Watermark with Real Horizontal Scroll Parallax */}
+          {/* Giant Bodoni Moda Wordmark matching Framer LEROVA stage (Solid Black #171717 with Parallax) */}
           <div 
             className="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden transition-transform duration-75 ease-out"
             style={{
-              transform: `translateX(${-60 + parallaxOffset * 0.4}px)`
+              transform: `translateX(${parallaxOffset}px)`
             }}
           >
-            <span className="font-['Bodoni_Moda'] text-[150px] sm:text-[220px] lg:text-[320px] font-normal italic tracking-[-0.04em] text-slate-100 whitespace-nowrap">
-              certischolar
-            </span>
+            <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center">
+              <span className="absolute right-[calc(50%+130px)] sm:right-[calc(50%+150px)] lg:right-[calc(50%+160px)] font-['Bodoni_Moda'] text-[56px] sm:text-[95px] md:text-[118px] lg:text-[136px] xl:text-[145px] font-normal tracking-[-0.04em] text-[#171717] leading-[0.9] whitespace-nowrap">
+                certi
+              </span>
+              <span className="absolute left-[calc(50%+130px)] sm:left-[calc(50%+150px)] lg:left-[calc(50%+160px)] font-['Bodoni_Moda'] text-[56px] sm:text-[95px] md:text-[118px] lg:text-[136px] xl:text-[145px] font-normal tracking-[-0.04em] text-[#171717] leading-[0.9] whitespace-nowrap">
+                scholar
+              </span>
+            </div>
           </div>
 
           {/* Center Stage: Lesson Card (Tilted at -7deg, with Framer scale & shadow) */}
@@ -49,11 +55,11 @@ export default function BrandStatementSection({
             <div className="relative w-[260px] sm:w-[340px] rounded-[24px] overflow-hidden shadow-[0_30px_70px_-20px_rgba(23,23,23,0.35)] border-4 border-white transform -rotate-6 hover:rotate-0 hover:scale-105 transition-all duration-500 bg-slate-900 group">
               <img
                 src="/images/lerova-magazine.jpg"
-                alt="Learning Experience"
+                alt="Verification Experience"
                 className="w-full h-auto object-cover group-hover:scale-103 transition-transform duration-500"
               />
 
-              {/* Play / Lesson Pill at Top */}
+              {/* Play / Verification Pill at Top */}
               <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-2 border border-white/60">
                 <span className="w-5 h-5 rounded-full bg-[#171717] text-white flex items-center justify-center">
                   <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
@@ -66,7 +72,7 @@ export default function BrandStatementSection({
           </ScrollReveal>
 
           {/* Floating Progress Card (Bottom-Left) */}
-          <div className="absolute left-2 sm:left-10 lg:left-28 bottom-4 sm:bottom-8 z-20 bg-white/95 backdrop-blur-md rounded-[20px] p-5 shadow-[0_20px_50px_-15px_rgba(23,23,23,0.25)] border border-slate-100 max-w-[280px] space-y-3 animate-float-bob">
+          <div className="absolute left-2 sm:left-10 lg:left-24 bottom-4 sm:bottom-8 z-20 bg-white/95 backdrop-blur-md rounded-[20px] p-5 shadow-[0_20px_50px_-15px_rgba(23,23,23,0.25)] border border-slate-100 max-w-[280px] space-y-3 animate-float-bob">
             <div className="flex items-center justify-between">
               <span className="text-[11px] font-mono font-medium text-slate-400 font-['Manrope']">
                 {"{ your progress }"}
@@ -102,13 +108,27 @@ export default function BrandStatementSection({
             </div>
           </div>
 
-          {/* Floating Diploma / Cap Icon (Bottom-Right) */}
-          <div className="hidden sm:flex absolute right-6 sm:right-16 lg:right-32 top-16 z-20 bg-white rounded-2xl p-4 shadow-[0_20px_40px_-12px_rgba(23,23,23,0.2)] border border-slate-100 items-center gap-3 animate-float-bob" style={{ animationDelay: '1.5s' }}>
-            <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#ff5a2b] flex items-center justify-center font-bold text-lg">
-              🎓
-            </div>
+          {/* Floating Illustrated Cap SVG (Signature Framer Art · Cap at Bottom-Right) */}
+          <div className="hidden sm:block absolute right-4 sm:right-12 lg:right-24 bottom-6 z-20 w-[130px] h-[130px] pointer-events-none">
+            <svg viewBox="0 0 200 200" className="w-full h-full overflow-visible animate-float-bob" style={{ animationDelay: '1.2s' }}>
+              <g>
+                <path d="M56 104v30c0 16 88 16 88 0v-30" fill="rgb(207, 203, 250)" stroke="rgb(23, 23, 23)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+                <path d="M100 52l84 34-84 36-84-36z" fill="rgb(23, 23, 23)" stroke="rgb(23, 23, 23)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+                <g>
+                  <path d="M184 86v44" stroke="rgb(23, 23, 23)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" fill="none" />
+                  <circle cx="184" cy="138" r="9" fill="rgb(255, 90, 43)" stroke="rgb(23, 23, 23)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+                </g>
+              </g>
+              <path d="M34 44l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" fill="rgb(255, 224, 138)" stroke="rgb(23, 23, 23)" strokeWidth="2.4" strokeLinejoin="round" strokeLinecap="round" className="animate-spark" />
+              <circle cx="164" cy="170" r="7" fill="rgb(191, 233, 210)" stroke="rgb(23, 23, 23)" strokeWidth="3" strokeLinejoin="round" strokeLinecap="round" />
+            </svg>
+          </div>
+
+          {/* Floating Verified Credential Pill (Top-Right) */}
+          <div className="hidden sm:flex absolute right-6 sm:right-16 lg:right-28 top-12 z-20 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-3 shadow-[0_20px_40px_-12px_rgba(23,23,23,0.18)] border border-slate-100 items-center gap-2.5 animate-float-bob" style={{ animationDelay: '1.8s' }}>
+            <span className="w-2.5 h-2.5 rounded-full bg-[#ff5a2b]"></span>
             <div>
-              <div className="text-xs font-bold text-[#171717]">Verified Credential</div>
+              <div className="text-[12px] font-bold text-[#171717]">Verified Credential</div>
               <div className="text-[10px] text-slate-400">Institutional Sanction</div>
             </div>
           </div>

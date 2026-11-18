@@ -70,9 +70,11 @@ export function ScrollReveal({
 }
 
 /**
- * Hook for smooth scroll-driven parallax transform (used on Bodoni Moda watermark)
+ * Hook for smooth scroll-driven parallax transform relative to viewport center:
+ * Produces 0px offset when the section is centered in the viewport, and gently
+ * glides ±40px as the user scrolls past, matching Framer's transform physics.
  */
-export function useScrollParallax(speed = 0.15) {
+export function useScrollParallax(speed = 0.08, containerRef = null) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -81,7 +83,17 @@ export function useScrollParallax(speed = 0.15) {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setOffset(window.scrollY * speed);
+          if (containerRef && containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            const viewportCenter = window.innerHeight / 2;
+            const elementCenter = rect.top + rect.height / 2;
+            const diff = (viewportCenter - elementCenter) * speed;
+            setOffset(Math.max(-50, Math.min(50, diff)));
+          } else {
+            // Fallback clamped subtle offset
+            const scroll = window.scrollY;
+            setOffset(Math.sin(scroll * 0.002) * 20);
+          }
           ticking = false;
         });
         ticking = true;
@@ -89,8 +101,9 @@ export function useScrollParallax(speed = 0.15) {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [speed]);
+  }, [speed, containerRef]);
 
   return offset;
 }
