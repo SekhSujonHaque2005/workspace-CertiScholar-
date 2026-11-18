@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Scale, Cpu, CheckCircle2, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Scale, Cpu, CheckCircle2 } from 'lucide-react';
 
 const DEFAULT_FEATURES = [
   {
@@ -33,7 +33,8 @@ const DEFAULT_FEATURES = [
 ];
 
 /**
- * Value Proposition Section matching Lerova Framer template ("More Than Learning")
+ * Value Proposition Section matching Framer LEROVA template ("Why LEROVA"):
+ * 4 interactive pastel cards with top tags and hover elevation
  */
 export default function ValuePropositionSection({
   eyebrow = "The CertiScholar Difference",
@@ -62,27 +63,32 @@ export default function ValuePropositionSection({
             <div className="pt-2">
               <button
                 onClick={onLearnMore}
-                className="bg-white hover:bg-slate-50 text-slate-900 font-bold px-6 py-3 rounded-full text-xs tracking-tight border border-slate-200/90 shadow-xs hover:shadow transition"
+                className="group inline-flex items-center bg-white hover:bg-slate-50 text-slate-900 font-bold px-7 py-3.5 rounded-full text-xs tracking-tight border border-slate-200/90 shadow-2xs hover:shadow-md transition-all duration-300 cursor-pointer overflow-hidden"
               >
-                Learn more &rarr;
+                <span className="btn-roll">
+                  <span className="btn-roll-inner">
+                    <span>Learn more &rarr;</span>
+                    <span>Learn more &rarr;</span>
+                  </span>
+                </span>
               </button>
             </div>
           </div>
 
-          {/* Right 4 Pastel Feature Cards with Framer-style Tags */}
+          {/* Right 4 Pastel Feature Cards with Framer-style Tags & Hover */}
           <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
             {features.map((feat, idx) => {
               const IconComp = feat.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-white p-7 rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-md transition duration-300 space-y-4"
+                  className="group bg-white p-7 rounded-3xl border border-slate-200/80 shadow-2xs hover:shadow-xl hover:border-slate-300/80 hover:-translate-y-1 transition-all duration-300 space-y-4 cursor-default"
                 >
                   <div className="flex items-center justify-between">
-                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${feat.color}`}>
+                    <div className={`w-12 h-12 rounded-2xl flex items-center justify-center border ${feat.color} group-hover:scale-110 transition-transform duration-300`}>
                       <IconComp className="w-6 h-6" />
                     </div>
-                    <span className="text-[10px] font-mono font-bold text-slate-400">
+                    <span className="text-[10.5px] font-mono font-bold text-slate-400 group-hover:text-slate-600 transition-colors">
                       {feat.tag}
                     </span>
                   </div>

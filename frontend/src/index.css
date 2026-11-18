@@ -7,4 +7,68 @@
 
 body {
   font-family: var(--font-sans);
+  background-color: #F8F9FA;
+  color: #111827;
+  overflow-x: hidden;
+}
+
+/* Framer LEROVA Custom Ease & Animations */
+:root {
+  --framer-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Smooth Entrance Fade & Slide Up */
+@keyframes framerAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Infinite Marquee Ticker */
+@keyframes tickerSlide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-framer-appear {
+  animation: framerAppear 0.9s var(--framer-ease) forwards;
+}
+
+.animate-ticker {
+  display: flex;
+  width: max-content;
+  animation: tickerSlide 30s linear infinite;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* Custom button text roll on hover (Framer signature) */
+.btn-roll {
+  display: inline-flex;
+  flex-direction: column;
+  height: 1.25em;
+  overflow: hidden;
+  line-height: 1.25em;
+}
+
+.btn-roll-inner {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s var(--framer-ease);
+}
+
+button:hover .btn-roll-inner,
+a:hover .btn-roll-inner {
+  transform: translateY(-50%);
 }

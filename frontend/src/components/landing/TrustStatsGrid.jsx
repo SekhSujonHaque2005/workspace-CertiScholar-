@@ -1,15 +1,25 @@
 import React from 'react';
 
+const LOGOS = [
+  { name: "TERRAFOLD", glyph: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="3"/></svg>, type: "caps" },
+  { name: "lumen & co", glyph: <span className="text-xs">✱</span>, type: "lower" },
+  { name: "orbita", glyph: <span className="text-xs">⚛</span>, type: "lower" },
+  { name: "KINDRA", glyph: <span className="text-xs">✱</span>, type: "caps" },
+  { name: "nuvio", glyph: <span className="text-xs">❖</span>, type: "lower" },
+  { name: "Halden", glyph: <span className="text-xs">:::</span>, type: "caps" },
+  { name: "MOSAIQ", glyph: <span className="text-xs">≈</span>, type: "caps" },
+];
+
 /**
- * Trusted By / Logo Bar matching Framer LEROVA template:
- * Header + 7 modern brand logos
+ * Continuous Infinite Marquee Logo Ticker matching Framer LEROVA template:
+ * Smooth linear scroll to left with 76px gap, pause-on-hover
  */
 export default function TrustStatsGrid({
   headline = "Learning that moves you forward.",
   sublabel = "Join a growing community of curious minds, ambitious scholars, and accredited institutions.",
 }) {
   return (
-    <section className="py-14 sm:py-20 bg-white border-b border-slate-200/60">
+    <section className="py-14 sm:py-20 bg-white border-b border-slate-200/60 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
         
         {/* Copy */}
@@ -22,51 +32,28 @@ export default function TrustStatsGrid({
           </p>
         </div>
 
-        {/* 7 Clean Logos matching Framer Template */}
-        <div className="pt-4 flex flex-wrap items-center justify-center gap-8 sm:gap-12 lg:gap-16 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
-          
-          {/* TERRAFOLD */}
-          <div className="flex items-center gap-2 font-bold text-xs sm:text-sm tracking-wider uppercase text-slate-700">
-            <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="3"/></svg>
-            <span>TERRAFOLD</span>
+        {/* Infinite Marquee Ticker Track */}
+        <div className="relative pt-4 w-full overflow-hidden mask-fade">
+          <div className="animate-ticker items-center space-x-[76px] opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
+            {/* Set 1 */}
+            {LOGOS.map((logo, idx) => (
+              <div key={idx} className="flex items-center gap-2 font-bold text-xs sm:text-sm text-slate-700 shrink-0 select-none">
+                {logo.glyph}
+                <span className={logo.type === "caps" ? "tracking-widest uppercase font-mono" : "tracking-tight lowercase"}>
+                  {logo.name}
+                </span>
+              </div>
+            ))}
+            {/* Set 2 (for continuous seamless loop) */}
+            {LOGOS.map((logo, idx) => (
+              <div key={`dup-${idx}`} className="flex items-center gap-2 font-bold text-xs sm:text-sm text-slate-700 shrink-0 select-none">
+                {logo.glyph}
+                <span className={logo.type === "caps" ? "tracking-widest uppercase font-mono" : "tracking-tight lowercase"}>
+                  {logo.name}
+                </span>
+              </div>
+            ))}
           </div>
-
-          {/* lumen & co */}
-          <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm tracking-wide lowercase text-slate-700">
-            <span className="text-xs">✱</span>
-            <span>lumen &amp; co</span>
-          </div>
-
-          {/* orbita */}
-          <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm lowercase text-slate-700">
-            <span className="text-xs">⚛</span>
-            <span>orbita</span>
-          </div>
-
-          {/* KINDRA */}
-          <div className="flex items-center gap-2 font-bold text-xs sm:text-sm tracking-widest uppercase text-slate-700">
-            <span className="text-xs">✱</span>
-            <span>KINDRA</span>
-          </div>
-
-          {/* nuvio */}
-          <div className="flex items-center gap-2 font-semibold text-xs sm:text-sm lowercase text-slate-700">
-            <span className="text-xs">❖</span>
-            <span>nuvio</span>
-          </div>
-
-          {/* Halden */}
-          <div className="flex items-center gap-2 font-bold text-xs sm:text-sm tracking-tight text-slate-700">
-            <span className="text-xs">:::</span>
-            <span>Halden</span>
-          </div>
-
-          {/* MOSAIQ */}
-          <div className="flex items-center gap-2 font-bold text-xs sm:text-sm tracking-widest uppercase text-slate-700">
-            <span className="text-xs">≈</span>
-            <span>MOSAIQ</span>
-          </div>
-
         </div>
 
       </div>

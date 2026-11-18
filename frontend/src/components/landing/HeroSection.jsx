@@ -1,45 +1,54 @@
 import React, { useState } from 'react';
-import { ArrowRight, Plus, Minus } from 'lucide-react';
+import { Plus, Minus } from 'lucide-react';
 
 const DEFAULT_TABS = [
   {
     id: "01",
     label: "Self-Paced Verification",
-    shortLabel: "Self-Paced Verification",
+    number: "01",
+    value: null,
     description: "Verify academic marksheets once at your own speed. Valid across all university, state, and central schemes.",
-    avatars: ["/images/avatar-1.jpg", "/images/avatar-2.jpg", "/images/avatar-3.jpg"],
-    badge: "Expert-Verified",
+    avatars: [
+      "/images/avatar-1.jpg", 
+      "/images/avatar-2.jpg", 
+      "/images/avatar-3.jpg",
+      "/images/avatar-1.jpg"
+    ],
+    badge: "Expert-led",
   },
   {
     id: "02",
-    label: "10K+ Active Scholars*",
-    shortLabel: "Active Scholars*",
-    description: "Over 10,000 students enrolled across Lovely Professional University and partner institutions with zero paperwork delays.",
+    label: "Active Scholars*",
+    number: "02",
+    value: "10K+",
+    description: "Over 10,000 students verified across Lovely Professional University and partner colleges with zero processing backlog.",
     avatars: ["/images/avatar-2.jpg", "/images/avatar-3.jpg"],
-    badge: "Live Community",
+    badge: "Live Network",
   },
   {
     id: "03",
-    label: "250+ Verified Schemes*",
-    shortLabel: "Verified Schemes*",
-    description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS need-based, and armed forces wards.",
+    label: "Verified Schemes*",
+    number: "03",
+    value: "250+",
+    description: "Direct gazette-corroborated scholarships across LPUNEST merit, EWS aid, and armed forces wards.",
     avatars: ["/images/avatar-1.jpg", "/images/avatar-3.jpg"],
-    badge: "Official Circulars",
+    badge: "Gazette Checked",
   },
   {
     id: "04",
-    label: "98% Decision Accuracy*",
-    shortLabel: "Decision Accuracy*",
+    label: "Decision Accuracy*",
+    number: "04",
+    value: "95%",
     description: "Auditable mathematical verification with zero double-counting, backed by verification officer quorum review.",
     avatars: ["/images/avatar-1.jpg", "/images/avatar-2.jpg"],
-    badge: "M5 Quorum Approved",
+    badge: "M5 Quorum",
   },
 ];
 
 /**
  * Exact Framer LEROVA Hero Section:
  * Full-bleed studio panel with CSS gradient mask on student photo,
- * left & bottom shade overlays, and expandable bottom pills.
+ * left & bottom shade overlays, entrance animations, and interactive expandable pills.
  */
 export default function HeroSection({
   eyebrow = "YOUR FUTURE, YOUR WAY",
@@ -53,10 +62,10 @@ export default function HeroSection({
   const [activeTabId, setActiveTabId] = useState("01");
 
   return (
-    <section id="home" className="pt-3 sm:pt-4 pb-8 px-3 sm:px-4 max-w-[1400px] mx-auto">
+    <section id="home" className="pt-3 sm:pt-4 pb-8 px-3 sm:px-4 max-w-[1400px] mx-auto animate-framer-appear">
       {/* Framer Panel Container */}
       <div 
-        className="relative rounded-[28px] overflow-hidden min-h-[760px] lg:min-h-[820px] flex flex-col justify-between pt-[140px] sm:pt-[150px] pb-9 px-6 sm:px-10 lg:px-12 shadow-2xl"
+        className="relative rounded-[28px] overflow-hidden min-h-[760px] lg:min-h-[820px] flex flex-col justify-between pt-[140px] sm:pt-[150px] pb-9 px-6 sm:px-10 lg:px-12 shadow-2xl transition-all"
         style={{
           background: 'linear-gradient(100deg, #7c818b 0%, #a2a7af 62%, #a9aeb5 100%)'
         }}
@@ -72,7 +81,7 @@ export default function HeroSection({
           <img
             src="/images/hero-student.jpg"
             alt="Student Looking Upwards with Ambition"
-            className="w-full h-full object-cover object-[50%_30%] lg:object-[60%_30%] select-none scale-[1.02]"
+            className="w-full h-full object-cover object-[50%_30%] lg:object-[60%_30%] select-none scale-[1.02] transition-transform duration-700"
           />
         </div>
 
@@ -92,11 +101,11 @@ export default function HeroSection({
           }}
         />
 
-        {/* Layer 4: Foreground Content */}
+        {/* Layer 4: Foreground Content with Staggered Entrance */}
         <div className="relative z-10 max-w-xl lg:max-w-2xl space-y-5">
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 text-slate-200 text-xs font-semibold tracking-wider uppercase">
-            <span>✦</span>
+            <span className="text-orange-400">✦</span>
             <span>{eyebrow}</span>
           </div>
 
@@ -113,17 +122,22 @@ export default function HeroSection({
             {description}
           </p>
 
-          {/* Action Buttons */}
+          {/* Action Buttons with Framer Roll Effect */}
           <div className="flex flex-wrap items-center gap-3 pt-3">
             <button
               onClick={onExploreClick}
-              className="bg-white text-slate-950 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-full text-xs sm:text-sm tracking-tight transition shadow-sm hover:shadow active:scale-95 cursor-pointer"
+              className="group bg-white text-slate-950 hover:bg-slate-100 font-bold px-7 py-3.5 rounded-full text-xs sm:text-sm tracking-tight transition-all duration-300 shadow-sm hover:shadow active:scale-95 cursor-pointer overflow-hidden"
             >
-              Explore Scholarships
+              <span className="btn-roll">
+                <span className="btn-roll-inner">
+                  <span>Explore Scholarships</span>
+                  <span>Explore Scholarships</span>
+                </span>
+              </span>
             </button>
             <button
               onClick={onHowItWorksClick}
-              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-medium px-7 py-3.5 rounded-full text-xs sm:text-sm transition active:scale-95 cursor-pointer"
+              className="bg-white/20 hover:bg-white/30 text-white backdrop-blur-md border border-white/20 font-medium px-7 py-3.5 rounded-full text-xs sm:text-sm transition-all duration-300 active:scale-95 cursor-pointer"
             >
               How It Works
             </button>
@@ -140,16 +154,20 @@ export default function HeroSection({
                 return (
                   <div
                     key={tab.id}
-                    className="bg-white text-slate-900 p-5 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 transition-all duration-300 animate-in fade-in"
+                    className="bg-white text-slate-900 p-5 rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-100 transition-all duration-400 animate-framer-appear"
                   >
                     <div className="flex items-center justify-between mb-2">
-                      <span className="text-xs font-bold text-slate-900 tracking-tight flex items-center gap-2">
-                        <span className="text-slate-400 font-mono font-bold">{tab.id}</span>
-                        <span>{tab.label}</span>
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="bg-slate-950 text-white text-[10.5px] font-mono font-bold px-1.5 py-0.5 rounded-full">
+                          {tab.number}
+                        </span>
+                        <span className="text-xs font-bold text-slate-900 tracking-tight">
+                          {tab.label}
+                        </span>
+                      </div>
                       <button
                         onClick={() => setActiveTabId(activeTabId === tab.id ? null : tab.id)}
-                        className="w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition"
+                        className="w-6 h-6 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition cursor-pointer"
                         title="Collapse"
                       >
                         <Minus className="w-3 h-3" />
@@ -167,11 +185,11 @@ export default function HeroSection({
                             key={idx}
                             src={av}
                             alt="Scholar"
-                            className="inline-block h-6 w-6 rounded-full ring-2 ring-white object-cover"
+                            className="inline-block h-6 w-6 rounded-full border-[1.5px] border-white object-cover"
                           />
                         ))}
                       </div>
-                      <span className="bg-slate-100 text-slate-700 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                      <span className="bg-[#F8F9FA] border border-slate-200 text-slate-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">
                         {tab.badge}
                       </span>
                     </div>
@@ -183,11 +201,18 @@ export default function HeroSection({
                 <button
                   key={tab.id}
                   onClick={() => setActiveTabId(tab.id)}
-                  className="bg-white/90 hover:bg-white text-slate-900 px-5 py-3.5 rounded-full font-bold text-xs flex items-center justify-between transition-all duration-200 shadow-sm hover:shadow cursor-pointer"
+                  className="bg-white/90 hover:bg-white text-slate-900 px-5 py-3.5 rounded-full font-bold text-xs flex items-center justify-between transition-all duration-300 shadow-sm hover:shadow cursor-pointer hover:scale-[1.01]"
                 >
                   <span className="flex items-center gap-2 truncate">
-                    <span className="text-slate-400 font-mono font-bold">{tab.id}</span>
-                    <span className="truncate">{tab.label}</span>
+                    <span className="bg-slate-200 text-slate-700 text-[10px] font-mono font-bold px-1.5 py-0.5 rounded-full">
+                      {tab.number}
+                    </span>
+                    {tab.value ? (
+                      <span className="font-extrabold text-sm text-slate-950 tracking-tight">
+                        {tab.value}
+                      </span>
+                    ) : null}
+                    <span className="truncate text-slate-800">{tab.label}</span>
                   </span>
                   <span className="w-5 h-5 rounded-full bg-slate-100 flex items-center justify-center text-slate-600 shrink-0 ml-2">
                     <Plus className="w-3 h-3" />

@@ -42,7 +42,7 @@ const HIGHLIGHT_CARDS = [
 
 /**
  * Featured Courses Section matching Framer LEROVA template ("Skills Worth Investing In"):
- * Dark section (#0B0F17) with photography cards, ratings, lessons meta, and white pill CTAs
+ * Dark section (#0B0F17) with photography cards, ratings, lessons meta, and roll-effect white pill CTAs
  */
 export default function FeaturedShowcaseSection({
   eyebrow = "Handpicked for you",
@@ -68,12 +68,12 @@ export default function FeaturedShowcaseSection({
           </p>
         </div>
 
-        {/* 3 Dark Cards Grid (Exact Framer Structure) */}
+        {/* 3 Dark Cards Grid with Framer Hover Physics */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {cards.map((card) => (
             <div
               key={card.id}
-              className="group bg-[#161B26] rounded-[28px] border border-slate-800/80 overflow-hidden flex flex-col justify-between hover:border-slate-700 transition-all duration-300 shadow-xl"
+              className="group bg-[#161B26] rounded-[28px] border border-slate-800/80 overflow-hidden flex flex-col justify-between hover:border-slate-700 hover:-translate-y-2 transition-all duration-400 shadow-xl hover:shadow-2xl"
             >
               {/* Image Preview with Aspect Ratio */}
               <div className="relative aspect-[16/11] overflow-hidden bg-slate-900">
@@ -116,7 +116,7 @@ export default function FeaturedShowcaseSection({
                   </p>
                 </div>
 
-                {/* Footer: Meta & White Pill Button */}
+                {/* Footer: Meta & White Pill Button with Framer Roll */}
                 <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between gap-4">
                   <div className="text-[11px] text-slate-500 font-medium">
                     {card.meta.join(" • ")}
@@ -124,9 +124,14 @@ export default function FeaturedShowcaseSection({
 
                   <button
                     onClick={() => onViewDetails(card)}
-                    className="bg-white hover:bg-slate-100 text-slate-950 font-bold px-5 py-2.5 rounded-full text-xs transition cursor-pointer shrink-0 shadow-sm"
+                    className="group/btn bg-white hover:bg-slate-100 text-slate-950 font-bold px-5 py-2.5 rounded-full text-xs transition-all duration-300 cursor-pointer shrink-0 shadow-sm overflow-hidden"
                   >
-                    View Course
+                    <span className="btn-roll">
+                      <span className="btn-roll-inner">
+                        <span>View Course</span>
+                        <span>View Course</span>
+                      </span>
+                    </span>
                   </button>
                 </div>
               </div>
@@ -139,10 +144,14 @@ export default function FeaturedShowcaseSection({
         <div className="text-center pt-4">
           <button
             onClick={() => onViewDetails(cards[0])}
-            className="inline-flex items-center gap-2 bg-[#202736] hover:bg-[#2b3447] text-white font-bold px-8 py-3.5 rounded-full text-xs tracking-tight border border-slate-700/60 shadow-sm transition"
+            className="group inline-flex items-center gap-2 bg-[#202736] hover:bg-[#2b3447] text-white font-bold px-8 py-3.5 rounded-full text-xs tracking-tight border border-slate-700/60 shadow-sm transition-all duration-300 hover:scale-105 cursor-pointer overflow-hidden"
           >
-            <span>View All Courses</span>
-            <ArrowRight className="w-3.5 h-3.5" />
+            <span className="btn-roll">
+              <span className="btn-roll-inner">
+                <span>View All Courses &rarr;</span>
+                <span>View All Courses &rarr;</span>
+              </span>
+            </span>
           </button>
         </div>
 
