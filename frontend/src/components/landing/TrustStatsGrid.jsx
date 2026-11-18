@@ -1,13 +1,103 @@
 import React from 'react';
 
 const LOGOS = [
-  { name: "TERRAFOLD", glyph: <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" strokeWidth="3"/></svg>, type: "caps" },
-  { name: "lumen & co", glyph: <span className="text-sm">✱</span>, type: "lower" },
-  { name: "orbita", glyph: <span className="text-sm">⚛</span>, type: "lower" },
-  { name: "KINDRA", glyph: <span className="text-sm">✱</span>, type: "caps" },
-  { name: "nuvio", glyph: <span className="text-sm">❖</span>, type: "lower" },
-  { name: "Halden", glyph: <span className="text-sm">:::</span>, type: "caps" },
-  { name: "MOSAIQ", glyph: <span className="text-sm">≈</span>, type: "caps" },
+  {
+    name: "DIGILOCKER",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "LPU GAZETTE",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+        <path d="M6 12v5c3 3 9 3 12 0v-5" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "CBSE ACADEMIC",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="4" width="18" height="16" rx="2" />
+        <path d="M7 8h10M7 12h10M7 16h6" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "NAD DEPOSITORY",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "NSP SCHOLARSHIPS",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "PFMS LEDGER",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "TESSERACT OCR",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "POSTGRESQL 16",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6c0 1.657 3.582 3 8 3s8-1.343 8-3-3.582-3-8-3-8 1.343-8 3z" />
+        <path d="M4 12c0 1.657 3.582 3 8 3s8-1.343 8-3" />
+        <path d="M4 18c0 1.657 3.582 3 8 3s8-1.343 8-3" />
+      </svg>
+    ),
+    type: "caps"
+  },
+  {
+    name: "REACT & TAILWIND",
+    glyph: (
+      <span className="text-sm font-bold text-slate-800">⚛</span>
+    ),
+    type: "caps"
+  },
+  {
+    name: "PYTHON & DJANGO",
+    glyph: (
+      <svg viewBox="0 0 24 24" className="w-4 h-4 fill-none stroke-current" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <polyline points="16 18 22 12 16 6" />
+        <polyline points="8 6 2 12 8 18" />
+      </svg>
+    ),
+    type: "caps"
+  },
 ];
 
 /**
