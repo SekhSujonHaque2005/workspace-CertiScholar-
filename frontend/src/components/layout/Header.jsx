@@ -64,9 +64,9 @@ export default function Header({
           : '-translate-y-full opacity-0 pointer-events-none filter blur-xs'
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-3 sm:px-4 w-full flex items-start justify-between">
+      <div className="relative w-full flex items-start justify-between">
         
-        {/* Left: Logo Tab (hanging from top with rounded bottom-right corner) */}
+        {/* Left: Logo Tab (hanging from top with rounded bottom-right corner, flush against left viewport edge) */}
         <div
           className={`rounded-br-[20px] px-6 py-4 pointer-events-auto flex items-center gap-2.5 transition-all duration-300 ${
             isScrolled
@@ -84,9 +84,9 @@ export default function Header({
           </a>
         </div>
 
-        {/* Center: Links Tab (hanging from top with rounded bottom-left and bottom-right corners) */}
+        {/* Center: Links Tab (hanging from top with rounded bottom corners, perfectly centered) */}
         <nav
-          className={`hidden lg:flex items-center rounded-b-[22px] px-7 py-3 pointer-events-auto space-x-6 text-[14.5px] font-medium font-['Manrope'] text-slate-900 transition-all duration-300 ${
+          className={`hidden lg:flex items-center rounded-b-[22px] px-7 py-3 pointer-events-auto space-x-6 text-[14.5px] font-medium font-['Manrope'] text-slate-900 transition-all duration-300 absolute left-1/2 -translate-x-1/2 top-0 ${
             isScrolled
               ? 'bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-b border-x border-black/5'
               : 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]'
@@ -152,9 +152,9 @@ export default function Header({
           </div>
         </nav>
 
-        {/* Right: Action Tab (hanging from top with rounded bottom-left corner) */}
+        {/* Right: Action Tab (hanging from top with rounded bottom-left corner, flush against right viewport edge) */}
         <div
-          className={`rounded-bl-[20px] px-5 py-3 pointer-events-auto flex items-center gap-3 transition-all duration-300 ${
+          className={`ml-auto rounded-bl-[20px] px-5 py-3 pointer-events-auto flex items-center gap-3 transition-all duration-300 ${
             isScrolled
               ? 'bg-white/95 backdrop-blur-md shadow-[0_10px_30px_rgba(0,0,0,0.08)] border-b border-l border-black/5'
               : 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]'
