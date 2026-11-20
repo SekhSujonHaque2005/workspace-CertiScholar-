@@ -109,12 +109,23 @@ export default function Header({
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
+    if (href === '#about' || href === '#faq' || href === '#home' || href === '#workspace') {
+      window.location.hash = href;
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth' });
       }, 80);
+    } else {
+      window.location.hash = '#home';
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        el?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
     }
   };
 
@@ -147,7 +158,7 @@ export default function Header({
                 : 'bg-white shadow-[0_1px_3px_rgba(0,0,0,0.06)]'
             }`}
           >
-            <a href="#home" className="flex items-center gap-2 sm:gap-2.5 group">
+            <a href="#home" onClick={(e) => handleNavClick(e, '#home')} className="flex items-center gap-2 sm:gap-2.5 group cursor-pointer">
               <div className="w-5 h-5 rounded-full border-2 border-slate-900 flex items-center justify-center shrink-0">
                 <span className="w-2 h-2 rounded-full bg-[#ff5a2b] group-hover:scale-125 transition-transform duration-300" />
               </div>
