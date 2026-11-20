@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingPage from './pages/public/LandingPage';
+import AboutPage from './pages/public/AboutPage';
 import { 
   GraduationCap, 
   FileCheck, 
@@ -8,12 +9,73 @@ import {
   Clock, 
   CheckCircle2, 
   ArrowLeft,
-  LayoutDashboard
+  LayoutDashboard,
+  Info
 } from 'lucide-react';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'workspace'
+  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'about' | 'workspace'
   const [activeRole, setActiveRole] = useState('student'); // 'student' | 'reviewer' | 'committee'
+
+  // Hash-based navigation support for #about and #home
+  useEffect(() => {
+    const checkHash = () => {
+      const hash = window.location.hash;
+      if (hash === '#about') {
+        setCurrentView('about');
+      } else if (hash === '#home') {
+        setCurrentView('landing');
+      }
+    };
+    checkHash();
+    window.addEventListener('hashchange', checkHash);
+    return () => window.removeEventListener('hashchange', checkHash);
+  }, []);
+
+  if (currentView === 'about') {
+    return (
+      <div className="relative">
+        <AboutPage 
+          onNavigateHome={() => {
+            window.location.hash = '#home';
+            setCurrentView('landing');
+          }}
+          onNavigateLogin={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateRegister={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateStudentWorkspace={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+        />
+
+        {/* Floating Quick Navigation Hub */}
+        <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2">
+          <button
+            onClick={() => {
+              window.location.hash = '#home';
+              setCurrentView('landing');
+            }}
+            className="flex items-center gap-1.5 bg-white/95 hover:bg-white text-slate-800 text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg border border-slate-300 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <span>&larr; Landing (PUB-001)</span>
+          </button>
+          <button
+            onClick={() => setCurrentView('workspace')}
+            className="flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/60 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Open Portals &rarr;</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   if (currentView === 'landing') {
     return (
@@ -34,7 +96,17 @@ export default function App() {
         />
 
         {/* Floating Developer / Evaluator Mode Switcher */}
-        <div className="fixed bottom-3 right-3 z-50">
+        <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2">
+          <button
+            onClick={() => {
+              window.location.hash = '#about';
+              setCurrentView('about');
+            }}
+            className="flex items-center gap-1.5 bg-white/90 hover:bg-white text-slate-900 text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg border border-slate-200 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <Info className="w-3.5 h-3.5 text-[#ff5a2b]" />
+            <span>About (PUB-002)</span>
+          </button>
           <button
             onClick={() => setCurrentView('workspace')}
             className="flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/60 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
