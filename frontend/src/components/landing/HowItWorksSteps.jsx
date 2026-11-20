@@ -1,5 +1,5 @@
 import React from 'react';
-import { Check, Clock, List, Share2 } from 'lucide-react';
+import { Check, Clock, List } from 'lucide-react';
 import { ScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function HowItWorksSteps({

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bookmark, Share2, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
+import { Bookmark, Share2, ShieldCheck } from 'lucide-react';
 import Badge from '../common/Badge';
 import Button from '../common/Button';
 

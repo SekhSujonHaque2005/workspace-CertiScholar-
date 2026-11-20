@@ -4,7 +4,6 @@ import {
   GraduationCap, 
   FileCheck, 
   ShieldCheck, 
-  Award, 
   UploadCloud, 
   Clock, 
   CheckCircle2, 

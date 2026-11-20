@@ -1,6 +1,8 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 /**
  * Authentic Framer LEROVA Luxury Footer:
  * Encapsulated in a rounded-[28px] white card with border & subtle shadow,
@@ -195,7 +197,7 @@ export default function Footer({
 
         {/* Bottom Legal Bar */}
         <div className="pt-8 border-t border-[#f4f4f5] flex flex-col sm:flex-row items-center justify-between gap-4 text-[13px] text-[#9a9aa1] font-['Manrope']">
-          <p>© {new Date().getFullYear()} CertiScholar. All rights reserved.</p>
+          <p>© {CURRENT_YEAR} CertiScholar. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <button onClick={onOpenPrivacy} className="hover:text-[#171717] transition cursor-pointer">
               Privacy Policy

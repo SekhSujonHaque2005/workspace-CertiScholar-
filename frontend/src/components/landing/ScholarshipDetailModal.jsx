@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Share2, ArrowRight, ShieldCheck, CheckCircle2, Clock, Calendar, MapPin, Building2 } from 'lucide-react';
+import { X, Share2, ArrowRight, CheckCircle2, MapPin, Building2 } from 'lucide-react';
 import Badge from '../common/Badge';
 import Button from '../common/Button';
 

@@ -29,7 +29,6 @@ export default function LandingPage({
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
   // Interaction State
-  const [savedIds, setSavedIds] = useState([]);
   const [selectedScholarshipForModal, setSelectedScholarshipForModal] = useState(null);
 
   // Online / Offline Status
@@ -108,7 +107,7 @@ export default function LandingPage({
 
         {/* 05: "Explore Categories / Find Your Direction" (4 Category Cards) */}
         <DomainPillsSection
-          onSelectCategory={(cat) => {
+          onSelectCategory={() => {
             const el = document.getElementById('scholarships');
             el?.scrollIntoView({ behavior: 'smooth' });
           }}

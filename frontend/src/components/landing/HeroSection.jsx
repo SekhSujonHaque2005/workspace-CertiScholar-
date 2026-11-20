@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
-export const HERO_SCHOLARS = [
+const HERO_SCHOLARS = [
   {
     id: "scholar-1",
     src: "/images/hero-student.jpg",

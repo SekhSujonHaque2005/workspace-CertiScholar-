@@ -2,7 +2,7 @@ import React from 'react';
 import { Star } from 'lucide-react';
 import { ScrollReveal } from '../../hooks/useScrollReveal';
 
-export const SCHOLARSHIP_SHOWCASE_CARDS = [
+const SCHOLARSHIP_SHOWCASE_CARDS = [
   {
     id: "lpu-nest-2026",
     title: "LPUNEST Merit Scholarship 2026",
