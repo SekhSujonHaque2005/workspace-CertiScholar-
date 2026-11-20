@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingPage from './pages/public/LandingPage';
+import FaqPage from './pages/public/FaqPage';
 import { 
   GraduationCap, 
   FileCheck, 
@@ -8,12 +9,31 @@ import {
   Clock, 
   CheckCircle2, 
   ArrowLeft,
-  LayoutDashboard
+  LayoutDashboard,
+  HelpCircle
 } from 'lucide-react';
 
 export default function App() {
-  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'workspace'
+  const [currentView, setCurrentView] = useState('landing'); // 'landing' | 'faq' | 'workspace'
   const [activeRole, setActiveRole] = useState('student'); // 'student' | 'reviewer' | 'committee'
+
+  // Hash-based navigation support (#faq, #faq-page, #home, #workspace)
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      if (hash === '#faq' || hash === '#faq-page' || hash === '#help' || hash === '#help-center') {
+        setCurrentView('faq');
+      } else if (hash === '#workspace' || hash === '#portal' || hash === '#portals') {
+        setCurrentView('workspace');
+      } else if (hash === '#home' || hash === '#landing') {
+        setCurrentView('landing');
+      }
+    };
+
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
 
   if (currentView === 'landing') {
     return (
@@ -34,7 +54,60 @@ export default function App() {
         />
 
         {/* Floating Developer / Evaluator Mode Switcher */}
-        <div className="fixed bottom-3 right-3 z-50">
+        <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2">
+          <button
+            onClick={() => setCurrentView('faq')}
+            className="flex items-center gap-1.5 bg-white/95 hover:bg-white text-slate-900 text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg border border-slate-200/90 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <HelpCircle className="w-3.5 h-3.5 text-indigo-600" />
+            <span>FAQ Page (PUB-009)</span>
+          </button>
+          <button
+            onClick={() => setCurrentView('workspace')}
+            className="flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/60 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <LayoutDashboard className="w-3.5 h-3.5 text-indigo-400" />
+            <span>Open Portals &rarr;</span>
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  if (currentView === 'faq') {
+    return (
+      <div className="relative">
+        <FaqPage
+          onNavigateHome={() => {
+            window.location.hash = '';
+            setCurrentView('landing');
+          }}
+          onNavigateLogin={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateRegister={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+          onNavigateStudentWorkspace={() => {
+            setActiveRole('student');
+            setCurrentView('workspace');
+          }}
+        />
+
+        {/* Floating Switcher for Evaluator Mode */}
+        <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2">
+          <button
+            onClick={() => {
+              window.location.hash = '';
+              setCurrentView('landing');
+            }}
+            className="flex items-center gap-1.5 bg-white/95 hover:bg-white text-slate-900 text-[11px] font-semibold px-3 py-1.5 rounded-full shadow-lg border border-slate-200/90 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
+          >
+            <ArrowLeft className="w-3.5 h-3.5 text-slate-700" />
+            <span>Landing Page (PUB-001)</span>
+          </button>
           <button
             onClick={() => setCurrentView('workspace')}
             className="flex items-center gap-1.5 bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold px-3.5 py-1.5 rounded-full shadow-lg border border-slate-700/60 backdrop-blur-md transition-all hover:scale-105 cursor-pointer"
@@ -126,7 +199,13 @@ export default function App() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2.5">
+            <button 
+              onClick={() => setCurrentView('faq')}
+              className="text-xs font-semibold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 border border-slate-200 px-3 py-1.5 rounded-lg transition"
+            >
+              Help & FAQ (PUB-009)
+            </button>
             <button 
               onClick={() => setCurrentView('landing')}
               className="text-xs font-semibold text-indigo-600 hover:text-indigo-800 bg-indigo-50 border border-indigo-200 px-3 py-1.5 rounded-lg transition"
