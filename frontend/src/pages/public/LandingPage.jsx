@@ -53,7 +53,7 @@ export default function LandingPage({
   };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 font-['Manrope'] antialiased selection:bg-slate-900 selection:text-white" style={rootScaleStyle}>
+    <div className="min-h-screen bg-white text-slate-900 font-['Manrope'] antialiased selection:bg-slate-900 selection:text-white overflow-x-hidden w-full" style={rootScaleStyle}>
       
       {/* Offline Status Warning Bar */}
       {!isOnline && (
@@ -73,9 +73,9 @@ export default function LandingPage({
         onRegister={onNavigateRegister}
       />
 
-      <main>
+      <main className="w-full overflow-x-hidden">
         {/* 02 & 03: Top Hero Section Container (contains Hero Panel + Trusted By Logo Ticker) */}
-        <section className="pt-3 px-3 sm:px-4 max-w-[1400px] mx-auto flex flex-col gap-3">
+        <section className="pt-2 sm:pt-3 px-2 sm:px-4 max-w-[1400px] mx-auto flex flex-col gap-2.5 sm:gap-3 w-full">
           <HeroSection
             eyebrow="INSTITUTIONAL SCHOLARSHIP PLATFORM"
             headlineSans="Verify credentials."
