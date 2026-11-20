@@ -170,27 +170,7 @@ export default function HeroSection({
           }}
         />
 
-        {/* Scholar Slide Indicators & Live Cohort Pill (Top-Right, cleanly clear of hanging header) */}
-        <div className="absolute top-[75px] sm:top-[85px] right-6 sm:right-9 z-20 flex items-center gap-2 bg-black/35 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 select-none shadow-sm">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#ff5a2b] animate-ping" />
-          <span className="text-[11px] font-semibold text-white/90 font-['Manrope'] hidden sm:inline">
-            {HERO_SCHOLARS[currentImageIndex].cohort}
-          </span>
-          <div className="flex items-center gap-1.5 ml-1">
-            {HERO_SCHOLARS.map((_, sIdx) => (
-              <button
-                key={sIdx}
-                onClick={() => setCurrentImageIndex(sIdx)}
-                className={`h-1.5 rounded-full transition-all duration-400 cursor-pointer ${
-                  sIdx === currentImageIndex 
-                    ? 'w-5 bg-white' 
-                    : 'w-1.5 bg-white/40 hover:bg-white/70'
-                }`}
-                aria-label={`Switch to scholar ${sIdx + 1}`}
-              />
-            ))}
-          </div>
-        </div>
+
 
         {/* Layer 4: Headline & Actions with Word-Blur Entrance */}
         <div className="relative z-10 space-y-4 max-w-4xl">
