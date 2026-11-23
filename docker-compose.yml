@@ -1,0 +1,68 @@
+services:
+  # 1. PostgreSQL Database (PostgreSQL 16)
+  postgres:
+    image: postgres:16-alpine
+    container_name: certischolar-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: certischolar
+      POSTGRES_USER: certischolar_user
+      POSTGRES_PASSWORD: certischolar_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Redis 7 (Cache, Queue Broker)
+  redis:
+    image: redis:7-alpine
+    container_name: certischolar-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  # 3. Mailpit (Local Email Testing Sandbox)
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: certischolar-mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025" # SMTP port
+      - "8025:8025" # Web UI
+
+  # 4. CertiScholar Auth Gateway (Golang)
+  auth:
+    build:
+      context: ./certischolar-auth
+      dockerfile: Dockerfile
+    container_name: certischolar-auth
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      JWT_SECRET: certischolar-institutional-secret-key-2026
+    depends_on:
+      - redis
+
+  # 5. CertiScholar Notifications Dispatcher (Golang)
+  notifications:
+    build:
+      context: ./certischolar-notifications
+      dockerfile: Dockerfile
+    container_name: certischolar-notifications
+    restart: unless-stopped
+    ports:
+      - "8081:8081"
+    environment:
+      PORT: 8081
+      SMTP_HOST: mailpit
+      SMTP_PORT: 1025
+    depends_on:
+      - mailpit
+
+volumes:
+  postgres_data:
+  redis_data:

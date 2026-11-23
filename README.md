@@ -1,91 +1,68 @@
-# CertiScholar: Enterprise Architecture Workspace
-
-**Institutional Discovery & Pilot Feasibility Initiative**  
-*Governed by CS-SRS-002 v3.2, DOC-001 (Business Case), DOC-002 (Project Charter), DOC-003 (Process Flows), and DOC-004 (Wireframes).*
+# CertiScholar: Master Enterprise Polyrepo Workspace
+Governed by **CS-SRS-002 v3.2** (LPU Institutional Scholarship & Document Verification Platform).
 
 ---
 
-## 📁 Complete Enterprise Directory Architecture
+## 🏛️ 9-Repository Enterprise Polyrepo Architecture
+
+This workspace is structured into **6 role-scoped frontend portals** and **3 backend microservices**, ensuring strict bundle isolation, independent release cadences, and zero cross-role leakage.
 
 ```
-D:\CertiScholar\
+d:\CertiScholar\
 │
-├── Docs/                               # Authoritative Planning & Governance Suite
-│   ├── Business Case ROI.pdf           # DOC-001: Financial & TCO model, Options appraisal
-│   ├── Project Charter.pdf             # DOC-002: Mandate, RACI, Stage gates G0–G4
-│   ├── SRS.pdf                         # CS-SRS-002 v3.2: 133 FRs (M0–M20), 345 Acceptance Tests
-│   ├── User Journey Process Flow.pdf   # DOC-003: 15 Core Processes, 17 User Journeys
-│   └── Wireframes Prototype.pdf        # DOC-004: 25 Screens (SCR-001–025), UI tokens
+├── 🌐 FRONTEND PORTALS (6 Repositories)
+│   ├── certischolar-web-public/        ← [Port 3000] Public Website, Framer About Page, FAQ, Scheme Directory
+│   ├── certischolar-portal-student/     ← [Port 3001] Student Dashboard, Application Wizard, Document Vault
+│   ├── certischolar-portal-reviewer/    ← [Port 3002] M5 Document Verification Queue & Split-Screen OCR Canvas
+│   ├── certischolar-portal-committee/   ← [Port 3003] Quorum Voting, Award Deliberation & Scheme Rule Builder
+│   ├── certischolar-portal-admin/       ← [Port 3004] Multi-tenant Administration, Audit Explorer & Celery Vitals
+│   └── certischolar-portal-agency/      ← [Port 3005] External CSR Donors, Trust Listings & Webhook Telemetry
 │
-├── contracts/                          # Multi-Protocol Interfaces & Shared IDLs
-│   ├── openapi/v1/                     # REST API v1 Specification (OpenAPI 3.1)
-│   ├── protobuf/document_ai/           # gRPC Protobuf v3 (High-speed Binary OCR Service)
-│   ├── graphql/                        # GraphQL Schema Definition (Unified Client Queries)
-│   └── events/                         # Transactional Outbox & Signed Webhook Schemas
+├── ⚙️ BACKEND SERVICES (3 Repositories)
+│   ├── certischolar-core/               ← [Port 8000] Django 5 API, Celery, OCR Engine, Contracts & Infra
+│   ├── certischolar-auth/               ← [Port 8080] Golang Identity, OIDC & High-Performance JWT Gateway
+│   └── certischolar-notifications/      ← [Port 8081] Golang Async Email, SMS & Webhooks Dispatcher
 │
-├── backend/                            # Django 5 + ASGI + Channels Modular Monolith
-│   ├── certischolar/                   # Core Project Configuration
-│   │   ├── settings/                   # Split settings (base, dev, prod)
-│   │   ├── asgi.py                     # ASGI Entrypoint (HTTP + WebSockets)
-│   │   ├── wsgi.py                     # WSGI Entrypoint
-│   │   └── celery.py                   # Async Task Broker Configuration
-│   │
-│   ├── apps/                           # Bounded Context Domain Apps (M0–M20)
-│   │   ├── identity/                   # M0: Multi-Tenancy, OIDC, RBAC (Student, Reviewer, Committee)
-│   │   ├── documents/                  # M1–M4: Intake, Quarantine, OCR, Classification, Extraction
-│   │   ├── schemes/                    # M8: Scholarship Schemes, Policies, Versioned Criteria
-│   │   ├── evaluations/                # M5, M6: Reviewer Corrections, Academic Recomputation (M6)
-│   │   ├── committees/                 # M9, M10: Explainable Recommendations, Quorum Voting, Audit Trail
-│   │   ├── marketplace/                # M13–M16: Source Registry, Agency Workspace, Consented Passport
-│   │   └── intelligence/               # M17: Policy Circular Ingestion, AI-Assisted Rule Drafting
-│   │
-│   ├── api/                            # Multi-Protocol Entrypoints
-│   │   ├── v1/                         # REST ViewSets & Serializers
-│   │   ├── graphql/                    # Graphene Resolvers & Types
-│   │   └── websockets/                 # Channels Consumers (Real-time Pipeline Telemetry)
-│   │
-│   ├── services/                       # Heavy Compute & Microservice Adapters
-│   │   ├── ocr/                        # Tesseract OCR & Cloud Vision Adapters
-│   │   ├── grpc_services/              # gRPC Server & Client Stubs
-│   │   └── outbox/                     # Transactional Outbox Event Publisher
-│   └── tests/                          # Automated Pytest Suite (Unit, Integration, Contract)
-│
-├── frontend/                           # React + JavaScript (Bun Runtime) + Tailwind CSS
-│   ├── src/
-│   │   ├── components/                 # Reusable Design System Tokens (CMP-001–010)
-│   │   │   ├── common/                 # Buttons, StatusChips, MetricCards, Modals
-│   │   │   ├── pdf-viewer/             # Canvas Viewer with Interactive Bounding Boxes
-│   │   │   └── layout/                 # Navigation Shell, Sidebar, Role Context
-│   │   ├── pages/                      # Screen Specifications (SCR-001–025)
-│   │   │   ├── student/                # SCR-001 (Dashboard), SCR-005 (Application Wizard)
-│   │   │   ├── reviewer/               # SCR-008 (Split-Screen Reviewer), SCR-009 (Queue)
-│   │   │   ├── committee/              # SCR-010 (Quorum Console & Award Decision)
-│   │   │   └── admin/                  # SCR-012 (Scheme Setup & Visual Rule Builder)
-│   │   ├── services/                   # Client Network Layers (REST Axios, WS, GraphQL)
-│   │   ├── hooks/                      # Custom React Hooks (useWebSocket, useAuth)
-│   │   └── contexts/                   # Global State (AuthContext, PipelineContext)
-│   └── package.json                    # Bun dependencies & build scripts
-│
-├── infra/                              # DevOps, Infrastructure & Gateway
-│   ├── docker-compose.yml              # PostgreSQL 16 + Redis 7 + Mailpit
-│   ├── gateway/                        # Nginx Reverse Proxy (Routes REST, WS, Static)
-│   └── docker/                         # Production Multi-Stage Container Dockerfiles
-│
-└── scripts/                            # Operational Tooling & Seed Data
-    ├── fixtures/                       # LPU Scheme Circulars & Baseline Fixtures
-    ├── seed_schemes.py                 # Seeds Need-Based Aid & Shikshak Samman schemes
-    └── generate_synthetic_docs.py      # Generates synthetic marksheets & income certs
+└── 📄 Docs/                             ← Authoritative SRS (v3.2), Wireframes, Process Flows & Charters
 ```
 
 ---
 
-## 🚀 Protocols Mapped to Directory
+## 🚀 Port & Service Matrix
 
-| Protocol | Implementation Location | Operational Role |
-| :--- | :--- | :--- |
-| **REST / OpenAPI 3.1** | `contracts/openapi/` & `backend/api/v1/` | Standard CRUD endpoints |
-| **WebSocket (`wss://`)** | `backend/certischolar/asgi.py` & `backend/api/websockets/` | Real-time OCR streaming |
-| **GraphQL** | `contracts/graphql/` & `backend/api/graphql/` | Flexible nested graph queries |
-| **gRPC / Protobuf v3** | `contracts/protobuf/` & `backend/services/grpc_services/` | Fast binary OCR worker link |
-| **AMQP / RESP** | `backend/certischolar/celery.py` & `infra/docker-compose.yml` | Celery async worker queue |
-| **Signed Webhooks** | `contracts/events/` & `backend/apps/marketplace/` | DigiLocker & board callbacks |
+| Repository | Service / Role | Runtime & Stack | Local Port |
+| :--- | :--- | :--- | :---: |
+| **`certischolar-web-public`** | Public Web & External Discovery | React 19, Vite, Tailwind CSS, Bun | **`3000`** |
+| **`certischolar-portal-student`** | Enrolled LPU Students | React 19, Vite, Tailwind CSS, Bun | **`3001`** |
+| **`certischolar-portal-reviewer`** | Document Verification Officers | React 19, Vite, Tailwind CSS, Bun | **`3002`** |
+| **`certischolar-portal-committee`** | Deans & Committee Chairs | React 19, Vite, Tailwind CSS, Bun | **`3003`** |
+| **`certischolar-portal-admin`** | University Registrars & SREs | React 19, Vite, Tailwind CSS, Bun | **`3004`** |
+| **`certischolar-portal-agency`** | Corporate CSR Donors & Trusts | React 19, Vite, Tailwind CSS, Bun | **`3005`** |
+| **`certischolar-core`** | Transactional Core & OCR Pipeline | Python 3.12, Django 5, Celery, PostgreSQL | **`8000`** |
+| **`certischolar-auth`** | Identity, OIDC & JWT Token Gateway | Golang 1.23, Stateless HS256/EdDSA | **`8080`** |
+| **`certischolar-notifications`** | Email, SMS & Signed Webhooks | Golang 1.23, High-concurrency I/O | **`8081`** |
+
+---
+
+## 🛠️ Quick Start & Development
+
+### 1. Run All Frontend Portals
+```bash
+# In each portal directory:
+bun install
+bun dev
+```
+
+### 2. Run Golang Microservices
+```bash
+# In certischolar-auth:
+go run cmd/server/main.go
+
+# In certischolar-notifications:
+go run cmd/server/main.go
+```
+
+### 3. Run Backend & Infrastructure with Docker
+```bash
+docker compose up -d
+```
