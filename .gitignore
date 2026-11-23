@@ -1,13 +1,13 @@
 # Sub-repositories
-certischolar-web-public/
-certischolar-portal-student/
-certischolar-portal-reviewer/
-certischolar-portal-committee/
-certischolar-portal-admin/
-certischolar-portal-agency/
+certischolar-web/
+certischolar-student/
+certischolar-reviewer/
+certischolar-committee/
+certischolar-admin/
+certischolar-agency/
 certischolar-core/
 certischolar-auth/
-certischolar-notifications/
+certischolar-notify/
 
 # Environment & scratch
 scratch/
